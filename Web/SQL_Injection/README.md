@@ -24,7 +24,6 @@ $SQL = "SELECT * FROM <i>{tablename}</i> WHERE <i>{username}</i> = ' + <b><i>1' 
 ### Where table name is known
 ```SQL
 1'; DROP TABLE {tablename} --
-
 ```
 ### Where column name is known
 ```SQL
