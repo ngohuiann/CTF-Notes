@@ -1,5 +1,5 @@
 # SQL Injection
-[HOME](./index.html) / [Web](./Web)
+[HOME](/index.html) / [Web](/Web)
 
 ## The basics
 
