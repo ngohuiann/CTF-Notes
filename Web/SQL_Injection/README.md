@@ -15,8 +15,6 @@ To break the statement:
 $SQL = "SELECT * FROM <i>{tablename}</i> WHERE <i>{username}</i> = ' + <b><i>1' OR 1+1--</i></b> + ' AND ' + <b><i>$_POST['password']</i></b>'";
 </pre>
 
-<br>
-
 ### Simple SQL injection test
 ```SQL
 '
@@ -33,6 +31,8 @@ $SQL = "SELECT * FROM <i>{tablename}</i> WHERE <i>{username}</i> = ' + <b><i>1' 
 1' UNION SELECT {columnname} FROM {tablename};--
 1' UNION ALL SELECT {columnname} FROM {tablename};--
 ```
+
+<br>
 
 ## Blind injection
 Apply in URL
