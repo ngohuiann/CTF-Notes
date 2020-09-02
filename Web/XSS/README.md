@@ -3,3 +3,7 @@
 
 ## The basics
 Injection of scripts to the web.
+```JavaScript
+<script>alert(1)</script>
+
+```
