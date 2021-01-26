@@ -10,6 +10,6 @@ Example:
 </pre>
 
 ## Symbols
-[Mary Queen of Scots](https://www.dcode.fr/mary-stuart-code)
+[Mary Queen of Scots](https://www.dcode.fr/mary-stuart-code)\
 Example:
-![Mary Stuart Code](img/marystuart.jpg)
+![Mary Stuart Code](../Images/marystuart.jpg)
