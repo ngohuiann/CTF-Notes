@@ -14,7 +14,7 @@ tar xvf {}
 ```
 
 ## Image
-[StegSolve](https://github.com/zardus/ctf-tools/blob/master/stegsolve/install)
+1. [StegSolve](https://github.com/zardus/ctf-tools/blob/master/stegsolve/install)
 <pre>
 java -jar stegsolve.jar
 </pre>
