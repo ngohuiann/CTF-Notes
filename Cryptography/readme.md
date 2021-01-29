@@ -1,4 +1,4 @@
-# Steganography
+# Cryptography
 ## The basic
 Encrypt / decrypt
 
