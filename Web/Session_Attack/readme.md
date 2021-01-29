@@ -1,3 +1,7 @@
+# Session Attack
+[HOME](/index.html) / [Web](/Web)
+
+## The basics
 <ul><li>Session is used to store variable and passing it from one webpage to another temporarily.</li>
 		<li>It is a way to make data accessible in a website.</li></ul>
     
