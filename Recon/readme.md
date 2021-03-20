@@ -20,3 +20,8 @@ nmap -p [20-2000] [IP_ADDR]
 ```
 nmap -p- [IP_ADDR]
 ```
+
+4. Scan without host discovery (-Pn)
+```
+nmap -p 1-65535 -v -A -Pn [AP_ADDR]
+```
