@@ -39,4 +39,7 @@ mysql -u [username] -h [IP_ADDR] -p
 ### RDP (3389)
 
 ### SPLUNK (8089)
-Default Cred: admin:changeme
+```
+Default Credential 
+admin:changeme
+```
