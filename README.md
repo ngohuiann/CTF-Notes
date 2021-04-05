@@ -7,4 +7,4 @@ Feel free to commmit any changes or let me know if there is a mistake on my note
 - [Web](/Web)
 - [Steganography](/Steganography)
 - [Cryptography](/Cryptography)
-- [Reconnaissance](/Recon)
+- [Machines](/Machines)
