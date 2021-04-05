@@ -1,6 +1,6 @@
 ## This is my CTF notes
 
-Feel free to commmit any changes or let me know if there is a mistake on my notes.
+Feel free to let me know if there is any mistakes on my note.
 
 ### TOC
 
