@@ -18,7 +18,7 @@ anonymous sign in
 
 ### SSH (22)
 ```
-ssh [username]@[IP_ADDR]
+ssh [USERNAME]@[IP_ADDR]
 ```
 
 ### HTTP (80)
@@ -28,21 +28,21 @@ ssh [username]@[IP_ADDR]
 ### SMB (445)
 ```
 smbclient -L [IP_ADDR]    # To list out available directories
-smbclient -D \\\\[IP_ADDR]\\[DIRECTORY_NAME]    # To show directory content
+smbclient \\\\[IP_ADDR]\\[DIRECTORY_NAME]    # To show directory content
 ```
 MS17-010 EternalBlue exploitation for SMBv1 in Windows Vista, 7, 8.1, 10; Server 2008, 2012, 2016
 
 ### Microsoft SQL (1433)
 ```
-impacket-mssqlclient [DOMAIN]/[USERNAME]@[IP_ADDR] -windows-auth
-SELECT IS_SRVROLEMEMBER('sysadmin')
-SELECT name FROM master.dbo.sysdatabases
-EXEC master..xp_cmdshell '[CMD]'
+impacket-mssqlclient [DOMAIN]/[USERNAME]@[IP_ADDR] -windows-auth    # Connect to mssql server
+SELECT IS_SRVROLEMEMBER('sysadmin')   # Check for sysadmin privileage; return 1 for true, 0 for false
+SELECT name FROM master.dbo.sysdatabases    # Retrieve list of databases
+EXEC master..xp_cmdshell '[CMD]'    # Execute remote command with sysadmin privileage
 ```
 
 ### MySQL (3306)
 ```
-mysql -u [username] -h [IP_ADDR] -p
+mysql -u [USERNAME] -h [IP_ADDR] -p   # Connect to mysql server
 ```
 
 ### RDP (3389)
