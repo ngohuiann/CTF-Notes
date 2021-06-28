@@ -28,8 +28,14 @@ ssh [username]@[IP_ADDR]
 ### SMB (445)
 ```
 smbclient -L [IP_ADDR]    # To list out available directories
+smbclient -D \\\\[IP_ADDR]\\[DIRECTORY_NAME]    # To show directory content
 ```
 MS17-010 EternalBlue exploitation for SMBv1 in Windows Vista, 7, 8.1, 10; Server 2008, 2012, 2016
+
+### Microsoft SQL (1433)
+```
+sqlcmd -S [IP_ADDR] -U [USERNAME] -P [PASSWORD]
+```
 
 ### MySQL (3306)
 ```
