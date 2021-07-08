@@ -8,3 +8,4 @@ Feel free to let me know if there is any mistakes on my note.
 - [Steganography](/Steganography)
 - [Cryptography](/Cryptography)
 - [Machines](/Machines)
+  - [Windows](/Machines/Windows)
