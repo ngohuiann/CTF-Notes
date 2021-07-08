@@ -36,7 +36,7 @@ SMB share folder mounting
 mkdir /mnt/[FOLDER_NAME]
 mount -t cifs -o username=[USERNAME] //[IP_ADDR]/[SHARED_PATH] /mnt/[FOLDER_NAME]
 ```
-Mounting vhd file
+Mounting VHD file
 Ref: https://www.how2shout.com/linux/mount-virtual-hard-disk-vhd-file-ubuntu-linux/
 
 ### Microsoft SQL (1433)
