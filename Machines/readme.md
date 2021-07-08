@@ -31,6 +31,13 @@ smbclient -L [IP_ADDR]    # To list out available directories
 smbclient \\\\[IP_ADDR]\\[DIRECTORY_NAME]    # To show directory content
 ```
 MS17-010 EternalBlue exploitation for SMBv1 in Windows Vista, 7, 8.1, 10; Server 2008, 2012, 2016
+SMB share folder mounting
+```
+mkdir /mnt/[FOLDER_NAME]
+mount -t cifs -o username=[USERNAME] //[IP_ADDR]/[SHARED_PATH] /mnt/[FOLDER_NAME]
+```
+Mounting vhd file
+Ref: https://www.how2shout.com/linux/mount-virtual-hard-disk-vhd-file-ubuntu-linux/
 
 ### Microsoft SQL (1433)
 ```
