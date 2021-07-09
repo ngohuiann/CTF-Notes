@@ -77,3 +77,6 @@ sysinfo    # get information of the remote system
 background / ctrl+z
 run post/multi/recon/local_exploit_suggester    # set session number
 ```
+## Cisco router password cracker
+https://github.com/axcheron/cisco_pwdecrypt
+https://www.ifm.net.nz/cookbooks/cisco-ios-enable-secret-password-cracker.html
