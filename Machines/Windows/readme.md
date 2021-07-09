@@ -10,7 +10,7 @@ Dumping hashes:
 samdump2 SYSTEM SAM
 
 Format of Hashes:
-[USERNAME]:[RID]:[LMHash]:[NTLMHash]:::
+[USERNAME]:[RID]:[LMHash]:[NTLMHash]:::   # RID = Relative Identifier
 ```
 
 Ref: https://techgenix.com/how-cracked-windows-password-part2/
