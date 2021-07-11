@@ -14,3 +14,10 @@ Format of Hashes:
 ```
 
 Ref: https://techgenix.com/how-cracked-windows-password-part2/
+
+### Active Directory & LDAP
+Enum
+```
+nmap -n -sV --script "ldap* and not brute" [IP_ADDR]
+```
+Ref: https://book.hacktricks.xyz/pentesting/pentesting-ldap
