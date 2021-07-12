@@ -21,9 +21,13 @@ anonymous sign in
 ssh [USERNAME]@[IP_ADDR]
 ```
 
-### HTTP (80)
-
-### HTTPS (443)
+### HTTP (80) / HTTPS (443)
+```
+gobuster dir -u [URL] -w [WORDLIST]   # Files enumeration
+nikto -h [URL]
+davtest -url [URL]    # PUT method test
+cadaver [IP_ADDR]
+```
 
 ### SMB (445)
 ```
