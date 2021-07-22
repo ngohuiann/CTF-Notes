@@ -21,3 +21,8 @@ Enum
 nmap -n -sV --script "ldap* and not brute" [IP_ADDR]
 ```
 Ref: https://book.hacktricks.xyz/pentesting/pentesting-ldap
+
+### PowerShell history check
+```
+C:\Users\[username]\AppData\Roaming\Microsoft\Windows\Powershell\PSReadline\ConsoleHost_history.txt
+```
