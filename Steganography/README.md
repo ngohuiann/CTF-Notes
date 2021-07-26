@@ -10,7 +10,7 @@ strings {} / cat {}
 xxd {}
 unzip {}
 gunzip {}
-tar xvf {}
+tar -xvf {}
 ```
 
 ## Image
