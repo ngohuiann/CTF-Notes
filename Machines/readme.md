@@ -29,6 +29,12 @@ davtest -url [URL]    # PUT method test
 cadaver [IP_ADDR]
 ```
 
+### Network File System (111 & 2049)
+```
+showmount -e [IP_ADDR]
+mount -t nfs [IP_ADDR]:/[Remote_Folder] [Local_Folder]/
+```
+
 ### SMB (445)
 ```
 smbclient -L [IP_ADDR]    # To list out available directories
