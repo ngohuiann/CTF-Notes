@@ -33,7 +33,7 @@ getnpusers.py     # get user that does not require kerberos preauth
 ```
 Ref: https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py
 
-### NFS (Network File System)
+### NFS (Network File System) PORT 111 & 2049
 ```
 showmount -e [IP_ADDR]
 mount -t nfs [IP_ADDR]:/[Remote_Folder] [Local_Folder]/
