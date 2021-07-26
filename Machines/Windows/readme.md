@@ -32,3 +32,9 @@ C:\Users\[username]\AppData\Roaming\Microsoft\Windows\Powershell\PSReadline\Cons
 getnpusers.py     # get user that does not require kerberos preauth
 ```
 Ref: https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py
+
+### NFS (Network File System)
+```
+showmount -e [IP_ADDR]
+mount -t nfs [IP_ADDR]:/[Remote_Folder] [Local_Folder]/
+```
