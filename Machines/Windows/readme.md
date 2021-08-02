@@ -19,6 +19,7 @@ Ref: https://techgenix.com/how-cracked-windows-password-part2/
 Enum
 ```
 nmap -n -sV --script "ldap* and not brute" [IP_ADDR]
+ldapsearch -h [IP_ADDR] -x -b "dc=[DC],dc=[DC]"
 ```
 Ref: https://book.hacktricks.xyz/pentesting/pentesting-ldap
 
