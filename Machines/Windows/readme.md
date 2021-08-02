@@ -20,6 +20,7 @@ Enum
 ```
 nmap -n -sV --script "ldap* and not brute" [IP_ADDR]
 ldapsearch -h [IP_ADDR] -x -b "dc=[DC],dc=[DC]"
+windapsearch.py -d [DOMAIN] --dc-ip [IP_ADDR] -U    # -U to enumerate all AD users; -G for AD group enumerate
 ```
 Ref: https://book.hacktricks.xyz/pentesting/pentesting-ldap
 
