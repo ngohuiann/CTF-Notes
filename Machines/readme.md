@@ -29,6 +29,9 @@ davtest -url [URL]    # PUT method test
 cadaver [IP_ADDR]
 ```
 
+### Kerberos (88)
+
+
 ### Network File System (111 & 2049)
 ```
 showmount -e [IP_ADDR]
