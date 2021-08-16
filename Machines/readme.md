@@ -106,3 +106,8 @@ l = listen; n = ip addresses only, no DNS lookup; v = verbose; p = local port
 ```
 john [hash_file] --format=Raw-SHA1 --wordlist=/usr/share/wordlists/rockyou.txt
 ```
+
+## Python
+```
+python3 'import pty;pty.spawn("/bin/bash");'
+```
