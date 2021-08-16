@@ -64,6 +64,8 @@ EXEC master..xp_cmdshell '[CMD]'    # Execute remote command with sysadmin privi
 ### MySQL (3306)
 ```
 mysql -u [USERNAME] -h [IP_ADDR] -p   # Connect to mysql server
+mysql -u [USERNAME] -h [IP_ADDR] -p -e 'SHOW DATABASES;'
+mysql -u [USERNAME] -h [IP_ADDR] -p -e 'USE [DATABASE]; SHOW TABLES;'
 ```
 
 ### RDP (3389)
