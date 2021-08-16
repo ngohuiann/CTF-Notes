@@ -18,7 +18,7 @@ anonymous sign in
 
 ### SSH (22)
 ```
-ssh [USERNAME]@[IP_ADDR]
+ssh [USERNAME]@[IP_ADDR] [PORT]
 ```
 
 ### HTTP (80) / HTTPS (443)
