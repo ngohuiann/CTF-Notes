@@ -109,6 +109,11 @@ l = listen; n = ip addresses only, no DNS lookup; v = verbose; p = local port
 john [hash_file] --format=Raw-SHA1 --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
+## Hashcat
+```
+hashcat -a 3 -m 0 [HASH_FILE] /usr/share/wordlists/rockyou.txt    # -a 3 bruteforce attack; -m 0 MD5 mode
+```
+
 ## Python
 ```
 python3 'import pty;pty.spawn("/bin/bash");'
