@@ -19,6 +19,7 @@ anonymous sign in
 ### SSH (22)
 ```
 ssh [USERNAME]@[IP_ADDR] [PORT]
+ssh [USERNAME]@[IP_ADDR] -i id_rsa    # chmod 600 id_rsa
 ```
 
 ### HTTP (80) / HTTPS (443)
