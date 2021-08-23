@@ -71,6 +71,14 @@ mysql -u [USERNAME] -h [IP_ADDR] -p -e 'USE [DATABASE]; SHOW TABLES;'
 
 ### RDP (3389)
 
+### Apache Tomcat (8080)
+```
+Default page:
+/admin
+/manager
+/manager/html
+```
+
 ### SPLUNK (8089)
 ```
 Default Credential 
