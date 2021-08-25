@@ -41,3 +41,10 @@ getsystem
 load kiwi   # mimikatz
 lsa_dump_sam
 ```
+
+### iCACLS.exe
+```
+Change file and folder permission 
+icacls [FILE] /grant [USERNAME]:F   # :F for full access
+```
+Ref: https://ss64.com/nt/icacls.html
