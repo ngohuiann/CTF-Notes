@@ -70,6 +70,9 @@ mysql -u [USERNAME] -h [IP_ADDR] -p -e 'USE [DATABASE]; SHOW TABLES;'
 ```
 
 ### RDP (3389)
+```
+rdesktop -u [USERNAME] [IP_ADDR]:[PORT]
+```
 
 ### Apache Tomcat (8080)
 ```
