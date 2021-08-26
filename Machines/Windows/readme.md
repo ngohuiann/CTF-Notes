@@ -9,6 +9,7 @@ C:\Windows\System32\config\SYSTEM
 Dumping hashes:
 samdump2 SYSTEM SAM
 pwdump.py SYSTEM SAM    # For Windows 10
+
 Format of Hashes:
 [USERNAME]:[RID]:[LMHash]:[NTLMHash]:::   # RID = Relative Identifier
 ```
