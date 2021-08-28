@@ -32,7 +32,8 @@ C:\Users\[username]\AppData\Roaming\Microsoft\Windows\Powershell\PSReadline\Cons
 
 ### Kerberos
 ```
-getnpusers.py     # get user that does not require kerberos preauth
+kerbrute userenum --dc [DOMAIN] -d [DOMAIN] [WORDLIST]    # enum user
+GetNPUsers.py [DOMAIN]/[USERNAME] -request -no-pass -dc-ip [IP_ADDR]    # get user that does not require kerberos preauth
 ```
 Ref: https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py
 
