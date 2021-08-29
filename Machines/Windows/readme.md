@@ -56,3 +56,8 @@ Ref: https://ss64.com/nt/icacls.html
 ```
 rpcdump.py [USERNAME]@[IP_ADDR]
 ```
+
+### Evil-WinRM
+```
+evil-winrm -i [IP_ADDR] -u [USERNAME] -H [HASH]
+```
