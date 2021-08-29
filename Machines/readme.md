@@ -128,6 +128,7 @@ john [hash_file] --format=Raw-SHA1 --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 hashcat -a 3 -m 0 [HASH_FILE] /usr/share/wordlists/rockyou.txt    # -a 3 bruteforce attack; -m 0 MD5 mode
 ```
+Ref: https://hashcat.net/wiki/doku.php?id=example_hashes
 
 ## Python
 ```
