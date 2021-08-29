@@ -43,9 +43,10 @@ mount -t nfs [IP_ADDR]:/[Remote_Folder] [Local_Folder]/
 ```
 smbclient -L [IP_ADDR]    # To list out available directories
 smbclient \\\\[IP_ADDR]\\[DIRECTORY]    # To show directory content
-smbclient \\\\[IP_ADDR]\\[DIRECTORY] --username=[USERNAME]    # Sign in with username
+smbclient \\\\[IP_ADDR]\\[DIRECTORY] -D [DOMAIN] -U [USERNAME]    # Sign in with username
 smbmap -H [IP_ADDR] -u [USERNAME]
-lookupsid.py anonymous@$[IP_ADDR]   # with $IPC readonly permission
+lookupsid.py anonymous@$[IP_ADDR]   # with IPC$ readonly permission
+secretsdump.py [DOMAIN]/[USERNAME]:[PASSWORD]@[IP_ADDR]   # with ADMIN$ write permission
 ```
 MS17-010 EternalBlue exploitation for SMBv1 in Windows Vista, 7, 8.1, 10; Server 2008, 2012, 2016
 SMB share folder mounting
