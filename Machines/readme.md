@@ -20,6 +20,9 @@ anonymous sign in
 ```
 ssh [USERNAME]@[IP_ADDR] [PORT]
 ssh [USERNAME]@[IP_ADDR] -i id_rsa    # chmod 600 id_rsa
+
+ssh2john.py id_rsa > hash   # encrypted id_rsa
+john hash --wordlist=/opt/wordlists/rockyou.txt
 ```
 
 ### HTTP (80) / HTTPS (443)
