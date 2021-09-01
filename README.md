@@ -9,3 +9,4 @@ Feel free to let me know if there is any mistakes on my note.
 - [Cryptography](/Cryptography)
 - [Machines](/Machines)
   - [Windows](/Machines/Windows)
+  - [Linux](/Machines/Linux)
