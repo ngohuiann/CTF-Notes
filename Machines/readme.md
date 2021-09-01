@@ -114,7 +114,7 @@ background / ctrl+z
 use post/multi/recon/local_exploit_suggester    # set session number
 ```
 ## Cisco router password cracker
-https://github.com/axcheron/cisco_pwdecrypt
+https://github.com/axcheron/cisco_pwdecrypt  
 https://www.ifm.net.nz/cookbooks/cisco-ios-enable-secret-password-cracker.html
 
 ## Netcat
