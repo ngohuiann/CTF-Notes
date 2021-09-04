@@ -31,6 +31,7 @@ gobuster dir -u [URL] -w [WORDLIST]   # Files enumeration
 nikto -h [URL]
 davtest -url [URL]    # PUT method test
 cadaver [IP_ADDR]
+cewl [URL]    # get possible password from site
 ```
 
 ### Kerberos (88)
