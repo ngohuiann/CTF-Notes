@@ -86,6 +86,19 @@ mysql -u [USERNAME] -h [IP_ADDR] -p -e 'USE [DATABASE]; SHOW TABLES;'
 rdesktop -u [USERNAME] [IP_ADDR]:[PORT]
 ```
 
+### Redis (6379)
+```
+redis-cli -h [IP]   # without auth
+redis-cli -h [IP] -a [PASSWORD]   # auth required
+----------
+info
+keys *
+type [KEYS]
+get [KEYS]    # strings
+lrange [KEYS] [1] [64]    # list
+----------
+```
+
 ### Apache Tomcat (8080)
 ```
 Default page:
