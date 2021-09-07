@@ -1,6 +1,8 @@
 # Server-Side Template Injection (SSTI)
 ```
 ${{<%[%'"}}%    # Special characteres for detection
+{{7*7}}
+
 ```
 ## Python
 ### Jinja2
