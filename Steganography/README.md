@@ -34,6 +34,9 @@ java -jar stegsolve.jar
 6. [zbarimg (QR Code)](http://manpages.ubuntu.com/manpages/bionic/man1/zbarimg.1.html)
 <pre>zbarimg [FILE].png/jpg</pre>
 
+7. [Stegseek](https://github.com/RickdeJager/stegseek)
+<pre>stegseek -sf [FILE]</pre>
+
 ## Compressed Files
 1. [zcat](https://linux.die.net/man/1/zcat)
 <pre>zcat [FILE.tar.gz] > FILE.txt</pre>
