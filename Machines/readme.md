@@ -26,6 +26,11 @@ ssh2john.py id_rsa > hash   # encrypted id_rsa
 john hash --wordlist=/opt/wordlists/rockyou.txt
 ```
 
+### DNS (53)
+```
+dig axfr [DOMAIN].[TLD] @[IP_ADDR]
+```
+
 ### HTTP (80) / HTTPS (443)
 ```
 gobuster dir -u [URL] -w [WORDLIST]   # Files enumeration
