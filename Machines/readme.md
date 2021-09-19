@@ -34,6 +34,7 @@ dig axfr [DOMAIN].[TLD] @[IP_ADDR]
 ### HTTP (80) / HTTPS (443)
 ```
 gobuster dir -u [URL] -w [WORDLIST]   # Files enumeration
+ffuf -u http://[IP_ADDR]/ -H "Host: FUZZ.[DOMAIN]" -w /seclists/Discovery/DNS/shubs-subdomains.txt -t 100 -fl 10
 nikto -h [URL]
 davtest -url [URL]    # PUT method test
 cadaver [IP_ADDR]
