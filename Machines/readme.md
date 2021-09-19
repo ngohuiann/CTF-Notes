@@ -29,6 +29,7 @@ john hash --wordlist=/opt/wordlists/rockyou.txt
 ### DNS (53)
 ```
 dig axfr [DOMAIN].[TLD] @[IP_ADDR]
+dig @[IP_ADDR] -x [IP_ADDR]
 ```
 
 ### HTTP (80) / HTTPS (443)
