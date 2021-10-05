@@ -14,6 +14,7 @@ nmap -sC -sV -A -p- -v [IP_ADDR]
 ```
 ftp [IP_ADDR]
 anonymous sign in
+put [FILE]    # Try for file upload
 ```
 
 ### SSH (22)
