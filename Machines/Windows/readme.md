@@ -53,3 +53,8 @@ rpcdump.py [USERNAME]@[IP_ADDR]
 ```
 evil-winrm -i [IP_ADDR] -u [USERNAME] -H [HASH]   # hash retrievable from secretsdump.py machines/smb
 ```
+
+### Tcpdump
+```
+tcpdump -i tun0 icmp -v   # listen for icmp ping to tun0 interface
+```
