@@ -22,6 +22,7 @@ put [FILE]    # Try for file upload
 ssh [USERNAME]@[IP_ADDR] [PORT]
 ssh [USERNAME]@[IP_ADDR] -i id_rsa    # chmod 600 id_rsa
 ssh -i id_rsa [USERNAME]@[IP_ADDR] -L [LOCAL_PORT]:localhost:[REMOTE_PORT]   # ssh port forwarding  
+scp -P [PORT] [FILE_TO_TRANSFER] [USERNAME]@[IP_ADDR]:[DESTINATION_FILE]    # copy file from local to remote through scp
 
 ssh2john.py id_rsa > hash   # encrypted id_rsa
 john hash --wordlist=/opt/wordlists/rockyou.txt
