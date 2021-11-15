@@ -28,3 +28,4 @@ git show [LOGS_NUMBERS]
 
 ## Chrome
 https://www.foxtonforensics.com/browser-history-examiner/chrome-history-location
+https://www.foxtonforensics.com/browser-history-examiner/firefox-history-location
