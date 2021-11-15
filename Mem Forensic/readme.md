@@ -24,3 +24,6 @@ vol.py -f [IMAGE] --profile=[PROFILE] malfind   # malware
 ```
 git show [LOGS_NUMBERS]
 ```
+
+## Chrome
+https://www.foxtonforensics.com/browser-history-examiner/chrome-history-location
