@@ -18,6 +18,7 @@ vol.py -f [IMAGE] --profile=[PROFILE] filescan | grep [FILENAME]
 vol.py -f [IMAGE] --profile=[PROFILE] dumpfiles -Q [0x000000001e8feb70] -D [DEST]
 vol.py -f [IMAGE] --profile=[PROFILE] shellbags   # get list of last accessed directories
 vol.py -f [IMAGE] --profile=[PROFILE] malfind   # malware
+vol.py -f [IMAGE] --profile=[PROFILE] mftparser   # deleted files
 ```
 
 ## Git
