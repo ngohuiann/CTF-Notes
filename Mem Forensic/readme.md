@@ -28,5 +28,5 @@ git show [LOGS_NUMBERS]
 ```
 
 ## Chrome
-https://www.foxtonforensics.com/browser-history-examiner/chrome-history-location \n
+https://www.foxtonforensics.com/browser-history-examiner/chrome-history-location <br>
 https://www.foxtonforensics.com/browser-history-examiner/firefox-history-location
