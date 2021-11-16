@@ -27,6 +27,6 @@ vol.py -f [IMAGE] --profile=[PROFILE] envars    # environmental variable
 git show [LOGS_NUMBERS]
 ```
 
-## Chrome
+## Browser
 https://www.foxtonforensics.com/browser-history-examiner/chrome-history-location <br>
 https://www.foxtonforensics.com/browser-history-examiner/firefox-history-location
