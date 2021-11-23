@@ -24,6 +24,7 @@ vol.py -f [IMAGE] --profile=[PROFILE] envars    # environmental variable
 
 ## Git
 ```
+git log
 git show [LOGS_NUMBERS]
 ```
 
