@@ -170,5 +170,6 @@ python3 'import pty;pty.spawn("/bin/bash");'
 
 ## Port Knocking
 ```
+systemctl start knockd
 knock [IP_ADDR] [PORT1] [PORT2] [PORT3] -d [DELAY MILLISEC]
 ```
