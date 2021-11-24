@@ -167,3 +167,8 @@ Ref: https://hashcat.net/wiki/doku.php?id=example_hashes
 ```
 python3 'import pty;pty.spawn("/bin/bash");'
 ```
+
+## Port Knocking
+```
+knock [IP_ADDR] [PORT1] [PORT2] [PORT3] -d [DELAY MILLISEC]
+```
