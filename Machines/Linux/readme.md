@@ -9,6 +9,7 @@
 /home/
 /var/log/nginx/access.log
 /var/log/apache/access.log
+/var/log/auth.log
 /etc/apache2/sites-available/000-default.conf
 /etc/samba/smb.conf
 /var/www/html/wordpress/wp-config.php
