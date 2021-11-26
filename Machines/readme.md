@@ -175,6 +175,6 @@ knock [IP_ADDR] [PORT1] [PORT2] [PORT3] -d [DELAY MILLISEC]
 ```
 
 # Checklist
-:white_check_mark: port scan
-:white_check_mark: password reuse
-:white_check_mark: check version for vulnerabilities and exploit
+:white_check_mark: port scan <br />
+:white_check_mark: password reuse <br />
+:white_check_mark: check version for vulnerabilities and exploit <br />
