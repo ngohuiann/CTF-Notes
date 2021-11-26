@@ -173,3 +173,8 @@ python3 'import pty;pty.spawn("/bin/bash");'
 systemctl start knockd
 knock [IP_ADDR] [PORT1] [PORT2] [PORT3] -d [DELAY MILLISEC]
 ```
+
+# Checklist
+:white_check_mark: port scan
+:white_check_mark: password reuse
+:white_check_mark: check version for vulnerabilities and exploit
