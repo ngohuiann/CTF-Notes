@@ -134,6 +134,7 @@ Progress: 39540 / 57377572 (0.07%)             ^C
 ===============================================================
 ```
 
+## Reverse Shell
 Register an account <br />
 RCE for CuteNews 2.1.2 (CVE-2019-11447) in avatar upload function<br />
 Get reverse shell <br />
