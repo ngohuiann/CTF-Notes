@@ -36,7 +36,7 @@ dig @[IP_ADDR] -x [IP_ADDR]
 
 ### HTTP (80) / HTTPS (443)
 ```
-gobuster dir -u [URL] -w [WORDLIST]   # Files enumeration, note: windows web server are case insensitive
+gobuster dir -u [URL] -w [WORDLIST] -b "400,404"    # web enumeration, note: windows web server are case insensitive
 ffuf -u http://[IP_ADDR]/ -H "Host: FUZZ.[DOMAIN]" -w /seclists/Discovery/DNS/shubs-subdomains.txt -t 100 -fl 10
 nikto -h [URL]
 davtest -url [URL]    # PUT method test
