@@ -19,7 +19,7 @@ PORT   STATE SERVICE REASON         VERSION
 # HTTP Port 80
 ![image](https://user-images.githubusercontent.com/31241187/143829673-ac96b9e3-65d1-4966-82bc-617cbe881d12.png)
 ![image](https://user-images.githubusercontent.com/31241187/143829693-a304113d-b845-4f80-b3c2-5fe920128960.png)
-Robotx.txt
+Robots.txt
 ```
 Y3liZXJzcGxvaXR7eW91dHViZS5jb20vYy9jeWJlcnNwbG9pdH0=    # cybersploit{youtube.com/c/cybersploit}
 ```
