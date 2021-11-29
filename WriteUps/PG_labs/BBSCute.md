@@ -135,7 +135,7 @@ Progress: 39540 / 57377572 (0.07%)             ^C
 ```
 
 Register an account <br />
-File upload vulnerability <br />
+RCE for CuteNews 2.1.2 (CVE-2019-11447) in avatar upload function<br />
 Get reverse shell <br />
 
 ## local.txt
