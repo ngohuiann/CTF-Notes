@@ -100,4 +100,6 @@ lissy:x:1005:1005::/home/lissy:/bin/sh
 su oracle
 ```
 
-STUCKED!
+# root
+ssh to goat with: <br />
+Easy to guess password 
