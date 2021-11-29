@@ -55,7 +55,7 @@ Local.txt was found on /var/www/
 
 ## Reverse Shell
 ```
-cat /etc/passwd
+#   cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
