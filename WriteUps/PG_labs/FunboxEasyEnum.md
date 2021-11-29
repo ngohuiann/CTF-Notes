@@ -47,11 +47,14 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 
 ## mini.php
 Upon check on mini.php, a file upload system was found. <br />
+![image](https://user-images.githubusercontent.com/31241187/143801851-2bdd30f7-4a08-4768-848d-fe90ae04f8c0.png)
+
 Uploaded a reverse shell and use chmod to change the permission to executable.<br />
 Starting a reverse shell with netcat.<br />
 
 ## local.txt
 Local.txt was found on /var/www/
+![image](https://user-images.githubusercontent.com/31241187/143801896-1ffb2a11-114e-4f94-9059-f04a1354937a.png)
 
 ## Reverse Shell
 ```
