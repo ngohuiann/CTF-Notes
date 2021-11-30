@@ -52,7 +52,7 @@ secretsdump.py -dc-ip [IP_ADDR] [DOMAIN].local/[USERNAME]:[PASSWORD]@[IP_ADDR]  
 ```
 Ref: https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py
 
-### POP3 (110)
+### POP3 (110 & 995)
 ```
 telnet [IP_ADDR] [PORT]
 USER [USERNAME]
