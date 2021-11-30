@@ -79,7 +79,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ```
 
 <br />
-http://{IP_ADDR]/v2/admin/
+http://[IP_ADDR]/v2/admin/
 
 ```
 gobuster dir -u http://[IP]/v2/admin -w /opt/wordlists/dirb/big.txt -x php,html -t 50
