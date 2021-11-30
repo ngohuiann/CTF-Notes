@@ -52,6 +52,16 @@ secretsdump.py -dc-ip [IP_ADDR] [DOMAIN].local/[USERNAME]:[PASSWORD]@[IP_ADDR]  
 ```
 Ref: https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py
 
+### POP3 (110)
+```
+telnet [IP_ADDR] [PORT]
+USER [USERNAME]
+PASS [PASSWORD]
+list    # get list of email
+retr [#]    # no. of email to read
+quit
+```
+
 ### Network File System (111 & 2049)
 ```
 showmount -e [IP_ADDR]
