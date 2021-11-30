@@ -109,7 +109,8 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ===============================================================
 ```
 
-Admin email: admin@sky.thm found in edit profile page. 
+Admin email: admin@sky.thm found in edit profile page. <br />
+Reset admin email to enabled profile image upload and get reverse shell.
 
 # Priv Esc
 LD_Preload environment variable
