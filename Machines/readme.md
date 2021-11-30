@@ -130,6 +130,7 @@ mongo
 show dbs
 use [DATABASE]
 show collections
+db.[COLLECTIONS].find()
 ```
 
 # Working with MSFVENOM and MSFCONSOLE
