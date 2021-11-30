@@ -109,4 +109,8 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ===============================================================
 ```
 
-Admin email: admin@sky.thm
+Admin email: admin@sky.thm found in edit profile page. 
+
+# Priv Esc
+LD_Preload environment variable
+https://www.hackingarticles.in/linux-privilege-escalation-using-ld_preload/
