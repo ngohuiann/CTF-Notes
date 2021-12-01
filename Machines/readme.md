@@ -42,6 +42,7 @@ nikto -h [URL]
 davtest -url [URL]    # PUT method test
 cadaver [IP_ADDR]
 cewl [URL]    # get possible password from site
+wpscan --url    # or manually browse to /wp-content/plugins/ if no plugins found
 ```
 
 ### Kerberos (88)
