@@ -6,4 +6,4 @@
 5. [Session Attack](/Web/Session_Attack)
 6. [SSTI](/Web/SSTI)
 7. [XSS Cross Site Scripting](/Web/XSS)
-8. [XXE](/Web/XSS)
+8. [XXE](/Web/XXE)
