@@ -22,7 +22,6 @@ To find the app id, ssh into the phone and via terminal cd to the above mentione
 My-iPhone:~ root# cd /private/var/mobile/Containers/Data/Application/
 My-iPhone:/private/var/mobile/Containers/Data/Application root# find * | grep -i [application name]
 ```
-<br />
 
 #### Finding the sqlite file
 ```
