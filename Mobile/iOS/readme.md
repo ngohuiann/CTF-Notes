@@ -44,6 +44,6 @@ Steps (basically what is mentioned above):
 ```
 ![image](https://user-images.githubusercontent.com/31241187/147802735-064afb58-b738-47ef-af07-4b398f81d654.png)
 ![image](https://user-images.githubusercontent.com/31241187/147802711-bea6b86b-6147-491c-8cdf-6fedab983b69.png)
-![image](https://user-images.githubusercontent.com/31241187/147802693-d30b628b-2d40-4653-9782-3fb2ce005875.png)
-![image](https://user-images.githubusercontent.com/31241187/147802913-0b32eee0-52f1-4efc-94d7-149cfa02981a.png)
-![image](https://user-images.githubusercontent.com/31241187/147802942-b0186512-2a95-4a75-a04f-f203734d1c4b.png)
+![image](https://user-images.githubusercontent.com/31241187/147802693-d30b628b-2d40-4653-9782-3fb2ce005875.png) <br />
+<img src="https://user-images.githubusercontent.com/31241187/147802913-0b32eee0-52f1-4efc-94d7-149cfa02981a.png" width="200" height="350" />
+<img src="https://user-images.githubusercontent.com/31241187/147802942-b0186512-2a95-4a75-a04f-f203734d1c4b.png" width="200" height="350" />
