@@ -57,3 +57,15 @@ Steps
 ![image](https://user-images.githubusercontent.com/31241187/147804826-43cc3040-2142-44df-86de-8d5a4f732c65.png)
 <img src="https://user-images.githubusercontent.com/31241187/147804913-55a589c4-6ec7-470a-8fc5-0b9980196e17.png" width="200" height="350" />
 <img src="https://user-images.githubusercontent.com/31241187/147804950-d34b683d-b2d9-48fd-a97c-924d2f06609f.png" width="200" height="350" />
+
+### Injection Flaws
+#### Cross Site Scripting
+```
+Steps
+1. Enter any data into the input field and load the data.
+2. Observe the input data was being reflected on the UIWebView.
+3. Insert xss code.
+4. The injected script was triggered and reflected.
+```
+<img src="https://user-images.githubusercontent.com/31241187/147807087-fdc2eba4-1d81-455e-bf4a-ecdc7d2e2543.png" width="200" height="350" />
+<img src="https://user-images.githubusercontent.com/31241187/147807064-067921b7-b2cf-4321-8989-03be100cd5de.png" width="200" height="350" />
