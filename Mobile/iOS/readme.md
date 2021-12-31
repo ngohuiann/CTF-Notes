@@ -69,6 +69,15 @@ Steps
 ![image](https://user-images.githubusercontent.com/31241187/147812068-a9bedd28-167f-46dd-8bab-a78b62222e92.png)
 <img src="https://user-images.githubusercontent.com/31241187/147812215-8747d451-4915-482f-b938-cf5040a05069.png" width="200" height="350" />
 
+### Side Channel Data Leaks
+#### Backgrounding
+```
+1. The snapshot taken by iOS when we background the application is in .ktx file extension.
+2. Locate the snapshot files in the data folder.
+3. Using https://github.com/ydkhatri/MacForensics/blob/master/IOS_KTX_TO_PNG/ios_ktx2png.exe convert ktx to png.
+```
+![image](https://user-images.githubusercontent.com/31241187/147812962-aa13d979-7354-49f5-a86f-17329bec4657.png)
+
 ### Injection Flaws
 #### Cross Site Scripting
 ```
