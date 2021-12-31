@@ -23,6 +23,7 @@ My-iPhone:~ root# cd /private/var/mobile/Containers/Data/Application/
 My-iPhone:/private/var/mobile/Containers/Data/Application root# find * | grep -i [application name]
 ```
 <br />
+
 #### Finding the sqlite file
 ```
 cd into the application's data folder
