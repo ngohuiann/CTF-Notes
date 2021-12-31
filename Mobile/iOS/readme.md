@@ -32,7 +32,7 @@ Library/Application Support/CoreData.sqlite-wal
 Library/Application Support/CoreData.sqlite
 ```
 
-## [OWASP iGoat](https://github.com/OWASP/igoat)
+## [OWASP iGoat](https://github.com/OWASP/igoat) Writeup
 ### Data Protection (Rest)
 #### Core Data Storage
 ```
@@ -60,6 +60,15 @@ OR
 <img src="https://user-images.githubusercontent.com/31241187/147804913-55a589c4-6ec7-470a-8fc5-0b9980196e17.png" width="200" height="350" />
 <img src="https://user-images.githubusercontent.com/31241187/147804950-d34b683d-b2d9-48fd-a97c-924d2f06609f.png" width="200" height="350" />
 
+#### NSUserDefaults Storage
+```
+Steps
+1. Locate the plist file.
+2. Convert the file to xml with plistutil.
+```
+![image](https://user-images.githubusercontent.com/31241187/147812068-a9bedd28-167f-46dd-8bab-a78b62222e92.png)
+<img src="https://user-images.githubusercontent.com/31241187/147812215-8747d451-4915-482f-b938-cf5040a05069.png" width="200" height="350" />
+
 ### Injection Flaws
 #### Cross Site Scripting
 ```
@@ -70,3 +79,4 @@ Steps
 4. The injected script was triggered and reflected.
 ```
 <img src="https://user-images.githubusercontent.com/31241187/147807087-fdc2eba4-1d81-455e-bf4a-ecdc7d2e2543.png" width="200" height="350" /> <img src="https://user-images.githubusercontent.com/31241187/147807064-067921b7-b2cf-4321-8989-03be100cd5de.png" width="200" height="350" />
+
