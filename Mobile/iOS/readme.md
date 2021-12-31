@@ -67,5 +67,4 @@ Steps
 3. Insert xss code.
 4. The injected script was triggered and reflected.
 ```
-<img src="https://user-images.githubusercontent.com/31241187/147807087-fdc2eba4-1d81-455e-bf4a-ecdc7d2e2543.png" width="200" height="350" />
-<img src="https://user-images.githubusercontent.com/31241187/147807064-067921b7-b2cf-4321-8989-03be100cd5de.png" width="200" height="350" />
+<img src="https://user-images.githubusercontent.com/31241187/147807087-fdc2eba4-1d81-455e-bf4a-ecdc7d2e2543.png" width="200" height="350" /> <img src="https://user-images.githubusercontent.com/31241187/147807064-067921b7-b2cf-4321-8989-03be100cd5de.png" width="200" height="350" />
