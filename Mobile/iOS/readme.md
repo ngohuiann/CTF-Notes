@@ -31,3 +31,17 @@ Library/Application Support/CoreData.sqlite-shm
 Library/Application Support/CoreData.sqlite-wal
 Library/Application Support/CoreData.sqlite
 ```
+
+## [OWASP iGoat](https://github.com/OWASP/igoat)
+### Data Protection (Rest)
+#### Core Data Storage
+```
+Steps (basically what is mentioned above):
+1. Locate application id and its data folder.
+2. Copy the folder from iPhone to PC through winscp.
+3. Open the CoreData.sqlite file.
+4. Find the email and password.
+```
+![image](https://user-images.githubusercontent.com/31241187/147802735-064afb58-b738-47ef-af07-4b398f81d654.png)
+![image](https://user-images.githubusercontent.com/31241187/147802711-bea6b86b-6147-491c-8cdf-6fedab983b69.png)
+![image](https://user-images.githubusercontent.com/31241187/147802693-d30b628b-2d40-4653-9782-3fb2ce005875.png)
