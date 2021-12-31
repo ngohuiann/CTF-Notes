@@ -52,7 +52,9 @@ Steps (basically what is mentioned above):
 ```
 Steps
 1. Locate Credentials.plist in the data folder.
-2. The plist file can be open with basic notepad file.
+2. The plist file can be open with basic notepad file 
+OR
+2. plistutil -i [plistfile] -o [outfile].xml    # in linux
 ```
 ![image](https://user-images.githubusercontent.com/31241187/147804826-43cc3040-2142-44df-86de-8d5a4f732c65.png)
 <img src="https://user-images.githubusercontent.com/31241187/147804913-55a589c4-6ec7-470a-8fc5-0b9980196e17.png" width="200" height="350" />
