@@ -47,3 +47,13 @@ Steps (basically what is mentioned above):
 ![image](https://user-images.githubusercontent.com/31241187/147802693-d30b628b-2d40-4653-9782-3fb2ce005875.png) <br />
 <img src="https://user-images.githubusercontent.com/31241187/147802913-0b32eee0-52f1-4efc-94d7-149cfa02981a.png" width="200" height="350" />
 <img src="https://user-images.githubusercontent.com/31241187/147802942-b0186512-2a95-4a75-a04f-f203734d1c4b.png" width="200" height="350" />
+
+#### Plist Storage
+```
+Steps
+1. Locate Credentials.plist in the data folder.
+2. The plist file can be open with basic notepad file.
+```
+![image](https://user-images.githubusercontent.com/31241187/147804826-43cc3040-2142-44df-86de-8d5a4f732c65.png)
+<img src="https://user-images.githubusercontent.com/31241187/147804913-55a589c4-6ec7-470a-8fc5-0b9980196e17.png" width="200" height="350" />
+<img src="https://user-images.githubusercontent.com/31241187/147804950-d34b683d-b2d9-48fd-a97c-924d2f06609f.png" width="200" height="350" />
