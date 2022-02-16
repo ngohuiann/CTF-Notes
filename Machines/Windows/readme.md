@@ -47,9 +47,11 @@ icacls [FILE] /grant [USERNAME]:F   # :F for full access
 ```
 Ref: https://ss64.com/nt/icacls.html
 
-### RPC Dump
+### RPC
 ```
 rpcdump.py [USERNAME]@[IP_ADDR]
+rpcclient -U '' [IP_ADDR]
+  > enumdomusers    # to get list of users after signin
 ```
 
 ### Evil-WinRM
