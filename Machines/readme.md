@@ -110,6 +110,11 @@ xfreerdp /v:[IP_ADDR] /u:[USERNAME] /p:[PASSWORD] /cert:ignore +clipboard /dynam
 . \\tsclient\share\   # in powershell to access the files in /tmp
 ```
 
+### Postgresql (5432)
+```
+psql -U [USERNAME] -p [PORT] -h [HOST] 
+```
+
 ### Redis (6379)
 ```
 redis-cli -h [IP]   # without auth
