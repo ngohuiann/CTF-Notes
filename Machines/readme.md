@@ -88,6 +88,13 @@ mount -t cifs -o username=[USERNAME] //[IP_ADDR]/[SHARED_PATH] /mnt/[FOLDER_NAME
 Mounting VHD file
 Ref: https://www.how2shout.com/linux/mount-virtual-hard-disk-vhd-file-ubuntu-linux/
 
+### Rsync (873)
+```
+rsync -rdt rsync://[IP_ADDR]
+rsync -av [MODULE]@[IP_ADDR]::[MODULE]/ .   # Download
+rsync -avp [LOCAL DIRECTORY] [MODULE]@[IP_ADDR]::[REMOTE DIRECTORY]/    # Upload
+```
+
 ### Microsoft SQL (1433)
 ```
 impacket-mssqlclient [DOMAIN]/[USERNAME]@[IP_ADDR] -windows-auth    # Connect to mssql server
