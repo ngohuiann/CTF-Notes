@@ -20,7 +20,8 @@ Ref: https://techgenix.com/how-cracked-windows-password-part2/
 Enum
 ```
 nmap -n -sV --script "ldap* and not brute" [IP_ADDR]
-ldapsearch -h [IP_ADDR] -x -b "dc=[DC],dc=[DC]"
+ldapsearch -H ldap://[IP_ADDR] -x -b "dc=[DC],dc=[DC]"
+ldapsearch -H ldap://[IP_ADDR] -x -b '' -s base
 windapsearch.py -d [DOMAIN] --dc-ip [IP_ADDR] -U    # -U to enumerate all AD users; -G for AD group enumerate
 
 Database of AD stored on C:\Windows\NTNDS\ntds.dit of DC
