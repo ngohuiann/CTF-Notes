@@ -28,6 +28,22 @@ ssh2john.py id_rsa > hash   # encrypted id_rsa
 john hash --wordlist=/opt/wordlists/rockyou.txt
 ```
 
+### SMTP (25)
+```
+HELO - 
+EHLO - Extended SMTP.
+STARTTLS - SMTP communicted over unencrypted protocol. By starting TLS-session we encrypt the traffic.
+RCPT - Address of the recipient.
+DATA - Starts the transfer of the message contents.
+RSET - Used to abort the current email transaction.
+MAIL - Specifies the email address of the sender.
+QUIT - Closes the connection.
+HELP - Asks for the help screen.
+AUTH - Used to authenticate the client to the server.
+VRFY - Asks the server to verify is the email user's mailbox exists.
+```
+Source: https://d00mfist.gitbooks.io/ctf/content/list_of_common_ports.html
+
 ### DNS (53)
 ```
 dig axfr [DOMAIN].[TLD] @[IP_ADDR]
