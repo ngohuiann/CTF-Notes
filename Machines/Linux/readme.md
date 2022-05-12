@@ -13,6 +13,7 @@
 /etc/apache2/sites-available/000-default.conf
 /etc/samba/smb.conf
 /var/www/html/wordpress/wp-config.php
+/etc/fstab
 ```
 
 ### PrivEsc
