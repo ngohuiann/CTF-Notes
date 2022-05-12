@@ -1,3 +1,15 @@
+### Enumeration
+```
+systeminfo
+wmic service get name,displayname,pathname,startmode    # list all the running services
+wmic service get name,displayname,pathname,startmode |findstr /i "auto" |findstr /i /v "c:\windows"
+netstat -ano    # find out what ports are open
+net users
+net user /domain [username]   # check domain group of the user
+icacls "C:\Puppet"    # check path permission
+whoami /priv    # Look for SeImpersonatePrivilege > Juicy Potato
+```
+
 ### SAM (Security Account Manager)
 A file that store Windows user credential. It can only be accessed when the Windows OS is not booted up. (Eg. from another OS) <br />
 Passwords are LM & NTLM hashed <br />
