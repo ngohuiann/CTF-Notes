@@ -150,7 +150,7 @@ mysql -u [USERNAME] -h [IP_ADDR] -p -e 'USE [DATABASE]; SHOW TABLES;'
 
 ### RDP (3389)
 ```
-rdesktop -u [USERNAME] [IP_ADDR]:[PORT]
+rdesktop -u -r clipboard:CLIPBOARD [USERNAME] [IP_ADDR]:[PORT]
 xfreerdp /v:[IP_ADDR] /u:[USERNAME] /p:[PASSWORD] /cert:ignore +clipboard /dynamic-resolution /drive:share,/tmp
 . \\tsclient\share\   # in powershell to access the files in /tmp
 ```
