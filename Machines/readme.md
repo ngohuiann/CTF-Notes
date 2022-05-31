@@ -106,6 +106,7 @@ lookupsid.py anonymous@$[IP_ADDR]   # with IPC$ readonly permission
 secretsdump.py [DOMAIN]/[USERNAME]:[PASSWORD]@[IP_ADDR]   # with ADMIN$ write permission
 crackmapexec smb [IP_ADDR] --shares
 crackmapexec smb [IP_ADDR] -u [USERNAME] -p [PASSWORD] --shares
+enum4linux -a [IP_ADDR]
 ```
 MS17-010 EternalBlue exploitation for SMBv1 in Windows Vista, 7, 8.1, 10; Server 2008, 2012, 2016
 SMB share folder mounting
