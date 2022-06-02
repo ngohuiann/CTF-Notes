@@ -60,6 +60,8 @@ done
 ```python3
 #!/usr/bin/env python3
 
+# ./test 192.168.6 1 10
+
 import subprocess
 import sys
 
@@ -79,4 +81,37 @@ while int(counter) <= int(end):
         counter= int(counter)+1
     else:
         counter= int(counter)+1
+```
+
+## grabing .js filename inside access log
+```python3
+#!/usr/bin/env python3
+
+# ./test accesslog.txt
+
+import re
+import sys
+
+file=sys.argv[1]
+
+pattern='(.*?\.js.*?)'
+pattern1=".*/"
+result = []
+
+f = open(file, "r")
+
+for lines in f:
+    if re.search(pattern, lines):
+        line = lines.split(' ')[6]
+        final = re.sub(pattern1, '', line )
+        result.append(final)
+
+uniq=[]
+for x in result: 
+    if x not in uniq:
+        uniq.append(x)
+
+uniq.sort()
+
+print(uniq)
 ```
