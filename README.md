@@ -3,7 +3,7 @@
 Feel free to let me know if there is any mistakes on my note.
 
 ### TOC
-
+- [Bash Scripting](</Bash Scripting>)
 - [Web](/Web)
 - [Steganography](/Steganography)
 - [Memory Forensic](</Mem Forensic>)
