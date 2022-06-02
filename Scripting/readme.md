@@ -54,3 +54,29 @@ do
 	fi
 done
 ```
+
+# Python3 Scripting
+## ping sweep
+```python3
+#!/usr/bin/env python3
+
+import subprocess
+import sys
+
+ip=sys.argv[1]
+counter=sys.argv[2]
+end=sys.argv[3]
+
+while int(counter) <= int(end):
+    pingcmd = 'ping -w 2 -c 1 ' + str(ip) + '.' + str(counter) 
+    grepcmd = 'grep "bytes from"'
+    p = subprocess.Popen(pingcmd, shell=True, stdout=subprocess.PIPE)
+    r = subprocess.Popen(grepcmd, shell=True, stdin=p.stdout, stdout=subprocess.PIPE)
+    p.stdout.close()
+    rresult = r.stdout.read()
+    if rresult != b'':
+        print(str(ip) + '.' + str(counter))
+        counter= int(counter)+1
+    else:
+        counter= int(counter)+1
+```
