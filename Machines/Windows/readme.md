@@ -1,4 +1,4 @@
-### Enumeration
+### Enumeration & Commands
 ```
 systeminfo
 wmic service get name,displayname,pathname,startmode    # list all the running services
@@ -6,6 +6,11 @@ wmic service get name,displayname,pathname,startmode |findstr /i "auto" |findstr
 netstat -ano    # find out what ports are open
 net users
 net user /domain [username]   # check domain group of the user
+-------------------------Add user--------------------------
+net user /add [username] [password]
+net localgroup "Remote Desktop Users" [username] /add
+net localgroup "Administrators" [username] /add
+-----------------------------------------------------------
 icacls "C:\Puppet"    # check path permission
 whoami /priv    # Look for SeImpersonatePrivilege > Juicy Potato
 ```
