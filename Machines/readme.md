@@ -100,7 +100,7 @@ mount -t nfs [IP_ADDR]:/[Remote_Folder] [Local_Folder]/
 ```
 smbclient -L [IP_ADDR]    # To list out available directories
 smbclient \\\\[IP_ADDR]\\[DIRECTORY]    # To show directory content
-smbclient \\\\[IP_ADDR]\\[DIRECTORY] -D [DOMAIN] -U [USERNAME]    # Sign in with username
+smbclient \\\\[IP_ADDR]\\[DIRECTORY] -U [DOMAIN]/[USERNAME]    # Sign in with username
 smbmap -H [IP_ADDR] -u [USERNAME]
 lookupsid.py anonymous@$[IP_ADDR]   # with IPC$ readonly permission
 secretsdump.py [DOMAIN]/[USERNAME]:[PASSWORD]@[IP_ADDR]   # with ADMIN$ write permission
