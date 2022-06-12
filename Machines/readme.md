@@ -105,7 +105,7 @@ smbmap -H [IP_ADDR] -u [USERNAME]
 lookupsid.py anonymous@$[IP_ADDR]   # with IPC$ readonly permission
 secretsdump.py [DOMAIN]/[USERNAME]:[PASSWORD]@[IP_ADDR]   # with ADMIN$ write permission
 crackmapexec smb [IP_ADDR] --shares
-crackmapexec smb [IP_ADDR] -u [USERNAME] -p [PASSWORD] --shares
+crackmapexec smb [IP_ADDR] -d [domain] -u [USERNAME] -p [PASSWORD] --shares   # can be use for bruteforcing too
 enum4linux -a [IP_ADDR]
 ```
 MS17-010 EternalBlue exploitation for SMBv1 in Windows Vista, 7, 8.1, 10; Server 2008, 2012, 2016
