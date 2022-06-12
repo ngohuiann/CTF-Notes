@@ -13,6 +13,7 @@ net localgroup "Administrators" [username] /add
 -----------------------------------------------------------
 icacls "C:\Puppet"    # check path permission
 whoami /priv    # Look for SeImpersonatePrivilege > Juicy Potato
+whoami /groups		# UAC bypass
 ```
 
 ### Juicy Potato
