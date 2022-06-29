@@ -46,8 +46,9 @@ docker build -t [image-name] [Dockerfile location]    # building a docker image 
 docker run [image-name]   # running the docker image
 ```
 
-### Firewall rules
+### Network & Firewall rules
 ```
 iptables -L
 cat /etc/sysconfig/iptables
+cat /etc/resolv.conf
 ```
