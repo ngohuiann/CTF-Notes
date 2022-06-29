@@ -45,3 +45,9 @@ ssh alfred@10.11.1.101 -t "bash --noprofile"
 docker build -t [image-name] [Dockerfile location]    # building a docker image from the image file
 docker run [image-name]   # running the docker image
 ```
+
+### Firewall rules
+```
+iptables -L
+cat /etc/sysconfig/iptables
+```
