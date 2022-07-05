@@ -1,6 +1,7 @@
 ### Enumeration & Commands
 ```
 systeminfo
+schtasks /query /fo LIST /v		# scheduled task
 wmic service get name,displayname,pathname,startmode    # list all the running services
 wmic service get name,displayname,pathname,startmode |findstr /i "auto" |findstr /i /v "c:\windows"
 netstat -ano    # find out what ports are open
