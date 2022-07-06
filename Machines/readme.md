@@ -279,6 +279,12 @@ systemctl start knockd
 knock [IP_ADDR] [PORT1] [PORT2] [PORT3] -d [DELAY MILLISEC]
 ```
 
+# Pivoting
+```
+nc -vv -z 10.1.1.1 1-65535 2>&1 | grep "succeeded"
+ssh -N -D 127.0.0.1:9999 sean@10.11.1.251
+```
+
 # Checklist
 :white_check_mark: port scan <br />
 :white_check_mark: password reuse <br />
