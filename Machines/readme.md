@@ -96,6 +96,16 @@ showmount -e [IP_ADDR]
 mount -t nfs [IP_ADDR]:/[Remote_Folder] [Local_Folder]/
 ```
 
+## LDAP (389,636)
+```
+ldapsearch -H ldap://[IP_ADDR] -x
+ldapsearch -H ldap://[IP_ADDR] -x -s base namingcontexts
+ldapsearch -H ldap://[IP_ADDR] -x -b "DC=htb DC=local"
+ldapsearch -H ldap://[IP_ADDR] -x -b "DC=htb DC=local" '(objectClass=Person)'
+ldapsearch -H ldap://[IP_ADDR] -x -b "DC=htb DC=local" '(objectClass=Person)' sAMAccountName |grep sAMAccountName
+GetNPUsers.py [domain_name]/[Username(optional)]:[Password(optional)] -dc-ip [IP_ADDR] -request     # Eg: GetNPUsers.py scrm.local/ -dc-ip 10.10.11.168 -request
+```
+
 ### SMB (445)
 ```
 smbclient -L [IP_ADDR]    # To list out available directories
@@ -116,16 +126,6 @@ mount -t cifs -o username=[USERNAME] //[IP_ADDR]/[SHARED_PATH] /mnt/[FOLDER_NAME
 ```
 Mounting VHD file
 Ref: https://www.how2shout.com/linux/mount-virtual-hard-disk-vhd-file-ubuntu-linux/
-
-## LDAP (636)
-```
-ldapsearch -H ldap://[IP_ADDR] -x
-ldapsearch -H ldap://[IP_ADDR] -x -s base namingcontexts
-ldapsearch -H ldap://[IP_ADDR] -x -b "DC=htb DC=local"
-ldapsearch -H ldap://[IP_ADDR] -x -b "DC=htb DC=local" '(objectClass=Person)'
-ldapsearch -H ldap://[IP_ADDR] -x -b "DC=htb DC=local" '(objectClass=Person)' sAMAccountName |grep sAMAccountName
-python GetNPUsers.py -dc-ip [IP_ADDR] -request 'htb.local/' -format hashcat
-```
 
 ### Rsync (873)
 ```
