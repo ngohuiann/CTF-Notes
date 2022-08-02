@@ -96,7 +96,7 @@ showmount -e [IP_ADDR]
 mount -t nfs [IP_ADDR]:/[Remote_Folder] [Local_Folder]/
 ```
 
-## LDAP (389,636)
+### LDAP (389 & 636)
 ```
 ldapsearch -H ldap://[IP_ADDR] -x
 ldapsearch -H ldap://[IP_ADDR] -x -s base namingcontexts
