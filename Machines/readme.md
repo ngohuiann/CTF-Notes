@@ -113,6 +113,7 @@ smbclient -L [IP_ADDR]    # To list out available directories
 smbclient \\\\[IP_ADDR]\\[DIRECTORY]    # To show directory content
 smbclient \\\\[IP_ADDR]\\[DIRECTORY] -U [DOMAIN]/[USERNAME]    # Sign in with username
 smbmap -H [IP_ADDR] -u [USERNAME]
+smbmap -R [SHARE] -H [IP_ADDR]
 lookupsid.py anonymous@$[IP_ADDR]   # with IPC$ readonly permission
 secretsdump.py [DOMAIN]/[USERNAME]:[PASSWORD]@[IP_ADDR]   # with ADMIN$ write permission
 crackmapexec smb [IP_ADDR] --shares
