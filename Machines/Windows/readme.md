@@ -7,6 +7,7 @@ wmic service get name,displayname,pathname,startmode |findstr /i "auto" |findstr
 netstat -ano    # find out what ports are open
 net users
 net user /domain [username]   # check domain group of the user
+runas /netonly /user:[username] cmd	# run cmd as another user (even if they dont exists)
 -------------------------Add user--------------------------
 net user /add [username] [password]
 net localgroup "Remote Desktop Users" [username] /add
