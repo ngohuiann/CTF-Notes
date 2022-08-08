@@ -8,7 +8,6 @@ netstat -ano    # find out what ports are open
 net users
 net user /domain [username]   # check domain group of the user
 runas /netonly /user:[username] cmd	# run cmd as another user (even if they dont exists)
-bloodhound-python -u [username] -p [password[ -d blackfield.local -ns 10.10.10.192 -c DcOnly
 -------------------------Add user--------------------------
 net user /add [username] [password]
 net localgroup "Remote Desktop Users" [username] /add
@@ -18,6 +17,12 @@ icacls "C:\Puppet"    # check path permission
 icacls [FILE] /grant [USERNAME]:F   # :F for full access
 whoami /priv    # Look for SeImpersonatePrivilege > Juicy Potato
 whoami /groups		# UAC bypass
+```
+
+### BloodHound & Query
+```
+bloodhound-python -u [username] -p [password[ -d blackfield.local -ns 10.10.10.192 -c DcOnly
+MATCH p=(u {owned: true})-[r1]->(n) WHERE r1.isacl=true RETURN p
 ```
 
 ### Juicy Potato
