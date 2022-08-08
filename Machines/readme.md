@@ -105,6 +105,7 @@ ldapsearch -H ldap://[IP_ADDR] -x -s base namingcontexts
 ldapsearch -H ldap://[IP_ADDR] -x -b "DC=htb DC=local"
 ldapsearch -H ldap://[IP_ADDR] -x -b "DC=htb DC=local" '(objectClass=Person)'
 ldapsearch -H ldap://[IP_ADDR] -x -b "DC=htb DC=local" '(objectClass=Person)' sAMAccountName |grep sAMAccountName
+ldapsearch -H ldap://10.10.10.182 -x -b "DC=cascade,DC=local" '(name=[group_name])'
 GetNPUsers.py [domain_name]/[Username(optional)]:[Password(optional)] -dc-ip [IP_ADDR] -request     # Eg: GetNPUsers.py scrm.local/ -dc-ip 10.10.11.168 -request
 GetNPUsers.py htb.local/ -dc-ip 10.10.10.161 -request -no-pass -userfiles username.txt
 ```
