@@ -17,6 +17,7 @@ icacls "C:\Puppet"    # check path permission
 icacls [FILE] /grant [USERNAME]:F   # :F for full access
 whoami /priv    # Look for SeImpersonatePrivilege > Juicy Potato
 whoami /groups		# UAC bypass
+robocopy /b C:\Users\Administrator\Desktop\ C:\		# with SeBackupPrivilege from whoami /priv
 ```
 
 ### BloodHound & Query
