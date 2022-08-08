@@ -103,7 +103,9 @@ lsa_dump_sam
 rpcdump.py [USERNAME]@[IP_ADDR]
 rpcclient -U '' [IP_ADDR]
   > enumdomusers    # to get list of users after signin
+  > setuserinfo [username] [level] [password]		# level: https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-samr/6b0dff90-5ac0-429a-93aa-150334adabf6?redirectedfrom=MSDN
 ```
+
 
 ### Evil-WinRM
 ```
