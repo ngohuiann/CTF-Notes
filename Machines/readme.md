@@ -147,7 +147,8 @@ SELECT IS_SRVROLEMEMBER('sysadmin')   # Check for sysadmin privileage; return 1 
 SELECT name FROM master.dbo.sysdatabases    # Retrieve list of databases
 EXEC master..xp_cmdshell '[CMD]'    # Execute remote command with sysadmin privileage
 ----------------------------------
-SELECT name FROM sys.databases;
+USE [db];
+SELECT name FROM sys.tables;
 SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES;
 ```
 
