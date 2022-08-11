@@ -1,7 +1,5 @@
 ## This is my CTF notes
 
-Feel free to let me know if there is any mistakes on my note.
-
 ### TOC
 - [Scripting](</Scripting>)
 - [Web](/Web)
