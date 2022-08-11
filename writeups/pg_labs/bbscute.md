@@ -1,4 +1,7 @@
-# NMAP
+# BBSCute
+
+## NMAP
+
 ```
 PORT    STATE SERVICE  REASON         VERSION
 22/tcp  open  ssh      syn-ack ttl 63 OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
@@ -104,7 +107,8 @@ PORT    STATE SERVICE  REASON         VERSION
 |_ssl-date: TLS randomness does not represent time
 ```
 
-# Gobuster
+## Gobuster
+
 ```
 gobuster dir -u http://192.168.65.128/ -w /opt/wordlists/rockyou.txt -t 30 -x php,html,txt
 ===============================================================
@@ -134,13 +138,17 @@ Progress: 39540 / 57377572 (0.07%)             ^C
 ===============================================================
 ```
 
-## Reverse Shell
-Register an account <br />
-RCE for CuteNews 2.1.2 (CVE-2019-11447) in avatar upload function<br />
-Get reverse shell <br />
+### Reverse Shell
 
-## local.txt
+Register an account\
+RCE for CuteNews 2.1.2 (CVE-2019-11447) in avatar upload function\
+Get reverse shell\
+
+
+### local.txt
+
 Local.txt was found on /var/www/
+
 ```
 www-data@cute:/var/www/html/uploads$ ls -la ../..
 ls -la ../..
@@ -151,7 +159,8 @@ drwxr-xr-x  9 www-data users    4096 Sep 18  2020 html
 -rw-r--r--  1 www-data www-data   33 Nov 29 08:07 local.txt
 ```
 
-# Priv Esc
+## Priv Esc
+
 ```
 www-data@cute:/var/www$ sudo -l
 Matching Defaults entries for www-data on cute:

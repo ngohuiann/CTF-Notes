@@ -1,4 +1,7 @@
-# NMAP
+# Road
+
+## NMAP
+
 ```
 PORT   STATE SERVICE REASON         VERSION
 22/tcp open  ssh     syn-ack ttl 61 OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
@@ -17,8 +20,10 @@ PORT   STATE SERVICE REASON         VERSION
 |_http-title: Sky Couriers
 ```
 
-# Gobuster
-http://[IP_ADDR]/
+## Gobuster
+
+http://\[IP\_ADDR]/
+
 ```
 gobuster dir -u http://[IP]/ -w /opt/wordlists/dirb/big.txt -x php,html -t 50
 ===============================================================
@@ -47,9 +52,11 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 2021/11/30 09:47:16 Finished
 ===============================================================
 ```
-<br />
 
-http://[IP_ADDR]/v2/
+\
+
+
+http://\[IP\_ADDR]/v2/
 
 ```
 gobuster dir -u http://[IP]/v2 -w /opt/wordlists/dirb/big.txt -x php,html -t 50
@@ -78,8 +85,8 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ===============================================================
 ```
 
-<br />
-http://[IP_ADDR]/v2/admin/
+\
+http://\[IP\_ADDR]/v2/admin/
 
 ```
 gobuster dir -u http://[IP]/v2/admin -w /opt/wordlists/dirb/big.txt -x php,html -t 50
@@ -109,9 +116,9 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ===============================================================
 ```
 
-Admin email: admin@sky.thm found in edit profile page. <br />
+Admin email: admin@sky.thm found in edit profile page.\
 Reset admin email to enabled profile image upload and get reverse shell.
 
-# Priv Esc
-LD_Preload environment variable
-https://www.hackingarticles.in/linux-privilege-escalation-using-ld_preload/
+## Priv Esc
+
+LD\_Preload environment variable https://www.hackingarticles.in/linux-privilege-escalation-using-ld\_preload/

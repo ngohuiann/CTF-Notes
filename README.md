@@ -1,16 +1,17 @@
-## This is my CTF notes
+# This is my CTF notes
 
-### TOC
-- [Scripting](</Scripting>)
-- [Web](/Web)
-- [Steganography](/Steganography)
-- [Memory Forensic](</Mem Forensic>)
-- [Cryptography](/Cryptography)
-- [Machines](/Machines)
-  - [Windows](/Machines/Windows)
-  - [Linux](/Machines/Linux)
-- [Mobile](/Mobile)
-  - [iOS](/Mobile/iOS)
-- [WriteUps](/WriteUps)
-  - [PG_labs](/WriteUps/PG_labs)
-  - [TryHackMe](WriteUps/TryHackMe) 
+## TOC
+
+* [Scripting](Scripting/)
+* [Web](web/)
+* [Steganography](Steganography/)
+* [Memory Forensic](<Mem Forensic/>)
+* [Cryptography](Cryptography/)
+* [Machines](machines/)
+  * [Windows](machines/windows.md)
+  * [Linux](machines/linux.md)
+* [Mobile](mobile/)
+  * [iOS](mobile/ios.md)
+* [WriteUps](writeups/)
+  * [PG\_labs](writeups/pg\_labs/)
+  * [TryHackMe](WriteUps/TryHackMe/)

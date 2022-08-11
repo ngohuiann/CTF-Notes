@@ -1,4 +1,7 @@
-# NMAP
+# FunboxEasyEnum
+
+## NMAP
+
 ```
 PORT   STATE SERVICE REASON         VERSION
 22/tcp open  ssh     syn-ack ttl 63 OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
@@ -18,7 +21,8 @@ PORT   STATE SERVICE REASON         VERSION
 
 HTTP port 80 shows ubuntu default page on first visit with nothing special in the source code as well.
 
-# Gobuster
+## Gobuster
+
 ```
 gobuster dir -u http://192.168.99.132/ -w /opt/wordlists/dirb/big.txt -x php,html,txt -t 40
 ===============================================================
@@ -45,18 +49,21 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /server-status        (Status: 403) [Size: 279] 
 ```
 
-## mini.php
-Upon check on mini.php, a file upload system was found. <br />
+### mini.php
+
+Upon check on mini.php, a file upload system was found.\
 ![image](https://user-images.githubusercontent.com/31241187/143801851-2bdd30f7-4a08-4768-848d-fe90ae04f8c0.png)
 
-Uploaded a reverse shell and use chmod to change the permission to executable.<br />
-Starting a reverse shell with netcat.<br />
+Uploaded a reverse shell and use chmod to change the permission to executable.\
+Starting a reverse shell with netcat.\
 
-## local.txt
-Local.txt was found on /var/www/
-![image](https://user-images.githubusercontent.com/31241187/143801896-1ffb2a11-114e-4f94-9059-f04a1354937a.png)
 
-## Reverse Shell
+### local.txt
+
+Local.txt was found on /var/www/ ![image](https://user-images.githubusercontent.com/31241187/143801896-1ffb2a11-114e-4f94-9059-f04a1354937a.png)
+
+### Reverse Shell
+
 ```
 #   cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
@@ -100,6 +107,7 @@ lissy:x:1005:1005::/home/lissy:/bin/sh
 su oracle
 ```
 
-# root
-ssh to goat with: <br />
-Easy to guess password 
+## root
+
+ssh to goat with:\
+Easy to guess password
