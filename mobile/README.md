@@ -1,5 +1,5 @@
 # Mobile
 
-1. [iOS](../Mobile/iOS/)
+1. [iOS](ios.md)
 2. [Android](../Mobile/Android/)
 
