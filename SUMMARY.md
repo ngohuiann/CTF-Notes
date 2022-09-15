@@ -21,6 +21,8 @@
   * [XXE](web/xxe.md)
   * [Object Deserialization](web/deserialization.md)
 * [WriteUps](writeups/README.md)
+  * [HackTheBox (HTB)](writeups/hackthebox-htb/README.md)
+    * [Support](writeups/hackthebox-htb/support.md)
   * [PG\_labs](writeups/pg\_labs/README.md)
     * [BBSCute](writeups/pg\_labs/bbscute.md)
     * [CyberSploit1](writeups/pg\_labs/cybersploit1.md)
