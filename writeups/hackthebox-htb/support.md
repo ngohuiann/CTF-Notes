@@ -1,3 +1,7 @@
+---
+description: Easy / Windows
+---
+
 # Support
 
 ## Enumeration
@@ -71,7 +75,6 @@ result: 0 Success
 
 # numResponses: 2
 # numEntries: 1
-
 ```
 
 ldapsearch result shown that the domain is support.htb. However, other ldap queries failed. Error message shows user credential is needed to perform the query.
@@ -294,5 +297,3 @@ sAMAccountName: support
 ```
 
 Info field looks like a password. Using it to rerun the ldap query works. RDP is not open, therefore [evil-winrm](https://github.com/Hackplayers/evil-winrm) was used to connect to the machine.
-
-
