@@ -297,3 +297,7 @@ sAMAccountName: support
 ```
 
 Info field looks like a password. Using it to rerun the ldap query works. RDP is not open, therefore [evil-winrm](https://github.com/Hackplayers/evil-winrm) was used to connect to the machine.
+
+## Root
+
+STUCKED :cry:
