@@ -1,4 +1,5 @@
 # This is my CTF notes
+
 https://ngohuiann.gitbook.io/pentest-notes/
 
 ## TOC
@@ -16,4 +17,4 @@ https://ngohuiann.gitbook.io/pentest-notes/
   * [Android](mobile/Android.md)
 * [WriteUps](writeups/)
   * [PG\_labs](writeups/pg\_labs/)
-  * [TryHackMe](WriteUps/TryHackMe/)
+  * [TryHackMe](writeups/hackthebox-htb/)
