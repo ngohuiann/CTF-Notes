@@ -231,7 +231,7 @@ Foreach($obj in $Result)
 2. NTLM (New Technology LAN Manager) v1, v2
 3. Kerberos
 
-### Kerberos
+### Kerberos Authentication
 
 #### TGT (Ticket Granting Ticket)
 
