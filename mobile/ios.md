@@ -5,8 +5,7 @@
 #### Required tools
 
 :wrench: [unc0ver 8.0.2](https://unc0ver.dev/) support iOS 11.0 - 14.8 (31/Dec/2021)\
-:wrench: [Sideloadly](https://sideloadly.io/)\
-
+:wrench: [Sideloadly](https://sideloadly.io/)
 
 ```
 Steps
@@ -20,7 +19,7 @@ Steps
 
 #### Finding the App's ID
 
-```
+```batch
 Installed apps data are stored in:
 /var/mobile/Containers/data/Application
 
@@ -31,7 +30,7 @@ My-iPhone:/private/var/mobile/Containers/Data/Application root# find * | grep -i
 
 #### Finding the sqlite file
 
-```
+```shell-session
 cd into the application's data folder
 My-iPhone:/private/var/mobile/Containers/Data/Application/F9D3E3F0-691F-4FAE-BCBC-81C9EFB10BA7 root# find * | grep -i sqlite
 Library/Application Support/CoreData.sqlite-shm
@@ -40,6 +39,7 @@ Library/Application Support/CoreData.sqlite
 ```
 
 #### Firebase Remote Config API
+
 ```
 GoogleService-Info.plist
 * API KEY AIzaSyAs1[...]
