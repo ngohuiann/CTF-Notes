@@ -26,6 +26,9 @@ Installed apps data are stored in:
 To find the app id, ssh into the phone and via terminal cd to the above mentioned directory.
 My-iPhone:~ root# cd /private/var/mobile/Containers/Data/Application/
 My-iPhone:/private/var/mobile/Containers/Data/Application root# find * | grep -i [application name]
+
+Full path on Files directory:
+/private/var/mobile/Containers/Shared/AppGroup/36D77D53-9AEC-4A4F-AA25-6AE09E8DD148/File Provider Storage/Ann1234
 ```
 
 #### Finding the sqlite file
