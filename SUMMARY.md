@@ -28,6 +28,7 @@
     * [BBSCute](writeups/pg\_labs/bbscute.md)
     * [CyberSploit1](writeups/pg\_labs/cybersploit1.md)
     * [Dawn](writeups/pg\_labs/dawn.md)
+    * [DC-2](writeups/pg\_labs/dc-2.md)
     * [FunboxEasy](writeups/pg\_labs/funboxeasy.md)
     * [FunboxEasyEnum](writeups/pg\_labs/funboxeasyenum.md)
     * [FunboxRookie](writeups/pg\_labs/funboxrookie.md)
