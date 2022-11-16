@@ -27,6 +27,9 @@ SeBackupPrivilege         # robocopy /b C:\Users\Administrator\Desktop\ C:\
 icacls "C:\Puppet"    # check path permission
 icacls [FILE] /grant [USERNAME]:F   # :F for full access
 whoami /groups		# UAC bypass
+
+For SYSTEM shell after gaining administrator read/write access:
+https://github.com/sailay1996/WerTrigger
 ```
 
 ### BloodHound & Query
