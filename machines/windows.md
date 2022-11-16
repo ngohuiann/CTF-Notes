@@ -221,7 +221,7 @@ Foreach($obj in $Result)
 
 1. Find interesting SPN (Service Principal Name)
 2. Get its SAMaccountname
-3. rubeus.exe
+3. Rubeus.exe kerberoast /nowrap
 
 
 
