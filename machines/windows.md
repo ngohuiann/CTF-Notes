@@ -18,12 +18,15 @@ Invoke-RunasCs [username] [password] [cmd]
 net user /add [username] [password]
 net localgroup "Remote Desktop Users" [username] /add
 net localgroup "Administrators" [username] /add
+------------------------privileges-------------------------
+whoami /priv
+SeManageVolumePrivilege (disabled/enabled)       # https://github.com/CsEnox/SeManageVolumeExploit
+SeImpersonatePrivilege         # JuicyPotato
+SeBackupPrivilege         # robocopy /b C:\Users\Administrator\Desktop\ C:\	
 -----------------------------------------------------------
 icacls "C:\Puppet"    # check path permission
 icacls [FILE] /grant [USERNAME]:F   # :F for full access
-whoami /priv    # Look for SeImpersonatePrivilege > Juicy Potato
 whoami /groups		# UAC bypass
-robocopy /b C:\Users\Administrator\Desktop\ C:\		# with SeBackupPrivilege from whoami /priv
 ```
 
 ### BloodHound & Query
