@@ -117,6 +117,7 @@ quit
 ```shell
 showmount -e [IP_ADDR]
 mount -t nfs [IP_ADDR]:/[Remote_Folder] [Local_Folder]/
+mount -t nfs -o vers=3 [IP_ADDR]:/[Remote_Folder] [Local_Folder]/
 ```
 
 #### LDAP (389 & 636)
