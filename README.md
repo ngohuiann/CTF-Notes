@@ -8,6 +8,7 @@ https://ngohuiann.gitbook.io/pentest-notes/
   * [SQLi](web/sql\_injection.md)
   * [LFI/RFI](web/lfi-rfi.md)
   * [XXE](web/xxe.md)
+  * [SSTI](web/ssti.md)
 * [Machines](machines/)
   * [Windows](machines/windows.md)
   * [Linux](machines/linux.md)
