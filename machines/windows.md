@@ -3,6 +3,8 @@
 ### Enumeration & Commands
 
 ```
+cmd.exe /c dir
+
 systeminfo
 schtasks /query /fo LIST /v		# scheduled task
 wmic service get name,displayname,pathname,startmode    # list all the running services
