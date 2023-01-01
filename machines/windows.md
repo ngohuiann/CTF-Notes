@@ -19,7 +19,7 @@ net user /add [username] [password]
 net localgroup "Remote Desktop Users" [username] /add
 net localgroup "Administrators" [username] /add
 ------------------------privileges-------------------------
-whoami /priv
+whoami /priv		# https://github.com/gtworek/Priv2Admin
 SeManageVolumePrivilege (disabled/enabled)       # https://github.com/CsEnox/SeManageVolumeExploit
 SeImpersonatePrivilege         # JuicyPotato
 SeBackupPrivilege         # robocopy /b C:\Users\Administrator\Desktop\ C:\	
