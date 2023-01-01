@@ -236,6 +236,13 @@ type [KEYS]
 get [KEYS]    # strings
 lrange [KEYS] [1] [64]    # list
 ----------
+# Upload shell to a path with write access then read with LFI
+# to check which path has write access to:
+/etc/redis/redis.conf
+/usr/lib/systemd/system/redis-server.service
+# to upload: https://book.hacktricks.xyz/network-services-pentesting/6379-pentesting-redis
+
+----------
 # If able to upload file to the system (doesnt matter through http upload or ftp)
 # https://github.com/n0b0dyCN/RedisModules-ExecuteCommand
 # Compile a module and upload it 
