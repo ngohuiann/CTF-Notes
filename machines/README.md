@@ -78,7 +78,7 @@ gobuster dir -u [URL] -w [WORDLIST] -b "400,404"    # web enumeration, note: win
 ffuf -u http://[IP_ADDR]/ -H "Host: FUZZ.[DOMAIN]" -w /seclists/Discovery/DNS/shubs-subdomains.txt -t 100 -fl 10
 nikto -h [URL]
 davtest -url [URL]    # PUT method test
-cadaver [IP_ADDR]
+cadaver [IP_ADDR]    # for authenticated webdav with credentials
 cewl [URL]    # get possible password from site
 wpscan --url    # or manually browse to /wp-content/plugins/ if no plugins found
 aws --endpoint=http://s3.thetoppers.htb s3 ls s3://thetoppers.htb   # aws s3 bucket list
@@ -174,6 +174,7 @@ impacket-mssqlclient [DOMAIN]/[USERNAME]@[IP_ADDR] -windows-auth    # Connect to
 SELECT IS_SRVROLEMEMBER('sysadmin')   # Check for sysadmin privileage; return 1 for true, 0 for false
 SELECT name FROM master.dbo.sysdatabases    # Retrieve list of databases
 EXEC master..xp_cmdshell '[CMD]'    # Execute remote command with sysadmin privileage
+# to enable xp_cmdshell: https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/xp-cmdshell-server-configuration-option?view=sql-server-ver16
 ----------------------------------
 USE [db];
 SELECT name FROM sys.tables;
