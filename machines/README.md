@@ -174,7 +174,6 @@ impacket-mssqlclient [DOMAIN]/[USERNAME]@[IP_ADDR] -windows-auth    # Connect to
 SELECT IS_SRVROLEMEMBER('sysadmin')   # Check for sysadmin privileage; return 1 for true, 0 for false
 SELECT name FROM master.dbo.sysdatabases    # Retrieve list of databases
 EXEC master..xp_cmdshell '[CMD]'    # Execute remote command with sysadmin privileage
-# to enable xp_cmdshell: https://learn.microsoft.com/en-us/sql/database-engine/configure-windows/xp-cmdshell-server-configuration-option?view=sql-server-ver16
 ----------------------------------
 USE [db];
 SELECT name FROM sys.tables;

