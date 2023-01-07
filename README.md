@@ -1,6 +1,6 @@
 # This is my CTF notes
 
-https://ngohuiann.gitbook.io/pentest-notes/
+[https://ngohuiann.gitbook.io/ctf-notes/](https://ngohuiann.gitbook.io/ctf-notes/)
 
 ## TOC
 
