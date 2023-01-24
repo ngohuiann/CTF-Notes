@@ -15,6 +15,7 @@ nmap -p 1-65535 -v -A -Pn [IP_ADDR]
 nmap -sC -sV -A -p- -v [IP_ADDR]
 nc -nvv -w 1 -z [IP_ADDR] 3388-3390
 nmap --script vuln [IP_ADDR]
+proxychains nmap --top-ports=20 -sT -Pn [IP_ADDR]
 ```
 
 ### Commonly seen port (Default port num)
