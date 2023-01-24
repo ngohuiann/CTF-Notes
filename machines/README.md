@@ -13,6 +13,7 @@ Data and information gathering.
 ```
 nmap -p 1-65535 -v -A -Pn [IP_ADDR]
 nmap -sC -sV -A -p- -v [IP_ADDR]
+nc -nvv -w 1 -z [IP_ADDR] 3388-3390
 ```
 
 ### Commonly seen port (Default port num)
