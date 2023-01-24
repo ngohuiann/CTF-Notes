@@ -14,6 +14,7 @@ Data and information gathering.
 nmap -p 1-65535 -v -A -Pn [IP_ADDR]
 nmap -sC -sV -A -p- -v [IP_ADDR]
 nc -nvv -w 1 -z [IP_ADDR] 3388-3390
+nmap --script vuln [IP_ADDR]
 ```
 
 ### Commonly seen port (Default port num)
@@ -63,6 +64,7 @@ Source: https://d00mfist.gitbooks.io/ctf/content/list\_of\_common\_ports.html
 #### DNS (53)
 
 ```shell
+nmap --script=dns-zone-transfer -p 53 [IP_ADDR]
 dig axfr [DOMAIN].[TLD] @[IP_ADDR]
 dig @[IP_ADDR] -x [IP_ADDR]
 nslookup [IP_ADDR]
@@ -120,8 +122,15 @@ quit
 
 ```shell
 showmount -e [IP_ADDR]
+mount -o nolock [IP_ADDR]:/home ~/home/
 mount -t nfs [IP_ADDR]:/[Remote_Folder] [Local_Folder]/
 mount -t nfs -o vers=3 [IP_ADDR]:/[Remote_Folder] [Local_Folder]/
+
+-------Imitating uuid 1014-------
+adduser pwn
+sed -i -e 's/1001/1014/g' /etc/passwd
+cat /etc/passwd | grep pwn
+su pwn
 ```
 
 #### LDAP (389 & 636)
