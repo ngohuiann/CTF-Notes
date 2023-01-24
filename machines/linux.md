@@ -17,6 +17,7 @@
 /etc/samba/smb.conf
 /var/www/html/wordpress/wp-config.php
 /etc/fstab
+/var/log/cron.log
 ```
 
 ### PrivEsc
