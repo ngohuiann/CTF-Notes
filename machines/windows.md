@@ -6,6 +6,7 @@ c:\windows\system32\drivers\etc\hosts
 c:\windows\win.ini
 C:\xampp\php\php.ini
 C:\xampp\apache\logs\access.log
+C:\Windows\System32\DRIVERS
 ```
 
 ### Enumeration & Commands
