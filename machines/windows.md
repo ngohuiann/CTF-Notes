@@ -11,6 +11,7 @@ C:\xampp\apache\logs\access.log
 ### Enumeration & Commands
 
 ```
+windows-privesc-check2.exe --dump -a		# https://github.com/pentestmonkey/windows-privesc-check 
 systeminfo
 schtasks /query /fo LIST /v		# scheduled task
 wmic service get name,displayname,pathname,startmode    # list all the running services
