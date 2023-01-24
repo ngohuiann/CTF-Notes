@@ -33,7 +33,8 @@ net localgroup "Administrators" [username] /add
 whoami /priv		# https://github.com/gtworek/Priv2Admin
 SeManageVolumePrivilege (disabled/enabled)       # https://github.com/CsEnox/SeManageVolumeExploit
 SeImpersonatePrivilege         # JuicyPotato
-SeBackupPrivilege         # robocopy /b C:\Users\Administrator\Desktop\ C:\	
+SeBackupPrivilege         # robocopy /b C:\Users\Administrator\Desktop\ C:\
+SeShutdownPrivilege		# allow user to reboot machine (doens't matter whether the state is enabled or disabled)
 -----------------------------------------------------------
 icacls "C:\Puppet"    # check path permission
 icacls [FILE] /grant [USERNAME]:F   # :F for full access
