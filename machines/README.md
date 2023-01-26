@@ -108,6 +108,7 @@ Ref: https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.
 
 ```shell
 snmpwalk -v 2c [IP_ADDR] -c public > [OUTFILE]
+snmp-check [IP_ADDR]
 ```
 
 #### POP3 (110 & 995)
