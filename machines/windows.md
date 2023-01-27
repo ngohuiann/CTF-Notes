@@ -12,7 +12,7 @@ C:\Windows\System32\DRIVERS
 
 ### Enumeration & Commands
 
-```
+```powershell
 windows-privesc-check2.exe --dump -a		# https://github.com/pentestmonkey/windows-privesc-check 
 systeminfo
 schtasks /query /fo LIST /v		# scheduled task
