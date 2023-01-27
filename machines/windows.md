@@ -275,6 +275,7 @@ Rubeus.exe kerberoast /nowrap
 getTGT [domain]/[username]:[password]		# getTGT scrm.local/ksimpson:ksimpson
 export KRB5CCNAME=ksimpson.ccache
 klist
+# https://www.youtube.com/watch?v=_8FE3JZIPfo&list=PLidcsTyj9JXK-fnabFLVEvHinQ14Jy5tf&index=49
 ```
 
 ## Microsoft authentication protocols
