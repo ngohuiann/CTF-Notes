@@ -56,6 +56,8 @@ For SYSTEM shell after gaining administrator read/write access:
 https://github.com/sailay1996/WerTrigger
 --------------------Exploit Compiling----------------------
 i686-w64-mingw32-gcc 42341.c -o syncbreeze_exploit.exe -lws2_32
+----------------------Admin to SYSTEM----------------------
+psexec.exe -i -s -d -accepteula cmd
 ```
 
 ### BloodHound & Query
