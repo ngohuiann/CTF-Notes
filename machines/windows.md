@@ -270,6 +270,13 @@ Foreach($obj in $Result)
 Rubeus.exe kerberoast /nowrap
 ```
 
+### When NTLM auth disabled, Kerberos auth
+```
+getTGT [domain]/[username]:[password]		# getTGT scrm.local/ksimpson:ksimpson
+export KRB5CCNAME=ksimpson.ccache
+klist
+```
+
 ## Microsoft authentication protocols
 
 1. LANMAN (LAN Manager)
