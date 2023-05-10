@@ -31,6 +31,13 @@ Full path on Files directory:
 /private/var/mobile/Containers/Shared/AppGroup/36D77D53-9AEC-4A4F-AA25-6AE09E8DD148/File Provider Storage/Ann1234
 ```
 
+#### Extracting IPA
+```
+ipainstaller -l
+ipainstaller -b [app-identifier]
+ipainstaller -d [app-identifier]
+```
+
 #### Finding the sqlite file
 
 ```shell-session
