@@ -16,3 +16,21 @@ emulator -avd [avd_name]    or    emulator -avd [avd_name] -writable-system -no-
 emulator -list-avds
 
 ```
+
+#### Data file
+
+```
+/data/data/[app_identifier]
+```
+
+#### Bypass SSL Pinning&#x20;
+
+```bash
+on android:
+/data/local/tmp/frida-server &
+
+on kali:
+frida -v
+objection --gadget [app_identifier] explore
+android sslpinning disable
+```
