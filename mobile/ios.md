@@ -32,6 +32,7 @@ Full path on Files directory:
 ```
 
 #### Extracting IPA
+
 ```
 ipainstaller -l
 ipainstaller -b [app-identifier]
@@ -46,6 +47,12 @@ My-iPhone:/private/var/mobile/Containers/Data/Application/F9D3E3F0-691F-4FAE-BCB
 Library/Application Support/CoreData.sqlite-shm
 Library/Application Support/CoreData.sqlite-wal
 Library/Application Support/CoreData.sqlite
+```
+
+#### Screenshot files
+
+```
+/private/var/mobile/Media/PhotoData/Thumbnails/V2/DCIM/100APPLE/
 ```
 
 #### Firebase Remote Config API
