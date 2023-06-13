@@ -27,6 +27,7 @@ proxychains nmap --top-ports=20 -sT -Pn [IP_ADDR]
 ftp [IP_ADDR]
 anonymous sign in
 put [FILE]    # Try for file upload
+wget --no-passive-ftp ftp://[USERNAME]:[PASSWORD]@[IP_ADDR]/[FILE]
 ```
 
 #### SSH (22)
@@ -382,4 +383,4 @@ chisel.exe server -p 8080 --socks5
 
 :white\_check\_mark: port scan\
 :white\_check\_mark: password reuse\
-:white\_check\_mark: check version for vulnerabilities and exploit\
+:white\_check\_mark: check version for vulnerabilities and exploit\\
