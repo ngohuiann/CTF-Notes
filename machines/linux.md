@@ -18,6 +18,7 @@
 /var/www/html/wordpress/wp-config.php
 /etc/fstab
 /var/log/cron.log
+/etc/tomcat9/tomcat-users.xml
 ```
 
 ### PrivEsc
