@@ -19,6 +19,7 @@
 /etc/fstab
 /var/log/cron.log
 /etc/tomcat9/tomcat-users.xml
+/usr/share/tomcat9/etc/tomcat-users.xml
 ```
 
 ### PrivEsc
