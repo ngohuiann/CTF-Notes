@@ -189,6 +189,16 @@ rsync -av [MODULE]@[IP_ADDR]::[MODULE]/ .   # Download
 rsync -avp [LOCAL DIRECTORY] [MODULE]@[IP_ADDR]::[REMOTE DIRECTORY]/    # Upload
 ```
 
+#### Oracle (1521)
+
+```
+sqlplus [USERNAME]/[PASSWORD]@[IP_ADDR]/[SID]
+sqlplus [USERNAME]/[PASSWORD]@[IP_ADDR]/[SID] as sysdba
+---------------------------------
+select * from user_role_privs;
+
+```
+
 #### Microsoft SQL (1433)
 
 ```shell
