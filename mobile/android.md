@@ -18,6 +18,9 @@ avdmanager create avd --name [avd_name] --package "system-images;android-28;defa
 emulator -avd [avd_name]    or    emulator -avd [avd_name] -writable-system -no-snapshot
 emulator -list-avds
 
+adb devices
+adb -e push "KAD KAHWIN DIGITAL.apk" /storage/emulated/0/Download/KAD.apk
+adb shell cmd package list packages -3        # list all third party app packages
 ```
 
 #### Data file
@@ -26,7 +29,7 @@ emulator -list-avds
 /data/data/[app_identifier]
 ```
 
-#### Bypass SSL Pinning&#x20;
+#### Bypass SSL Pinning
 
 ```bash
 on android:
