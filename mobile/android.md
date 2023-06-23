@@ -11,6 +11,9 @@ apkleaks -f [path_to_apk].apk
 ```
 sdkmanager --list
 sdkmanager [package_name]
+sdkmanager "platforms;android-28"
+sdkmanager "system-images;android-28;default;x86"
+sdkmanager "build-tools;28.0.3"
 avdmanager create avd --name [avd_name] --package "system-images;android-28;default;x86"
 emulator -avd [avd_name]    or    emulator -avd [avd_name] -writable-system -no-snapshot
 emulator -list-avds
