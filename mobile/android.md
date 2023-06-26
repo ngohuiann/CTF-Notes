@@ -47,4 +47,5 @@ android sslpinning disable
 1. Unzip jadx [https://github.com/skylot/jadx]
 2. Run jadx-gui
 3. Select apk file
+4. Source code -> com -> [app_identifier] -> MainActivity
 ```
