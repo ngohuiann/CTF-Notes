@@ -40,3 +40,11 @@ frida -v
 objection --gadget [app_identifier] explore
 android sslpinning disable
 ```
+
+#### Reverse Engineering
+
+```
+1. Unzip jadx [https://github.com/skylot/jadx]
+2. Run jadx-gui
+3. Select apk file
+```
