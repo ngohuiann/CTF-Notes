@@ -1,6 +1,6 @@
 # Table of contents
 
-* [This is my CTF notes](README.md)
+* [Pentest Notes accumulated over the years](README.md)
 * [Machines](machines/README.md)
   * [Linux](machines/linux.md)
   * [Windows](machines/windows.md)
