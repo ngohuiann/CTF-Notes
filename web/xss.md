@@ -30,4 +30,8 @@ Most commonly seen in forums and comment area. The injected script will be store
 
 Inputs that can be reflected back to the user is highly vulnerable when not properly handled.
 
-\## DOM-Based XSS Focuses on the client side. DOM-based XSS is a type of attack that tries to inject script to the Document Object Model (DOM).
+## DOM-Based XSS&#x20;
+
+Focuses on the client side.&#x20;
+
+DOM-based XSS is a type of attack that tries to inject script to the Document Object Model (DOM).

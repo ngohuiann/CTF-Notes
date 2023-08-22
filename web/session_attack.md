@@ -13,7 +13,8 @@ When a user logged in, a session was created to store the user's information. On
 
 ## Session fixation
 
-Session ID is commonly used in web application to authenticate user. When a session ID is leaked, the attacker can use the ID to get access to the user's account.\
+Session ID is commonly used in web application to authenticate user. When a session ID is leaked, the attacker can use the ID to get access to the user's account.
+
 Session fixation attack scenario:
 
 1. Attacker login to the system to get a session ID.
