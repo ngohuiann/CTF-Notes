@@ -1,8 +1,11 @@
 # Steganography
+
 ## The basic
+
 Finding the hidden flag in a file.
 
 ### Useful command (Where {} = filename)
+
 ```
 binwalk {}
 binwalk -e {}
@@ -14,45 +17,81 @@ tar -xvf {}
 ```
 
 ## Image
+
 1. [StegSolve](https://github.com/zardus/ctf-tools/blob/master/stegsolve/install)
-<pre>
+
+```
 java -jar stegsolve.jar
-</pre>
+```
 
-2. Steghide (JPEG, BMP, WAV and AU)
-<pre>steghide extract -sf [FILE.JPG]</pre>
+1. Steghide (JPEG, BMP, WAV and AU)
 
-3. [Stegcracker](https://github.com/Paradoxis/StegCracker)
-<pre>stegcracker [FILE.JPG] [DICTIONARY.TXT]</pre>
+```
+steghide extract -sf [FILE.JPG]
+```
 
-4. [Steg_brute](https://github.com/Diefunction/stegbrute)
-<pre>python steg_brute.py -b -d [ROCKYOU.TXT] -f [FILE].JPG</pre>
+1. [Stegcracker](https://github.com/Paradoxis/StegCracker)
 
-5. [zsteg (PNG)](https://github.com/zed-0xff/zsteg)
-<pre>zsteg -a [FILE].png</pre>
+```
+stegcracker [FILE.JPG] [DICTIONARY.TXT]
+```
 
-6. [zbarimg (QR Code)](http://manpages.ubuntu.com/manpages/bionic/man1/zbarimg.1.html)
-<pre>zbarimg [FILE].png/jpg</pre>
+1. [Steg\_brute](https://github.com/Diefunction/stegbrute)
 
-7. [Stegseek](https://github.com/RickdeJager/stegseek)
-<pre>stegseek -sf [FILE]</pre>
+```
+python steg_brute.py -b -d [ROCKYOU.TXT] -f [FILE].JPG
+```
+
+1. [zsteg (PNG)](https://github.com/zed-0xff/zsteg)
+
+```
+zsteg -a [FILE].png
+```
+
+1. [zbarimg (QR Code)](http://manpages.ubuntu.com/manpages/bionic/man1/zbarimg.1.html)
+
+```
+zbarimg [FILE].png/jpg
+```
+
+1. [Stegseek](https://github.com/RickdeJager/stegseek)
+
+```
+stegseek -sf [FILE]
+```
 
 ## Compressed Files
+
 1. [zcat](https://linux.die.net/man/1/zcat)
-<pre>zcat [FILE.tar.gz] > FILE.txt</pre>
 
-2. unzip
-<pre>unzip [FILE.ZIP]</pre>
+```
+zcat [FILE.tar.gz] > FILE.txt
+```
 
-3. 7zip
-<pre>7z e [FILE.ZIP]</pre>
+1. unzip
 
-4. [fcrackzip](https://www.cyberpratibha.com/blog/fcrackzip-how-to-crack-zip-password/)
+```
+unzip [FILE.ZIP]
+```
 
-5. JohnTheRipper (zip2john, rar2john)
-<pre>zip2john [FILE].zip > [HASH FILE NAME]   # Creating the hash
-john [HASH FILE NAME] --wordlist [ROCKYOU.TXT]   # Bruteforce</pre>
+1. 7zip
+
+```
+7z e [FILE.ZIP]
+```
+
+1. [fcrackzip](https://www.cyberpratibha.com/blog/fcrackzip-how-to-crack-zip-password/)
+2. JohnTheRipper (zip2john, rar2john)
+
+```
+zip2john [FILE].zip > [HASH FILE NAME]   # Creating the hash
+john [HASH FILE NAME] --wordlist [ROCKYOU.TXT]   # Bruteforce
+```
 
 ## Network
+
 1. [tshark](https://www.wireshark.org/docs/man-pages/tshark.html)
-<pre>tshark -F pcap -r [FILE].pcapng -w [FILE].pcap</pre>
+
+```
+tshark -F pcap -r [FILE].pcapng -w [FILE].pcap
+```

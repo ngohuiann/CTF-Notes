@@ -1,5 +1,9 @@
-# Bash Scripting
-## checking users and groups
+# Scripting
+
+## Bash Scripting
+
+### checking users and groups
+
 ```bash
 #!/bin/bash
 
@@ -28,12 +32,15 @@ else
 	echo 'Not found'
 fi
 ```
-Logic flow: 
+
+Logic flow:
+
 1. it first prompt user for username and group and save both input into variable "username" and "groupname".
 2. It then check if the username and groupname provided by user matches the record in /etc/passwd and /etc/group.
 3. IF condition is pretty much straight forward.
 
-## ping
+### ping
+
 ```bash
 #!/bin/bash
 
@@ -55,9 +62,11 @@ do
 done
 ```
 
-# Python3 Scripting
-## ping sweep
-```python3
+## Python3 Scripting
+
+### ping sweep
+
+```
 #!/usr/bin/env python3
 
 # ./test 192.168.6 1 10
@@ -83,8 +92,9 @@ while int(counter) <= int(end):
         counter= int(counter)+1
 ```
 
-## grabing .js filename inside access log
-```python3
+### grabing .js filename inside access log
+
+```
 #!/usr/bin/env python3
 
 # ./test accesslog.txt
