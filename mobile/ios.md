@@ -15,6 +15,10 @@ Steps
 4. Verify successfully rooted with any jailbreak apps.
 ```
 
+3uTools -> tools -> jailbreak
+
+[http://www.3u.com/](http://www.3u.com/)
+
 ## The basics
 
 #### Finding the App's ID
