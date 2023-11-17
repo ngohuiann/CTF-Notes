@@ -75,6 +75,8 @@ nslookup [IP_ADDR]
 > 127.0.0.1
 > 127.0.0.2
 > [IP_ADDR]
+whois [IP_ADDR]
+python dnscan.py -d [URL] -w [wordlists]    # https://github.com/rbsec/dnscan
 ```
 
 #### HTTP (80) / HTTPS (443)
