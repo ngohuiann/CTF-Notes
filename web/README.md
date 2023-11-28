@@ -8,3 +8,12 @@
 6. [SSTI](ssti.md)
 7. [XSS Cross Site Scripting](xss.md)
 8. [XXE](xxe.md)
+
+***
+
+## Basic Terminology
+
+HTTP/1.0 - [RFC 1945](https://datatracker.ietf.org/doc/html/rfc1945)
+
+HTTP/1.1 - [RFC 9112](https://datatracker.ietf.org/doc/html/rfc9112)
+
