@@ -31,6 +31,13 @@ adb shell cmd package list packages -3        # list all third party app package
 
 #### Bypass SSL Pinning
 
+```
+1. Magisk
+2. Deny List
+```
+
+#### Bypass SSL Pinning
+
 ```bash
 on android:
 /data/local/tmp/frida-server &
