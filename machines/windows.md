@@ -19,6 +19,7 @@ schtasks /query /fo LIST /v		# scheduled task
 Get-WmiObject win32_service | Select-Object Name, State, PathName | Where-Object {$_.State -like 'Running'}	# list all running services 
 wmic service get name,displayname,pathname,startmode    # list all the running services
 wmic service get name,displayname,pathname,startmode |findstr /i "auto" |findstr /i /v "c:\windows"
+wmic service get name, pathname
 netstat -ano    # find out what ports are open
 ---------------------Always Elevated-----------------------
 # if value = 1 for the following reg entry
