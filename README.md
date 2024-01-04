@@ -1,4 +1,4 @@
-# This is my CTF notes
+# Pentest Notes accumulated over the years
 
 [https://ngohuiann.gitbook.io/ctf-notes/](https://ngohuiann.gitbook.io/ctf-notes/)
 
@@ -22,3 +22,5 @@
 * [WriteUps](writeups/)
   * [PG\_labs](writeups/pg\_labs/)
   * [TryHackMe](writeups/hackthebox-htb/)
+* [BurpSuite 101](burpsuite-101.md)
+* [Active Directory 101](broken-reference)
