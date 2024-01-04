@@ -1,4 +1,7 @@
-# NMAP
+# CyberSploit1
+
+## NMAP
+
 ```
 PORT   STATE SERVICE REASON         VERSION
 22/tcp open  ssh     syn-ack ttl 63 OpenSSH 5.9p1 Debian 5ubuntu1.10 (Ubuntu Linux; protocol 2.0)
@@ -16,16 +19,26 @@ PORT   STATE SERVICE REASON         VERSION
 |_http-title: Hello Pentester!
 ```
 
-# HTTP Port 80
-![image](https://user-images.githubusercontent.com/31241187/143829673-ac96b9e3-65d1-4966-82bc-617cbe881d12.png)
-![image](https://user-images.githubusercontent.com/31241187/143829693-a304113d-b845-4f80-b3c2-5fe920128960.png)
+## HTTP Port 80
+
+&#x20;
+
+<figure><img src="https://user-images.githubusercontent.com/31241187/143829673-ac96b9e3-65d1-4966-82bc-617cbe881d12.png" alt=""><figcaption></figcaption></figure>
+
+&#x20;
+
+<figure><img src="https://user-images.githubusercontent.com/31241187/143829693-a304113d-b845-4f80-b3c2-5fe920128960.png" alt=""><figcaption></figcaption></figure>
+
 Robots.txt
+
 ```
 Y3liZXJzcGxvaXR7eW91dHViZS5jb20vYy9jeWJlcnNwbG9pdH0=    # cybersploit{youtube.com/c/cybersploit}
 ```
 
-# local.txt
+## local.txt
+
 Local.txt was found on /home/itsskv/
+
 ```
 itsskv@cybersploit-CTF:~$ ls -la 
 total 608
@@ -66,12 +79,15 @@ drwxr-xr-x  2 itsskv itsskv   4096 Jun 25  2020 Videos
 -rw-------  1 itsskv itsskv  12288 Jun 26  2020 .xsession-errors
 ```
 
-# Priv Esc
+## Priv Esc
+
 ```
 itsskv@cybersploit-CTF:~$ uname -a
 Linux cybersploit-CTF 3.13.0-32-generic #57~precise1-Ubuntu SMP Tue Jul 15 03:50:54 UTC 2014 i686 athlon i386 GNU/Linux
 ```
+
 [CVE-2015-1328](https://www.exploit-db.com/exploits/37292)
+
 ```
 itsskv@cybersploit-CTF:~$ gcc test1.c -o test1
 itsskv@cybersploit-CTF:~$ chmod 777 test1
