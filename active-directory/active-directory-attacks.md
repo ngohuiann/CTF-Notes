@@ -24,7 +24,9 @@ python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py htb.local/ -users
 
 #### **On windows:**
 
+{% hint style="info" %}
 If the steps below doesn't work, try running them again with a NT AUTHORITY\SYSTEM privilege shell.
+{% endhint %}
 
 For a stealthier attack, we will first try to find account with the preauthentication option checked. [ADSearch](https://github.com/Flangvik/SharpCollection) is a great tool for this.
 
