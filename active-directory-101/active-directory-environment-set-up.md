@@ -4,23 +4,23 @@
 
 Get familiar with these terms before you moved on:
 
-| Abbreviation     | Full Form                             |
-| ---------------- | ------------------------------------- |
-| AD               | Active Directory                      |
-| CA               | Certificate Authority                 |
-| CS               | Certificate Services                  |
-| DC               | Domain Controller                     |
-| DCOM             | Distributed Component Object Model    |
-| DPAPI            | Data Protection API                   |
-| LDAP             | Lightweight Directory Access Protocol |
-| <p>MS<br></p>    | <p>Member Server<br></p>              |
-| PKI              | Public Key Infrastructure             |
-| SAM              | Service Account Management            |
-| SPN              | Service Principal Name                |
-| TGS              | Ticket Granting Service               |
-| TGT              | Ticket Granting Ticket                |
-| <p>WinRM<br></p> | <p>Windows Remote Management<br></p>  |
-| WMI              | Windows Management Instrumentation    |
+| Abbreviation  | Full Form                             |
+| ------------- | ------------------------------------- |
+| AD            | Active Directory                      |
+| CA            | Certificate Authority                 |
+| CS            | Certificate Services                  |
+| DC            | Domain Controller                     |
+| DCOM          | Distributed Component Object Model    |
+| DPAPI         | Data Protection API                   |
+| LDAP          | Lightweight Directory Access Protocol |
+| <p>MS<br></p> | <p>Member Server<br></p>              |
+| PKI           | Public Key Infrastructure             |
+| SAM           | Service Account Management            |
+| SPN           | Service Principal Name                |
+| TGS           | Ticket Granting Service               |
+| TGT           | Ticket Granting Ticket                |
+| WinRM         | Windows Remote Management             |
+| WMI           | Windows Management Instrumentation    |
 
 ## Domain Controller & Member Server <a href="#bkmrk-domain-controller-26" id="bkmrk-domain-controller-26"></a>
 
@@ -210,4 +210,4 @@ Changing the password for my email [hui.ann@santaa.com](mailto:huiann@santaa.com
 
 A DC has certain ports that are always open so that other MS can communicate with them. When you do Nmap scan on a IP and see these ports open, there is a high probability (not 100%) its a DC:
 
-<table data-full-width="false"><thead><tr><th width="283">Default Port</th><th>Name</th></tr></thead><tbody><tr><td>22</td><td>SSH</td></tr><tr><td>53</td><td>DNS</td></tr><tr><td>88</td><td>Kerberos</td></tr><tr><td>135</td><td>RPC</td></tr><tr><td>139</td><td>NetBIOS</td></tr><tr><td>389</td><td>LDAP</td></tr><tr><td>445</td><td>SMB</td></tr><tr><td>636<br></td><td>LDAPS</td></tr><tr><td>3389</td><td>RDP</td></tr></tbody></table>
+<table data-full-width="false"><thead><tr><th width="283">Default Port</th><th>Name</th></tr></thead><tbody><tr><td>22</td><td>SSH</td></tr><tr><td>53</td><td>DNS</td></tr><tr><td>88</td><td>Kerberos</td></tr><tr><td>135</td><td>RPC</td></tr><tr><td>139</td><td>NetBIOS</td></tr><tr><td>389</td><td>LDAP</td></tr><tr><td>445</td><td>SMB</td></tr><tr><td>636</td><td>LDAPS</td></tr><tr><td>3389</td><td>RDP</td></tr></tbody></table>
