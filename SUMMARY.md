@@ -39,8 +39,10 @@
     * [Road](writeups/pg\_labs/road.md)
 * [BurpSuite 101](burpsuite-101.md)
 
-## Active Directory 101
+## Active Directory
 
-* [Active Directory Environment Set Up](active-directory-101/active-directory-environment-set-up.md)
-* [Active Directory Users and Computers](active-directory-101/active-directory-users-and-computers.md)
-* [AD Group and Security Policy](active-directory-101/ad-group-and-security-policy.md)
+* [Active Directory 101](active-directory/active-directory-101/README.md)
+  * [Active Directory Environment Set Up](active-directory/active-directory-101/active-directory-environment-set-up.md)
+  * [Active Directory Users and Computers](active-directory/active-directory-101/active-directory-users-and-computers.md)
+  * [AD Group and Security Policy](active-directory/active-directory-101/ad-group-and-security-policy.md)
+* [Active Directory Attacks](active-directory/active-directory-attacks.md)
