@@ -1,6 +1,4 @@
-# Golden/Silver/Diamond Tickets
-
-## Golden Ticket
+# Golden Tickets
 
 A golden ticket is a type of attack where an attacker forge the TGT with a lifetime that does not expire. In essence, the attacker gains long-term access to a network by creating a TGT that appears to be legitimate. The golden ticket is signed by the krbtgt account thus it can be use to impersonate any user to any services or any machines within the domain.
 
