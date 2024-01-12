@@ -45,4 +45,6 @@
   * [Active Directory Environment Set Up](active-directory/active-directory-101/active-directory-environment-set-up.md)
   * [Active Directory Users and Computers](active-directory/active-directory-101/active-directory-users-and-computers.md)
   * [AD Group and Security Policy](active-directory/active-directory-101/ad-group-and-security-policy.md)
+* [Kerberos](active-directory/kerberos/README.md)
+  * [Delegation](active-directory/kerberos/delegation.md)
 * [Active Directory Attacks](active-directory/active-directory-attacks.md)
