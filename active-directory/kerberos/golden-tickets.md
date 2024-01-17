@@ -36,3 +36,7 @@ Rubeus.exe createnetonly /program:C:\Windows\System32\cmd.exe /domain:santaa /us
 The process is successfully created:
 
 <figure><img src="http://192.168.1.119/uploads/images/gallery/2024-01/scaled-1680-/e5P6sk7cofmJbqlu-image.png" alt=""><figcaption></figcaption></figure>
+
+### **Attack Detection**
+
+A Golden Ticket attack can be easily identify by looking for TGS-REQs that have no corresponding AS-REQ.

@@ -46,6 +46,8 @@
   * [Active Directory Users and Computers](active-directory/active-directory-101/active-directory-users-and-computers.md)
   * [AD Group and Security Policy](active-directory/active-directory-101/ad-group-and-security-policy.md)
 * [Kerberos](active-directory/kerberos/README.md)
+  * [Silver Ticket](active-directory/kerberos/silver-ticket.md)
   * [Golden Tickets](active-directory/kerberos/golden-tickets.md)
+  * [Diamond Ticket](active-directory/kerberos/diamond-ticket.md)
   * [Delegation](active-directory/kerberos/delegation.md)
 * [Active Directory Attacks](active-directory/active-directory-attacks.md)
