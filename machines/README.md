@@ -77,6 +77,7 @@ nslookup [IP_ADDR]
 > [IP_ADDR]
 whois [IP_ADDR]
 python dnscan.py -d [URL] -w [wordlists]    # https://github.com/rbsec/dnscan
+gobuster dns -d analysis.htb -w /usr/share/dirb/big.txt -r 10.10.11.250:53
 ```
 
 #### HTTP (80) / HTTPS (443)
