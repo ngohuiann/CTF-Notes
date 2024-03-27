@@ -4,7 +4,19 @@
 
 ### The basic
 
-Data and information gathering.
+Proxy bypass
+
+```
+firefox.settings.services.mozilla.com
+firefox-settings-attachments.cdn.mozilla.net
+detectportal.firefox.com
+www.googletagmanager.com
+classify-client.services.mozilla.com
+ssl.google-analytics.com
+push.services.mozilla.com
+www.google-analytics.com
+safebrowsing.googleapis.com
+```
 
 ### [nmap](https://nmap.org/book/man.html)
 
