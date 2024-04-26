@@ -43,6 +43,6 @@ Since KDC has the user's password stored, it will try to decrypt the message it 
 
 Now that user will decrypt the message using their password. TGS-REQ and TGS-REP too works identically to AS-REQ and AS-REP.
 
-[<mark style="color:purple;">Notice how the password are never being transmitted and only encrypted messages. Since both the user and KDC has the user password, if they are able to decrypt the message with their own copy of password, it means they are authorized.</mark>](#user-content-fn-1)[^1]
-
-[^1]: 
+{% hint style="info" %}
+Notice how the password are never being transmitted and only encrypted messages. Since both the user and KDC has the user password, if they are able to decrypt the message with their own copy of password, it means they are authorized.
+{% endhint %}
