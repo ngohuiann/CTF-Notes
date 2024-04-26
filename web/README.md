@@ -17,3 +17,12 @@ HTTP/1.0 - [RFC 1945](https://datatracker.ietf.org/doc/html/rfc1945)
 
 HTTP/1.1 - [RFC 9112](https://datatracker.ietf.org/doc/html/rfc9112)
 
+
+
+### Springboot Actuator Endpoint
+
+If the /actuator/heapdump is available for download, it is possible to view the cleartext password from the heapdump file using [Eclipse Memory Analyzer](https://eclipse.dev/mat/downloads.php).
+
+**Eclipse Memory Analyzer (Tools):** https://eclipse.dev/mat/downloads.php&#x20;
+
+**Object Query Language (OQL):** select \* from java.util.LinkedHashMap$Entry x WHERE (toString(x.key).contains("password"))
