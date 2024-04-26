@@ -8,6 +8,8 @@ apkleaks -f [path_to_apk].apk
 
 #### AVD Emulator
 
+[https://medium.com/michael-wallace/how-to-install-android-sdk-and-setup-avd-emulator-without-android-studio-aeb55c014264](https://medium.com/michael-wallace/how-to-install-android-sdk-and-setup-avd-emulator-without-android-studio-aeb55c014264)
+
 ```
 sdkmanager --list
 sdkmanager [package_name]
