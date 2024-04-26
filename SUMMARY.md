@@ -53,3 +53,4 @@
 * [Active Directory Attacks](active-directory/active-directory-attacks.md)
 * [AD Concept & Services](active-directory/ad-concept-and-services/README.md)
   * [SCCM](active-directory/ad-concept-and-services/sccm.md)
+  * [Local Administrator Password Solution (LAPS)](active-directory/ad-concept-and-services/local-administrator-password-solution-laps.md)
