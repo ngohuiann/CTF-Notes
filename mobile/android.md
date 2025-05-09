@@ -21,8 +21,11 @@ emulator -avd [avd_name]    or    emulator -avd [avd_name] -writable-system -no-
 emulator -list-avds
 
 adb devices
+adb root
 adb -e push "KAD KAHWIN DIGITAL.apk" /storage/emulated/0/Download/KAD.apk
+adb pull /sdcard/Download/files.zip .
 adb shell cmd package list packages -3        # list all third party app packages
+adb kill-server
 ```
 
 #### Data file
