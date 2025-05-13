@@ -66,7 +66,8 @@ done
 
 ### ping sweep
 
-```
+{% code overflow="wrap" %}
+```python
 #!/usr/bin/env python3
 
 # ./test 192.168.6 1 10
@@ -91,10 +92,12 @@ while int(counter) <= int(end):
     else:
         counter= int(counter)+1
 ```
+{% endcode %}
 
 ### grabing .js filename inside access log
 
-```
+{% code overflow="wrap" %}
+```python
 #!/usr/bin/env python3
 
 # ./test accesslog.txt
@@ -125,6 +128,7 @@ uniq.sort()
 
 print(uniq)
 ```
+{% endcode %}
 
 ### Routing OpenAPI/Swagger JSON file through Burp Proxy
 
@@ -297,5 +301,58 @@ for path, path_data in openapi_spec["paths"].items():
 
         print(f"Response for {method} {url}: {response.status_code}")
         time.sleep(1)
+```
+{% endcode %}
+
+## C\#
+
+{% code overflow="wrap" %}
+```csharp
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Assessment;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static async Task Main(string[] args)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                // Create an instance of the Words class
+                Words wordsInstance = new Words();
+
+                // Get the word list from the instance
+                var wordList = wordsInstance.GetWordList();
+
+                // Define the base URL of the target host
+                string targetHost = "http://10.129.205.211/";
+
+                // Iterate through the word list and check each path
+                foreach (var word in wordList)
+                {
+                    string targetPath = targetHost + word + "/flag.txt";
+
+                    try
+                    {
+                        HttpResponseMessage response = await client.GetAsync(targetPath);
+                        Console.WriteLine($"{targetPath} Response: {response.StatusCode}");
+                        if (response.IsSuccessStatusCode)
+                        {
+                            Console.WriteLine($"Flag found at: {targetPath}");
+                            break;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error checking {targetPath}: {ex.Message}");
+                    }
+                }
+            }
+        }
+    }
+}
 ```
 {% endcode %}
