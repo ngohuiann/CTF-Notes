@@ -40,13 +40,13 @@ Click on OK and a new proxy listener has been added.
 
 This is a very useful settings when we need to replace any parts of the requests or responses without going through the hassle of modifying every single traffic manually.
 
-The most common selected item is to select both " Require non-cached response". Sometimes, the browser will cache previous response that we had received from the server and return a status code 304 Not Modified to us, with this 304 status code, we are unable to see the response content in action. Ticking these will force the server to generate a new response for each of our request.
+The most common selected item is to select both "Require non-cached response". Sometimes, the browser will cache previous response that we had received from the server and return a status code 304 Not Modified to us, with this 304 status code, we are unable to see the response content in action. Ticking these will force the server to generate a new response for each of our request.
 
 <figure><img src=".gitbook/assets/F1FvaNtugNodYuZv-image.png" alt=""><figcaption></figcaption></figure>
 
-Additionally, there are other use case for the Match and replace rules such as when a web application has CSP (Content Security Policy) header enforced, we can use this rule to remove the CSP header and trigger any potential XSS. For example:
+Additionally, there are other use case for the Match and Replace rules such as when a web application has CSP (Content Security Policy) header enforced, we can use this rule to remove the CSP header and trigger any potential XSS. For example:
 
-We has found a potential XSS in the target application.
+We have found a potential XSS in the target application.
 
 ![](.gitbook/assets/QGUgmOsl90jLWSkH-image.png)
 
