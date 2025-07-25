@@ -430,6 +430,8 @@ cat /proc/net/arp
 ### Pivoting
 
 ```
+for i in {1..254} ;do (ping -c 1 172.16.5.$i | grep "bytes from" &) ;done
+
 nc -vv -z 10.1.1.1 1-65535 2>&1 | grep "succeeded"
 ssh -N -D 127.0.0.1:9999 sean@10.11.1.251
 ---------Chisel---------
