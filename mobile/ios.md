@@ -19,6 +19,8 @@ Steps
 
 [http://www.3u.com/](http://www.3u.com/)
 
+[https://ios.cfw.guide/installing-dopamine/](https://ios.cfw.guide/installing-dopamine/)
+
 ## The basics
 
 #### Finding the App's ID
