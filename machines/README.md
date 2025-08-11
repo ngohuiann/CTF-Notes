@@ -62,7 +62,7 @@ ssh-keygen
 
 #### SMTP (25)
 
-```
+```bash
 HELO - 
 EHLO - Extended SMTP.
 STARTTLS - SMTP communicted over unencrypted protocol. By starting TLS-session we encrypt the traffic.
@@ -74,6 +74,9 @@ QUIT - Closes the connection.
 HELP - Asks for the help screen.
 AUTH - Used to authenticate the client to the server.
 VRFY - Asks the server to verify is the email user's mailbox exists.
+
+python3 -m smtpd -n -c DebuggingServer 0.0.0.0:25
+python3 -m aiosmtpd -n
 ```
 
 Source: https://d00mfist.gitbooks.io/ctf/content/list\_of\_common\_ports.html
