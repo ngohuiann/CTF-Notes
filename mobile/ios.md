@@ -50,10 +50,19 @@ Full path on Files directory:
 
 #### Extracting IPA
 
-```
+```bash
 ipainstaller -l
 ipainstaller -b [app-identifier]
 ipainstaller -d [app-identifier]
+
+# New
+ssh root@[iPhone IP]
+cd /var/containers/Bundle/Application
+find | grep -i "[APP Name]"
+cd [APP Identifier]
+mkdir Payload
+cp -r [App Name].app Payload
+zip -r /var/root/[App Name].ipa Payload
 ```
 
 #### Finding the sqlite file
