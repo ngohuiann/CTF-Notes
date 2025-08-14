@@ -23,6 +23,17 @@ Steps
 
 ## The basics
 
+#### Bypass Jailbreak Detection
+
+```bash
+frida-ps -H [iPhone IP]:[frida_port] -a -i    # to get app identifier]
+
+objection -N -h [iPhone IP] -g [App Identifier] explore
+ios jailbreak disable
+
+frida -H [iPhone IP] --codeshare liangxiaoyi1024/ios-jailbreak-detection-bypass -f 
+```
+
 #### Finding the App's ID
 
 ```batch
