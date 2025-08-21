@@ -34,11 +34,11 @@ adb kill-server
 /data/data/[app_identifier]
 ```
 
-#### Bypass SSL Pinning
+#### Leaked API
 
-```
-1. Magisk
-2. Deny List
+```bash
+# Google map API
+https://maps.googleapis.com/maps/api/geocode/json?latlng=40,30&key=[GOOGLE_MAP_API]
 ```
 
 #### Bypass SSL Pinning
