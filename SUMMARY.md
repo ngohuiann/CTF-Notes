@@ -58,3 +58,4 @@
 ## WEB-300 OSWE
 
 * [Python Code Block](web-300-oswe/python-code-block.md)
+* [Remote Debugging](web-300-oswe/remote-debugging.md)
