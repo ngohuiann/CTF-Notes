@@ -1,8 +1,11 @@
 # Memory Forensic
 
 ## Volatility2
+
 ### Windows
-```
+
+{% code overflow="wrap" %}
+```powershell
 vol.py -f [IMAGE] imageinfo
 vol.py -f [IMAGE] --profile=[PROFILE] pslist
 vol.py -f [IMAGE] --profile=[PROFILE] psxview
@@ -21,13 +24,16 @@ vol.py -f [IMAGE] --profile=[PROFILE] malfind   # malware
 vol.py -f [IMAGE] --profile=[PROFILE] mftparser   # deleted files
 vol.py -f [IMAGE] --profile=[PROFILE] envars    # environmental variable
 ```
+{% endcode %}
 
 ## Git
-```
+
+```git
 git log
 git show [LOGS_NUMBERS]
 ```
 
 ## Browser
-https://www.foxtonforensics.com/browser-history-examiner/chrome-history-location <br>
+
+https://www.foxtonforensics.com/browser-history-examiner/chrome-history-location\
 https://www.foxtonforensics.com/browser-history-examiner/firefox-history-location

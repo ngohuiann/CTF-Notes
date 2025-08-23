@@ -8,10 +8,11 @@ Attacker gaining access to unauthorized content.
 
 ## Access aggregation
 
-Access Aggregation is the collection of nonsensitive data and processing it to learn sensitive information.\
-For example:\
-Attacker may try to guess the target's location by retrieve their IP address.\
-Implement features to prevent access aggregation attack:
+Access Aggregation is the collection of nonsensitive data and processing it to learn sensitive information.
+
+For example:
+
+Attacker may try to guess the target's location by retrieve their IP address. Implement features to prevent access aggregation attack:
 
 * Defense-in-depth
 * Role-based access control
@@ -41,19 +42,21 @@ A credential stuffing attack involved the use of stolen credential from other se
 
 ## Spoofing attacks
 
-Spoofing is the act of pretending to be something.\
+Spoofing is the act of pretending to be something.
+
 Type of spoofing:
 
 * **Web Spoofing**
-* &#x20;     Web spoofing is commonly done with the combination of phishing attack. The attacker develop a website that looks the same as an existing site and send it to the victim to retrieve their login credential.
+  * Web spoofing is commonly done with the combination of phishing attack. The attacker develop a website that looks the same as an existing site and send it to the victim to retrieve their login credential.
 * **IP Spoofing**
-* &#x20;     IP spoofing attack happen when the attacker replace their IP address with a false one to impersonate someone or hide their identity to gain access into a system.
+  * IP spoofing attack happen when the attacker replace their IP address with a false one to impersonate someone or hide their identity to gain access into a system.
 * **ARP Spoofing**
-* &#x20;     ARP spoofing is done to link the attacker's MAC address to the victim's IP address. Any traffic sent to the victim will also be received by the attacker.
+  * ARP spoofing is done to link the attacker's MAC address to the victim's IP address. Any traffic sent to the victim will also be received by the attacker.
 
 ## Social engineering attacks
 
-Social Engineering is a type of exploitation technique that look into manipulating human to give confidential information.\
+Social Engineering is a type of exploitation technique that look into manipulating human to give confidential information.
+
 Example of Social Engineering Attack:
 
 * Receiving email from the attacker masked to be a friend asking for password.

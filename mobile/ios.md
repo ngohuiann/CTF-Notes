@@ -1,6 +1,6 @@
 # iOS
 
-## Rooting/Jailbreaking
+## Jailbreaking
 
 #### Required tools
 
@@ -36,6 +36,7 @@ frida -H [iPhone IP] --codeshare liangxiaoyi1024/ios-jailbreak-detection-bypass 
 
 #### Finding the App's ID
 
+{% code overflow="wrap" %}
 ```batch
 Installed apps data are stored in:
 /var/mobile/Containers/data/Application
@@ -47,6 +48,7 @@ My-iPhone:/private/var/mobile/Containers/Data/Application root# find * | grep -i
 Full path on Files directory:
 /private/var/mobile/Containers/Shared/AppGroup/36D77D53-9AEC-4A4F-AA25-6AE09E8DD148/File Provider Storage/Ann1234
 ```
+{% endcode %}
 
 #### Extracting IPA
 
@@ -67,28 +69,20 @@ zip -r /var/root/[App Name].ipa Payload
 
 #### Finding the sqlite file
 
-```shell-session
+{% code overflow="wrap" %}
+```bash
 cd into the application's data folder
 My-iPhone:/private/var/mobile/Containers/Data/Application/F9D3E3F0-691F-4FAE-BCBC-81C9EFB10BA7 root# find * | grep -i sqlite
 Library/Application Support/CoreData.sqlite-shm
 Library/Application Support/CoreData.sqlite-wal
 Library/Application Support/CoreData.sqlite
 ```
+{% endcode %}
 
 #### Screenshot files
 
 ```
 /private/var/mobile/Media/PhotoData/Thumbnails/V2/DCIM/100APPLE/
-```
-
-#### Firebase Remote Config API
-
-```
-GoogleService-Info.plist
-* API KEY AIzaSyAs1[...]
-* APP ID 1:612345678909:ios:c212345678909876
-curl -v -X POST "https://firebaseremoteconfig.googleapis.com/v1/projects/612345678909/namespaces/firebase:fetch?key=AIzaSyAs1[...]" -H "Content-Type: application/json" --data '{"appId": "1:612345678909:ios:c212345678909876", "appInstanceId": "PROD"}'
-REF: https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/buckets/firebase-database
 ```
 
 ## [OWASP iGoat](https://github.com/OWASP/igoat) Writeup

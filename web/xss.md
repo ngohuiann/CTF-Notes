@@ -6,7 +6,7 @@
 
 Injection of scripts to the web.
 
-```
+```html
 <script>alert(1);</script>
 ```
 

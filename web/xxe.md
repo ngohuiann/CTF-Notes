@@ -28,7 +28,7 @@ Content-Type: application/json
 
 ## Reading XML Files with CDATA
 
-Bypass < and > parsing issue
+Bypass `<` and `>` parsing issue. `file://` can also be used to list directories.
 
 {% code overflow="wrap" %}
 ```xml

