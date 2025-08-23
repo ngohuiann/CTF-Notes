@@ -1,5 +1,7 @@
 # XXE
 
+`file://` can also be used to list directories.
+
 ```xml
 Content-Type: application/json
 
@@ -28,7 +30,7 @@ Content-Type: application/json
 
 ## Reading XML Files with CDATA
 
-Bypass `<` and `>` parsing issue. `file://` can also be used to list directories.
+Bypass `<` and `>` parsing issue. Content inside CDATA wrapper are not rendered.
 
 {% code overflow="wrap" %}
 ```xml
