@@ -41,4 +41,6 @@
 ## WEB-300 OSWE
 
 * [Python Code Block](web-300-oswe/python-code-block.md)
+* [ERPNext](web-300-oswe/erpnext.md)
+* [OpenCRX](web-300-oswe/opencrx.md)
 * [Remote Debugging](web-300-oswe/remote-debugging.md)
