@@ -71,6 +71,49 @@ print("Response:", response.text)
 ```
 {% endcode %}
 
+## Directory Buster w/ Diff Methods
+
+{% code overflow="wrap" %}
+```python
+import requests
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-t','--target', help='Target URL: https://example.com', required=True)
+parser.add_argument('-w','--wordlist', help='Wordlist to use')
+parser.add_argument('-b','--blacklist', help='Status code to exclude: 401,404,500', default="404")
+parser.add_argument('-m','--method', help='HTTP method: GET,POST,PUT', default="GET")
+args = parser.parse_args()
+
+# -----Config-----
+PROXY = "http://127.0.0.1:8080"
+
+# -----Session setup-----
+session = requests.Session()
+#session.proxies = {"http": PROXY, "https": PROXY}
+#header = {"Authorization":"Bearer token"}
+session.verify = False
+requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
+
+blacklist = (args.blacklist).split(',')  
+methods = (args.method).split(',')    
+
+for method in methods:
+    print(f"URL                - \t{method}")
+    with open(args.wordlist, "r") as f:
+    for word in f:
+        url = "{target}/{word}".format(target=args.target, word=word.strip())
+            r_method = session.request(method.upper(), url=url, headers=header).status_code
+
+            if(r_method not in [args.blacklist] or r_post not in [args.blacklist]):
+                print("{target}/{word} - \t{pmethod}\r\n".format(target=args.target, word=word.strip(), pmethod=r_method)
+    print("===============================")
+
+print('\r', end='')
+print("Wordlist completed.")
+```
+{% endcode %}
+
 ## PostgreSQL
 
 {% code overflow="wrap" %}
