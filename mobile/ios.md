@@ -85,6 +85,43 @@ Library/Application Support/CoreData.sqlite
 /private/var/mobile/Media/PhotoData/Thumbnails/V2/DCIM/100APPLE/
 ```
 
+## Frida Jailbreak Detection
+
+After spawning the application with frida, run the code below to enumerate the modules that checks for jailbreak:
+
+```js
+var classes = ObjC.enumerateLoadedClassesSync();
+var hits = [];
+
+for (var moduleName in classes) {
+    var classList = classes[moduleName];
+    for (var i = 0; i < classList.length; i++) {
+        var className = classList[i].toLowerCase();
+        if (
+            className.indexOf("jail") !== -1 ||
+            className.indexOf("root") !== -1 ||
+            className.indexOf("security") !== -1 ||
+            className.indexOf("integrity") !== -1
+        ) {
+            hits.push(moduleName + "." + classList[i]);
+        }
+    }
+}
+
+hits;
+```
+
+To get address:
+
+```js
+Module.enumerateExportsSync(m[0].name)
+  .filter(function (e) {
+      return e.name.toLowerCase().indexOf("jail") !== -1 ||
+             e.name.toLowerCase().indexOf("root") !== -1 ||
+             e.name.toLowerCase().indexOf("debug") !== -1;
+  });
+```
+
 ## [OWASP iGoat](https://github.com/OWASP/igoat) Writeup
 
 ### Data Protection (Rest)
