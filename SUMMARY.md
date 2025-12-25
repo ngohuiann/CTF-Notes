@@ -12,6 +12,7 @@
 * [Scripting](Scripting/readme.md)
 * [Steganography](Steganography/README.md)
 * [Web](web/README.md)
+  * [Dangerous Function](web/dangerous-function.md)
   * [Access Control](web/access_control.md)
   * [LFI RFI](web/lfi-rfi.md)
   * [Reverse Shell](web/reverse_shell.md)
