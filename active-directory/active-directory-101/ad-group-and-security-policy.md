@@ -1,7 +1,6 @@
 # AD Group and Security Policy
 
-Active Directory (AD) groups are like collections or clubs that gather users, computers, or other groups together for easier management and organization within a company's network.\
-
+Active Directory (AD) groups are like collections or clubs that gather users, computers, or other groups together for easier management and organization within a company's network.<br>
 
 Many organization or enterprise will create separate groups for each department.
 
@@ -21,13 +20,11 @@ Now that we have 2 newly created groups, lets also create some new users to add 
 
 To disable the Password Complexity Requirement, log into the DC as a domain admin user (local Administrator account in my case).
 
-Open Group Policy Management and navigate to the following options:\
-
+Open Group Policy Management and navigate to the following options:<br>
 
 [![image.png](http://192.168.1.119/uploads/images/gallery/2024-01/scaled-1680-/mRtggBnl2rxgUgk3-image.png)](http://192.168.1.119/uploads/images/gallery/2024-01/mRtggBnl2rxgUgk3-image.png)
 
-This will open up a Group Policy Management Editor window. Navigate through the menu until you reach **Password Policy**. Change the Policy Setting for **Password must met complexity requirements** from Enabled to Disabled. Restart the server for the change to take place.\
-
+This will open up a Group Policy Management Editor window. Navigate through the menu until you reach **Password Policy**. Change the Policy Setting for **Password must met complexity requirements** from Enabled to Disabled. Restart the server for the change to take place.<br>
 
 [![image.png](http://192.168.1.119/uploads/images/gallery/2024-01/scaled-1680-/fKsqUxE6ocLjkno5-image.png)](http://192.168.1.119/uploads/images/gallery/2024-01/fKsqUxE6ocLjkno5-image.png)
 

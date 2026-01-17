@@ -289,8 +289,7 @@ We then proceed to insert 2 single quotes into the parameter and we can see the 
 
 <figure><img src=".gitbook/assets/RkducmEKeOE8VPzj-image.png" alt=""><figcaption></figcaption></figure>
 
-This behaviour is very suspicious and has a very high possibility of SQL injection. You may continue with the testing by doing it manually in the repeater, send it to Active Scan or send it to the CO2 extension to generate an SQLMap payload.\
-
+This behaviour is very suspicious and has a very high possibility of SQL injection. You may continue with the testing by doing it manually in the repeater, send it to Active Scan or send it to the CO2 extension to generate an SQLMap payload.<br>
 
 ***
 

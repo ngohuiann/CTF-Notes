@@ -20,4 +20,4 @@
 * [Steganography](Steganography/)
 * [Cryptography](Cryptography/)
 * [BurpSuite 101](burpsuite-101.md)
-* [Active Directory 101](broken-reference)
+* [Active Directory 101](/broken/pages/svnRhDi3GAwFJZqNHmtT)

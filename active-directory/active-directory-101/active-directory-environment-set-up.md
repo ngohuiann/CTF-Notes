@@ -33,8 +33,7 @@ Windows OS Home Edition does not support joining domain.
 
 ### **Setting Up DC**
 
-Install a Windows Server OS as you normally would with a normal Windows OS. Windows Server 2019 Essentials ISO can be downloaded [here (scroll to bottom of page for license key)](https://www.microsoft.com/en-us/evalcenter/download-windows-server-2019-essentials) and [Windows 11](https://www.microsoft.com/software-download/windows11) if you want to follow along this guide.\
-
+Install a Windows Server OS as you normally would with a normal Windows OS. Windows Server 2019 Essentials ISO can be downloaded [here (scroll to bottom of page for license key)](https://www.microsoft.com/en-us/evalcenter/download-windows-server-2019-essentials) and [Windows 11](https://www.microsoft.com/software-download/windows11) if you want to follow along this guide.<br>
 
 Before we start anything, the default password for the built in Administrator account is empty. You have to set a strong password that meets the complexity requirement. To set the Administrator user password, go to Windows Run (win + R) and type _lusrmgr.msc._ Right click on the Administrator account and set password.
 
@@ -44,11 +43,9 @@ Before we start anything, the default password for the built in Administrator ac
 
 To create a AD environment, all PC must be within the same network. Therefore, to ease the process, we will be using Host-Only network adapter on our VM.
 
-This is the configuration I have for this walkthrough, you may modify it as you wish.\
+This is the configuration I have for this walkthrough, you may modify it as you wish.<br>
 
-
-To set up a host-only adapter in VMware Workstation, launch Virtual Network Editor with Administrator right.\
-
+To set up a host-only adapter in VMware Workstation, launch Virtual Network Editor with Administrator right.<br>
 
 [![image.png](http://192.168.1.119/uploads/images/gallery/2024-01/scaled-1680-/cB3anCAFyc8Bwxyd-image.png)](http://192.168.1.119/uploads/images/gallery/2024-01/cB3anCAFyc8Bwxyd-image.png)
 
@@ -56,13 +53,11 @@ To set up a host-only adapter in VMware Workstation, launch Virtual Network Edit
 
 [![image.png](http://192.168.1.119/uploads/images/gallery/2024-01/scaled-1680-/HaRQDYXR2FbqFkvl-image.png)](http://192.168.1.119/uploads/images/gallery/2024-01/HaRQDYXR2FbqFkvl-image.png)
 
-&#x20;Select your existing network number or newly create network, then choose Host-Only.\
-
+&#x20;Select your existing network number or newly create network, then choose Host-Only.<br>
 
 [![image.png](http://192.168.1.119/uploads/images/gallery/2024-01/scaled-1680-/xB1jyxkHY7TPleTB-image.png)](http://192.168.1.119/uploads/images/gallery/2024-01/xB1jyxkHY7TPleTB-image.png)
 
-Then, go to DHCP Settings and make your desired changes. Just ensure the Stating/Ending IP address is in the same subnet within the subnet IP.\
-
+Then, go to DHCP Settings and make your desired changes. Just ensure the Stating/Ending IP address is in the same subnet within the subnet IP.<br>
 
 [![image.png](http://192.168.1.119/uploads/images/gallery/2024-01/scaled-1680-/xZQI4cGeBUa1kel9-image.png)](http://192.168.1.119/uploads/images/gallery/2024-01/xZQI4cGeBUa1kel9-image.png)
 
@@ -88,8 +83,7 @@ Windows Server has a special built in application that is not present in the nor
 
 [![image.png](http://192.168.1.119/uploads/images/gallery/2024-01/scaled-1680-/3MRuDYRhBFxGBnWE-image.png)](http://192.168.1.119/uploads/images/gallery/2024-01/3MRuDYRhBFxGBnWE-image.png)
 
-5\. When the installation is completed, click on the "Promote this server to a domain controller".\
-
+5\. When the installation is completed, click on the "Promote this server to a domain controller".<br>
 
 [![image.png](http://192.168.1.119/uploads/images/gallery/2024-01/scaled-1680-/z3UQP4ml3zXCKJJW-image.png)](http://192.168.1.119/uploads/images/gallery/2024-01/z3UQP4ml3zXCKJJW-image.png)
 
@@ -103,8 +97,7 @@ We will be using **santaa.net** as the domain name throughout this guide. You ma
 
 [![image.png](http://192.168.1.119/uploads/images/gallery/2024-01/scaled-1680-/QJQEo6Ijt4PkyTE7-image.png)](http://192.168.1.119/uploads/images/gallery/2024-01/QJQEo6Ijt4PkyTE7-image.png)
 
-8\. Since this is just a simple walkthrough of how you can create a domain, you can leave everything else by the default option and click on Next until you reach the Prerequisites Check tab. Click on Install and wait for the installation to complete. The server will automatically restart during installation, so don't freak out when it does.\
-
+8\. Since this is just a simple walkthrough of how you can create a domain, you can leave everything else by the default option and click on Next until you reach the Prerequisites Check tab. Click on Install and wait for the installation to complete. The server will automatically restart during installation, so don't freak out when it does.<br>
 
 If your prerequisites check is unsuccessful, read the error message and see where went wrong.
 
@@ -152,8 +145,7 @@ To make sure everything works, you can try to ping the domain.
 
 Restart your PC for the change to take affect.
 
-Devices joined to domain are referred as Member Server (MS).\
-
+Devices joined to domain are referred as Member Server (MS).<br>
 
 <details>
 
@@ -181,8 +173,7 @@ If you want to sign into another domain, you can specify username in the form of
 
 Notice how the name changes when you specify a domain.
 
-\
-
+<br>
 
 &#x20;
 
@@ -192,15 +183,13 @@ Notice how the name changes when you specify a domain.
 
 To sign into a **local account**:
 
-Username should be in the form of .\\\[username]. The name changes back to the PC hostname, this indicate that we are trying to sign in as a local user.\
-
+Username should be in the form of .\\\[username]. The name changes back to the PC hostname, this indicate that we are trying to sign in as a local user.<br>
 
 [![image.png](http://192.168.1.119/uploads/images/gallery/2024-01/scaled-1680-/5ahHETlTKOFgAx1R-image.png)](http://192.168.1.119/uploads/images/gallery/2024-01/5ahHETlTKOFgAx1R-image.png)
 
 **Domain username and password**
 
-In a real world enterprise scenario, your domain account is usually connected with your enterprise email. For example, if my email is [hui.ann@santaa.com](mailto:huiann@santaa.com), my domain account username would be hui.ann.\
-
+In a real world enterprise scenario, your domain account is usually connected with your enterprise email. For example, if my email is [hui.ann@santaa.com](mailto:huiann@santaa.com), my domain account username would be hui.ann.<br>
 
 Changing the password for my email [hui.ann@santaa.com](mailto:huiann@santaa.com) will also change the password I would need to use to login to my PC that is joined to domain and vice versa.
 

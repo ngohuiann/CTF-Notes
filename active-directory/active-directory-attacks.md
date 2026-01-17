@@ -50,4 +50,4 @@ Rubeus.exe asreproast /user:swalker /nowrap
 
 You can now crack the hash using hashcat or john.
 
-If you don't care about the noises generated while running the attack, you can also just do AS-REP roasting with Rubeus without specifying a user. It will attempt to roast all users and will return the result for any successfully retrieved hash.\
+If you don't care about the noises generated while running the attack, you can also just do AS-REP roasting with Rubeus without specifying a user. It will attempt to roast all users and will return the result for any successfully retrieved hash.<br>

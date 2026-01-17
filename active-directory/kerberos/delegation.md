@@ -1,7 +1,6 @@
 # Delegation
 
-Delegation refers to the ability of a service to impersonate a user and access resources on their behalf.\
-
+Delegation refers to the ability of a service to impersonate a user and access resources on their behalf.<br>
 
 _For example:_
 

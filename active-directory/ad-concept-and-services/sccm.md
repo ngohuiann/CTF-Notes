@@ -26,8 +26,7 @@ Name: SMS:S01
 Get-WmiObject -Class SMS_Authority -Namespace root\CCM | select Name, CurrentManagementPoint | fl
 ```
 
-Depending on the user's privilege you have when you run the above command, you may see different results. Use the code below to enumerate SCCM administrative users.\
-
+Depending on the user's privilege you have when you run the above command, you may see different results. Use the code below to enumerate SCCM administrative users.<br>
 
 ```powershell
 SharpSCCM.exe get class-instances SMS_Admin --no-banner
