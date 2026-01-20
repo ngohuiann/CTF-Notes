@@ -46,3 +46,4 @@
 * [OpenCRX](web-300-oswe/opencrx.md)
 * [Answers](web-300-oswe/answers.md)
 * [Remote Debugging](web-300-oswe/remote-debugging.md)
+* [WebSocket SQLi](web-300-oswe/websocket-sqli.md)
